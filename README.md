@@ -1,6 +1,6 @@
 # React JS Resume Website Template
 
-![alt text](https://github.com/georgekhananaev/react-resume-template/blob/main/screenshot.png?raw=true)
+![alt text](https://github.com/georgekhananaev/resume-website/blob/main/screenshot.png?raw=true)
 
 ## Description
 
