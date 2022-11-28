@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a React based personal resume website template. Built with typescript on the Next.js framework, styled with
+This is a React based personal resume website template. It based on Tim Baker's code, however I changed here multiple things and added matrix effect, contact form, text typing effect, and removed all annoying errors with latest react versions. Built with typescript on the Next.js framework, styled with
 Tailwind css, and populated with data from a single file, you can easily create, customize and host your own personal
 website in minutes. Even better, the site is fully mobile-optimized and server-side rendered to ensure fast loading and
 a clean UI on any device. Read on to learn how to make it your own.
@@ -39,9 +39,14 @@ update these images using the same name and location, or add new images and upda
 
 ### 5. Hook up contact form
 
-Due to the variety of options available for contact form providers, I've hooked up the contact form only so far as
-handling inputs and state. Form submission and the actual sending of the email is open to your own implementation. My
-personal recommendation for email provider is [Sendgrid.](https://sendgrid.com/)
+I added [EmailJS](https://www.emailjs.com/) contact form with [reCaptcha](https://www.google.com/recaptcha).
+to use the contact form simply edit the file 
+ContactForm.tsx
+```
+1. row 55: insert your serviceID, templateID, publicKey
+2. row 119: insert your recaptcha sitekey 
+```
+
 
 ### 6. Make any other changes you like
 
