@@ -17,6 +17,7 @@ import heroImage from '../images/header-background.webp';
 import mediaRobot from '../images/portfolio/mediarobot.jpg';
 import topTen from '../images/portfolio/top10.jpg';
 import profilePic from '../images/profilepic.jpg';
+import resumeWebsite from '../images/portfolio/resume_website.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
@@ -202,6 +203,12 @@ export const portfolioItems: PortfolioItem[] = [
         description: "Pure Python Bot. Which is extracting fresh data from marketplaces such as AliExpress and Amazon and then creating video based reviews. All videos uploaded by API to YouTube. Driving affiliated traffic and creating income automatically. Click Here for Video Sample.",
         url: 'https://www.youtube.com/watch?v=PeguOBRrJXM',
         image: mediaRobot,
+    },
+    {
+        title: 'Resume Website',
+        description: "This is my personal resume website. Not entirely coded by me, however many key features added and fixed by me. URL: george.khananaev.com, Click Here to see the source code.",
+        url: 'https://github.com/georgekhananaev/resume-website',
+        image: resumeWebsite,
     },
 ];
 
