@@ -83,6 +83,11 @@ export interface PortfolioItem {
     image: string | StaticImageData;
 }
 
+export interface FavoriteTechItem {
+    title: string;
+    image: string | StaticImageData;
+}
+
 /**
  * Resume section
  */

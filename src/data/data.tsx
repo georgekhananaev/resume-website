@@ -1,13 +1,13 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import {
-  AcademicCapIcon,
-  CalendarIcon,
-  DownloadIcon,
-  FlagIcon,
-  MapIcon,
-  OfficeBuildingIcon,
-  SparklesIcon,
+    AcademicCapIcon,
+    CalendarIcon,
+    DownloadIcon,
+    FlagIcon,
+    MapIcon,
+    OfficeBuildingIcon,
+    SparklesIcon,
 } from '@heroicons/react/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
@@ -15,21 +15,33 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import TextAnimation from '../components/TextAnimation'
 import heroImage from '../images/header-background.webp';
 import mediaRobot from '../images/portfolio/mediarobot.jpg';
+import pythonPic from '../images/favtech/python.png';
+import reactPic from '../images/favtech/react-js.jpg';
+import githubPic from '../images/favtech/github.png';
+import awsPic from '../images/favtech/aws.jpg';
+import haPic from '../images/favtech/homeassistant.png';
+import ubuntuPic from '../images/favtech/ubuntu.png';
+import sshPic from '../images/favtech/ssh.png';
+import oraclePic from '../images/favtech/oracle.png';
+import jetbrainPic from '../images/favtech/jetbrain.jpg';
+import vmwarePic from '../images/favtech/vmware.png';
+import gitPic from '../images/favtech/git.webp';
 import topTen from '../images/portfolio/top10.jpg';
 import profilePic from '../images/profilepic.jpg';
 import resumeWebsite from '../images/portfolio/resume_website.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
-  About,
-  ContactSection,
-  ContactType,
-  Hero,
-  HomepageMeta,
-  PortfolioItem,
-  SkillGroup,
-  Social,
-  TestimonialSection,
-  TimelineItem,
+    About,
+    ContactSection,
+    ContactType,
+    FavoriteTechItem,
+    Hero,
+    HomepageMeta,
+    PortfolioItem,
+    SkillGroup,
+    Social,
+    TestimonialSection,
+    TimelineItem,
 } from './dataDef';
 
 /**
@@ -52,6 +64,8 @@ export const SectionId = {
     Skills: 'skills',
     Stats: 'stats',
     Testimonials: 'testimonials',
+    FavoriteTech: "favoritetech"
+
 } as const;
 
 export type SectionId = typeof SectionId[keyof typeof SectionId];
@@ -150,6 +164,7 @@ export const skills: SkillGroup[] = [
                 name: 'Typescript',
                 level: 6,
             },
+
         ],
     },
     {
@@ -206,9 +221,61 @@ export const portfolioItems: PortfolioItem[] = [
     },
     {
         title: 'Resume Website',
-        description: "This is my personal resume website. Not entirely coded by me, however many key features added and fixed by me. URL: george.khananaev.com, Click Here to see the source code.",
+        description: "This is my personal resume website. React, JS, TYPESCRIPT based. It based on open source code, however many key features added and fixed by me. More features will be added... URL: george.khananaev.com, Click Here for Source Code.",
         url: 'https://github.com/georgekhananaev/resume-website',
         image: resumeWebsite,
+    },
+];
+
+/**
+ * FavoriteTechItem section
+ */
+export const FavoriteTechItems: FavoriteTechItem[] = [
+    {
+        title: 'Python 3+',
+        image: pythonPic,
+    },
+
+    {
+        title: 'GitHub',
+        image: githubPic,
+    },
+    {
+        title: 'Git',
+        image: gitPic,
+    },
+
+    {
+        title: 'React',
+        image: reactPic,
+    },
+    {
+        title: 'AWS',
+        image: awsPic,
+    },
+    {
+        title: 'Ubuntu',
+        image: ubuntuPic,
+    },
+    {
+        title: 'Home Assistant',
+        image: haPic,
+    },
+    {
+        title: "JetBrain IDE",
+        image: jetbrainPic,
+    },
+    {
+        title: "vmware",
+        image: vmwarePic,
+    },
+    {
+        title: 'Oracle Cloud',
+        image: oraclePic,
+    },
+    {
+        title: 'SSH',
+        image: sshPic,
     },
 ];
 

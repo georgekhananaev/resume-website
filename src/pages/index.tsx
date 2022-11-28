@@ -1,3 +1,4 @@
+/* eslint-disable */
 import dynamic from 'next/dynamic';
 import {FC, memo} from 'react';
 
@@ -7,6 +8,7 @@ import Contact from '../components/Sections/Contact';
 import Footer from '../components/Sections/Footer';
 import Hero from '../components/Sections/Hero';
 import Portfolio from '../components/Sections/Portfolio';
+import FavoriteTech from '../components/Sections/FavoriteTech';
 import Resume from '../components/Sections/Resume';
 import Testimonials from '../components/Sections/Testimonials';
 import {homePageMeta} from '../data/data';
@@ -22,6 +24,7 @@ const Home: FC = memo(() => {
             <Hero/>
             <About/>
             <Resume/>
+            <FavoriteTech/>
             <Portfolio/>
             <Testimonials/>
             <Contact/>
