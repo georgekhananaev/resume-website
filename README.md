@@ -57,4 +57,4 @@ changes, feel free!
 
 ### 7. Deploy to Vercel and enjoy your new Resume Website
 
-After editing the content, deploying your React based website to netlify is simple and free. It takes nearly 2 minutes to push your forked website to production. You can join [here.](https://www.netlify.com), Congratulations!
+After editing the content, deploying your React based static website to netlify is simple and free. It takes nearly 2 minutes to push your forked repository to production. You can join [here.](https://www.netlify.com), Congratulations!
