@@ -221,10 +221,11 @@ export const portfolioItems: PortfolioItem[] = [
     },
     {
         title: 'Resume Website',
-        description: "This is my personal resume website. React, JS, TYPESCRIPT based. It based on open source code, however many key features added and fixed by me. More features will be added... URL: george.khananaev.com, Click Here for Source Code.",
+        description: "This is my personal resume website. React, JS, TYPESCRIPT based. It based on open source code, however many key features added and fixed by me. More features will be added... Click Here for Source Code.",
         url: 'https://github.com/georgekhananaev/resume-website',
         image: resumeWebsite,
     },
+
 ];
 
 /**
