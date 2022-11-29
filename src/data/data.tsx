@@ -84,8 +84,9 @@ export const heroData: Hero = {
                 as a freelancer on <i className="text-sky-500 fa-brands fa-python"> Python</i> based projects.
             </p>
 
-            <div className='bg-black w-3/5 p-2'>
-                <div className='prose-sm text-stone-50 sm:prose-base lg:prose-lg'><TextAnimation/></div>
+
+            <div className='flex row justify-start bg-black w-4/5 p-2 rounded-lg'><div className="prose-sm text-stone-400 sm:prose-base lg:prose-base">C:\resume-webiste\ </div>
+                <div className='prose-sm text-stone-300 sm:prose-base lg:prose-base'><TextAnimation/></div>
             </div>
 
             {/* <p className="prose-sm text-stone-300 sm:prose-base">
