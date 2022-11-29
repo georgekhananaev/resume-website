@@ -85,8 +85,8 @@ export const heroData: Hero = {
             </p>
 
 
-            <div className='flex row justify-start bg-black w-4/5 p-2 rounded-lg'><div className="prose-sm text-stone-400 sm:prose-base lg:prose-base">C:\resume-webiste\ </div>
-                <div className='prose-sm text-stone-300 sm:prose-base lg:prose-base'><TextAnimation/></div>
+            <div className='lg:flex-row text-left bg-black w-4/5 p-2 rounded-lg'>
+                <div className='text-stone-300'><TextAnimation /></div>
             </div>
 
             {/* <p className="prose-sm text-stone-300 sm:prose-base">

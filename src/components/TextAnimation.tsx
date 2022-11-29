@@ -5,6 +5,7 @@ import {TypeAnimation} from 'react-type-animation';
 
 const TextAnimation = () => {
     return (
+
         <TypeAnimation
             sequence={[
                 "I'm a Python Full Stack Developer.",
@@ -23,8 +24,14 @@ const TextAnimation = () => {
             wrapper="div"
             cursor={true}
             repeat={Infinity}
+            omitDeletionAnimation={false}
+            className={"before:content-['React/Resume-Website/']"}
+
             //   style={{ fontSize: '15px' }}
         />
+
+
+
     );
 };
 
