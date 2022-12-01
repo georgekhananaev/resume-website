@@ -55,6 +55,9 @@ ContactForm.tsx
 Of course, all of the code is there and nothing is hidden from you so if you would like to make any other styling/data
 changes, feel free!
 
-### 7. Deploy to Vercel and enjoy your new Resume Website
+### 7. Deploy to Netlify and enjoy your new Resume Website
 
-After editing the content, deploying your React based static website to netlify is simple and free. It takes nearly 2 minutes to push your forked repository to production. You can join [here.](https://www.netlify.com), Congratulations!
+After editing the content, deploying your React based static website to **netlify** is simple and free. It takes nearly 2 minutes to push your forked repository to production. You can join [here.](https://www.netlify.com) **Congratulations!**
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e6cdcf5-06db-4e22-9739-cefd33f748b5/deploy-status)](https://app.netlify.com/sites/georgekhananaev/deploys)
+

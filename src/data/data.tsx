@@ -14,21 +14,25 @@ import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import TextAnimation from '../components/TextAnimation'
 import heroImage from '../images/header-background.webp';
-import mediaRobot from '../images/portfolio/mediarobot.jpg';
-import pythonPic from '../images/favtech/python.png';
-import reactPic from '../images/favtech/react-js.jpg';
-import githubPic from '../images/favtech/github.png';
-import awsPic from '../images/favtech/aws.jpg';
-import haPic from '../images/favtech/homeassistant.png';
-import ubuntuPic from '../images/favtech/ubuntu.png';
-import sshPic from '../images/favtech/ssh.png';
-import oraclePic from '../images/favtech/oracle.png';
-import jetbrainPic from '../images/favtech/jetbrain.jpg';
-import vmwarePic from '../images/favtech/vmware.png';
+import mediaRobot from '../images/portfolio/mediarobot.webp';
+import pythonPic from '../images/favtech/python.webp';
+import reactPic from '../images/favtech/react-js.webp';
+import githubPic from '../images/favtech/github.webp';
+import awsPic from '../images/favtech/aws.webp';
+import haPic from '../images/favtech/homeassistant.webp';
+import ubuntuPic from '../images/favtech/ubuntu.webp';
+import sshPic from '../images/favtech/ssh.webp';
+import javascriptPic from '../images/favtech/js.webp';
+import dockerPic from '../images/favtech/docker.webp';
+import netlifyPic from '../images/favtech/netlify.webp';
+import oraclePic from '../images/favtech/oracle.webp';
+import mysqlPic from '../images/favtech/mysql.webp';
+import jetbrainPic from '../images/favtech/jetbrain.webp';
+import vmwarePic from '../images/favtech/vmware.webp';
 import gitPic from '../images/favtech/git.webp';
-import topTen from '../images/portfolio/top10.jpg';
+import topTen from '../images/portfolio/top10.webp';
 import profilePic from '../images/profilepic.jpg';
-import resumeWebsite from '../images/portfolio/resume_website.jpg';
+import resumeWebsite from '../images/portfolio/resume_website.webp';
 import testimonialImage from '../images/testimonial.webp';
 import {
     About,
@@ -264,9 +268,10 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
         image: haPic,
     },
     {
-        title: "JetBrain IDE",
-        image: jetbrainPic,
+        title: 'Netlify',
+        image: netlifyPic,
     },
+
     {
         title: "vmware",
         image: vmwarePic,
@@ -278,6 +283,22 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
     {
         title: 'SSH',
         image: sshPic,
+    },
+    {
+        title: 'Docker',
+        image: dockerPic,
+    },
+    {
+        title: 'MySql/SQL',
+        image: mysqlPic,
+    },
+    {
+        title: 'JavaScript',
+        image: javascriptPic,
+    },
+    {
+        title: "JetBrain IDE",
+        image: jetbrainPic,
     },
 ];
 
