@@ -33,6 +33,7 @@ import gitPic from '../images/favtech/git.webp';
 import topTen from '../images/portfolio/top10.webp';
 import profilePic from '../images/profilepic.jpg';
 import resumeWebsite from '../images/portfolio/resume_website.webp';
+import pyImageCompressor from '../images/portfolio/py-impage-compressor.webp';
 import testimonialImage from '../images/testimonial.webp';
 import {
     About,
@@ -229,6 +230,12 @@ export const portfolioItems: PortfolioItem[] = [
         description: "This is my personal resume website. React, JS, TYPESCRIPT based. It based on open source code, however many key features added and fixed by me. More features will be added... Click Here for Source Code.",
         url: 'https://github.com/georgekhananaev/resume-website',
         image: resumeWebsite,
+    },
+    {
+        title: 'py-image-compressor',
+        description: "Open-Source small weight Python based tool. This tool convert multiple images at once to modern formats such as webp. Can speed up any website with a single command.",
+        url: 'https://github.com/georgekhananaev/py-image-compressor',
+        image: pyImageCompressor,
     },
 
 ];

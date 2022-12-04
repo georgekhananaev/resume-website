@@ -76,7 +76,7 @@ const ContactForm: FC = memo(() => {
                 setAlertMessage(<div
                     className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                     <strong className="font-bold">Holy smokes! </strong>
-                    <span className="block sm:inline">Verifying that you're not a robot, by using reCAPTCHA below and try again.</span>
+                    <span className="block sm:inline">You need to verify that you're not a robot, by using the reCAPTCHA below...</span>
                 </div>)
                 // console.log('Data to send: ', data);
             }
