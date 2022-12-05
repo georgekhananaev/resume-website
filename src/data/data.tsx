@@ -102,7 +102,7 @@ export const heroData: Hero = {
     ),
     actions: [
         {
-            href: '/resume.pdf',
+            href: 'https://drive.google.com/file/d/1G4maVgoRbcECff_XpZDrlP3HNQjNmG6v/view?usp=share_link',
             text: 'Resume',
             primary: true,
             Icon: DownloadIcon,

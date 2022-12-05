@@ -46,8 +46,8 @@ to use the contact form simply edit the file
 ContactForm.tsx
 
 ```
-1. row 55: insert your serviceID, templateID, publicKey
-2. row 119: insert your recaptcha sitekey 
+1. row 55: insert your serviceID, templateID, publicKey from EmailJS
+2. row 119: insert your recaptcha sitekey from reCaptcha
 ```
 
 ### 6. Make any other changes you like
@@ -60,4 +60,3 @@ changes, feel free!
 After editing the content, deploying your React based static website to **netlify** is simple and free. It takes nearly 2 minutes to push your forked repository to production. You can join [here.](https://www.netlify.com) **Congratulations!**
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4e6cdcf5-06db-4e22-9739-cefd33f748b5/deploy-status)](https://app.netlify.com/sites/georgekhananaev/deploys)
-
