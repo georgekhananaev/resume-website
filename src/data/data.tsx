@@ -31,6 +31,7 @@ import jetbrainPic from '../images/favtech/jetbrain.webp';
 import vmwarePic from '../images/favtech/vmware.webp';
 import gitPic from '../images/favtech/git.webp';
 import topTen from '../images/portfolio/top10.webp';
+import mongoDB from '../images/favtech/mongoDB.webp';
 import profilePic from '../images/profilepic.jpg';
 import resumeWebsite from '../images/portfolio/resume_website.webp';
 import pyImageCompressor from '../images/portfolio/py-impage-compressor.webp';
@@ -54,7 +55,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
     title: 'George Khananaev',
-    description: "My Personal React Based Website with Information such as Resume and Portfolio.",
+    description: "My Personal React Based Resume and Portfolio Website.",
 };
 
 /**
@@ -84,9 +85,8 @@ export const heroData: Hero = {
     description: (
         <>
             <p className="prose-sm text-stone-50 sm:prose-base lg:prose-lg">
-                I'm a Israel based <strong className="text-sky-500">Full Stack Software Developer</strong>, currently
-                working
-                as a freelancer on <i className="text-sky-500 fa-brands fa-python"> Python</i> based projects.
+                Israel based <strong className="text-sky-500">Full Stack Developer </strong> & <i className="text-sky-200 fa-brands fa-python"> Python</i> enthusiast. <br></br> Currently
+                working at  <strong className="text-sky-200">Moon Holidays</strong> as a Full Stack Developer & Tech Manager.
             </p>
 
 
@@ -300,6 +300,10 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
         image: mysqlPic,
     },
     {
+        title: 'mongoDB',
+        image: mongoDB,
+    },
+    {
         title: 'JavaScript',
         image: javascriptPic,
     },
@@ -329,7 +333,18 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
     {
-        date: '2019 to 2022(Jan)',
+        date: 'Dec 2022 - Present',
+        location: 'Bangkok, Thailand',
+        title: 'Full Stack Developer & Tech Manager.',
+        content: (
+            <div className='ml-5'>
+                <li>Python, React based development of internal company services and integrations.</li>
+                <li>Responsible for management of creators, SEO, and all digital campaigns and services.</li>
+            </div>
+        ),
+    },
+    {
+        date: '2019 - 2022',
         location: 'Majestier, Singapore',
         title: 'Backend Software Developer',
         content: (
@@ -346,7 +361,7 @@ export const experience: TimelineItem[] = [
         ),
     },
     {
-        date: '2016 to 2019',
+        date: '2016 - 2019',
         location: 'Kanzezol, Israel',
         title: 'DevOps Software Developer',
         content: (
