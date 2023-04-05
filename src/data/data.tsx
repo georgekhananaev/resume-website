@@ -13,28 +13,28 @@ import {
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import TextAnimation from '../components/TextAnimation'
-import heroImage from '../images/header-background.webp';
-import mediaRobot from '../images/portfolio/mediarobot.webp';
-import pythonPic from '../images/favtech/python.webp';
-import reactPic from '../images/favtech/react-js.webp';
-import githubPic from '../images/favtech/github.webp';
 import awsPic from '../images/favtech/aws.webp';
-import haPic from '../images/favtech/homeassistant.webp';
-import ubuntuPic from '../images/favtech/ubuntu.webp';
-import sshPic from '../images/favtech/ssh.webp';
-import javascriptPic from '../images/favtech/js.webp';
 import dockerPic from '../images/favtech/docker.webp';
+import gitPic from '../images/favtech/git.webp';
+import githubPic from '../images/favtech/github.webp';
+import haPic from '../images/favtech/homeassistant.webp';
+import jetbrainPic from '../images/favtech/jetbrain.webp';
+import javascriptPic from '../images/favtech/js.webp';
+import mongoDB from '../images/favtech/mongoDB.webp';
+import mysqlPic from '../images/favtech/mysql.webp';
 import netlifyPic from '../images/favtech/netlify.webp';
 import oraclePic from '../images/favtech/oracle.webp';
-import mysqlPic from '../images/favtech/mysql.webp';
-import jetbrainPic from '../images/favtech/jetbrain.webp';
+import pythonPic from '../images/favtech/python.webp';
+import reactPic from '../images/favtech/react-js.webp';
+import sshPic from '../images/favtech/ssh.webp';
+import ubuntuPic from '../images/favtech/ubuntu.webp';
 import vmwarePic from '../images/favtech/vmware.webp';
-import gitPic from '../images/favtech/git.webp';
-import topTen from '../images/portfolio/top10.webp';
-import mongoDB from '../images/favtech/mongoDB.webp';
-import profilePic from '../images/profilepic.jpg';
-import resumeWebsite from '../images/portfolio/resume_website.webp';
+import heroImage from '../images/header-background.webp';
+import mediaRobot from '../images/portfolio/mediarobot.webp';
 import pyImageCompressor from '../images/portfolio/py-impage-compressor.webp';
+import resumeWebsite from '../images/portfolio/resume_website.webp';
+import topTen from '../images/portfolio/top10.webp';
+import profilePic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
     About,
@@ -384,16 +384,19 @@ export const testimonial: TestimonialSection = {
             name: 'Hanan Hananaev',
             text: "Without doubt one of the most talented programmers out there.  I always go back to George when I'm out of my depth and he's never failed to deliver what I ask for. Smart, trustworthy and professional.",
             image: '/testimonials/hanan.webp',
+            alt: "חנן חננייב - קצין במילואים ומנכל עמותה לקידום צעירים יוצאי קווקאז",
         },
         {
             name: 'Tzuriel Nimni',
             text: "I've known George for many years now, he's a very smart and talented guy. He always strives for the best in what he does, and you can be certain that he will not let you down.",
             image: '/testimonials/tzuriel.webp',
+            alt: "צוריאל נימני - הנדסאי באלביט",
         },
         {
             name: 'Marina Rapaport',
             text: "Any problem, malfunction or other hardware or software related issue that so called experts can't find or refuse to handle with hundred of excuses such as: not worth it, impossible. George probably will do quickly and hassle free. Very glad that I've met him and always able to direct to him some of my challenges. For sure, one of the most talented guys I've ever met.",
             image: '/testimonials/marina.webp',
+            alt: "מרינה רפפורט - לוחמת בצהל לשעבר, בעלת תואר ביחסי מדינה וחוץ ועובדת ממשלתית",
         },
     ],
 };
