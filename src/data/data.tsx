@@ -337,10 +337,10 @@ export const experience: TimelineItem[] = [
         location: 'Bangkok, Thailand',
         title: 'Full Stack Developer & Tech Manager.',
         content: (
-            <div className='ml-5'>
+            <ul className='ml-5 list-disc'>
                 <li>Python, React based development of internal company services and integrations.</li>
                 <li>Responsible for management of creators, SEO, and all digital campaigns and services.</li>
-            </div>
+            </ul>
         ),
     },
     {
@@ -348,7 +348,7 @@ export const experience: TimelineItem[] = [
         location: 'Majestier, Singapore',
         title: 'Backend Software Developer',
         content: (
-            <div className='ml-5'>
+            <ul className='ml-5 list-disc'>
                 <li>Developed from scratch Python based backend system which synchronizing multiple
                     e-commerce platforms & marketplaces such as eBay, Shopify, BigCommerce, WooCommerce
                     and more in real-time.
@@ -357,7 +357,7 @@ export const experience: TimelineItem[] = [
                 <li>Often worked with AWS services such as RDS, VPS and Linux based servers.</li>
                 <li>Maintained close relationships with our customers to understand the business needs.</li>
 
-            </div>
+            </ul>
         ),
     },
     {
@@ -365,11 +365,11 @@ export const experience: TimelineItem[] = [
         location: 'Kanzezol, Israel',
         title: 'DevOps Software Developer',
         content: (
-            <div className='ml-5'>
+            <ul className='ml-5 list-disc'>
                 <li>Developed automatization's for our e-commerce stores by Python & VBA.</li>
                 <li>Increased customer service efficiency by removing all routine tasks with automatization's.</li>
                 <li>Very often did data-based decisions and adjusted the software accordingly.</li>
-            </div>
+            </ul>
         ),
     },
 ];
