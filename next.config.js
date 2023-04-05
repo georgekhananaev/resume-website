@@ -17,7 +17,7 @@ const nextConfig = {
     },
     compress: true,
     generateEtags: true,
-    pageExtensions: ['tsx', 'mdx', 'ts', 'js', 'jsx'],
+    pageExtensions: ['tsx', 'mdx', 'ts'],
     poweredByHeader: false,
     productionBrowserSourceMaps: false,
     svgo: {

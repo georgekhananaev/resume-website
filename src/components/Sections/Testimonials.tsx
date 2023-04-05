@@ -103,7 +103,7 @@ const Testimonials: FC = memo(() => {
                                         )}
                                         disabled={isActive}
                                         key={`select-button-${index}`}
-                                        onClick={setTestimonial(index)}></button>
+                                        onClick={setTestimonial(index)} title="Testimonials Navigation Buttons"></button>
                                 );
                             })}
                         </div>
