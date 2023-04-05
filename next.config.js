@@ -30,19 +30,6 @@ const nextConfig = {
     images: {
         domains: ['images.unsplash.com', 'source.unsplash.com'],
     },
-    plugins: [
-        [
-            '@fullhuman/postcss-purgecss',
-            {
-                content: [
-                    './**/*.{js,jsx,ts,tsx}',
-                ],
-                defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-            }
-        ],
-        'postcss-preset-env'
-    ]
 };
-
 
 module.exports = nextConfig;
