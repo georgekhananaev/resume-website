@@ -348,7 +348,7 @@ export const experience: TimelineItem[] = [
         location: 'Majestier, Singapore',
         title: 'Backend Software Developer',
         content: (
-            <ul className='ml-5 list-disc'>
+            <ul className='ml-8 list-disc'>
                 <li>Developed from scratch Python based backend system which synchronizing multiple
                     e-commerce platforms & marketplaces such as eBay, Shopify, BigCommerce, WooCommerce
                     and more in real-time.
