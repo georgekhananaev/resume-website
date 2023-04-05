@@ -2,6 +2,12 @@
 
 ![alt text](https://github.com/georgekhananaev/resume-website/blob/main/screenshot.png?raw=true)
 
+
+## Perfect Google PageSpeed Insights Score
+
+![alt text](https://github.com/georgekhananaev/resume-website/blob/main/seo_georgekhananaev_website.png?raw=true)
+
+
 ## Description
 
 This is a React based personal resume website template. It based on Tim Baker's code, however I changed here multiple
