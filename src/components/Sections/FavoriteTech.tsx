@@ -18,7 +18,8 @@ const FavoriteTech: FC = memo(() => {
                         {FavoriteTechItems.map((item, index) => {
                             const {title, image} = item;
                             return (
-                                <div className="pb-3 opacity-75 hover:opacity-100 duration-200" key={`${title}-${index}`}>
+                                <div className="pb-3 opacity-75 hover:opacity-100 duration-200"
+                                     key={`${title}-${index}`}>
                                     <div
                                         className={classNames(
                                             'relative h-max w-full overflow-hidden',

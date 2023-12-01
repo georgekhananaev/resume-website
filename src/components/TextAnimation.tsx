@@ -28,7 +28,6 @@ const TextAnimation = () => {
         />
 
 
-
     );
 };
 

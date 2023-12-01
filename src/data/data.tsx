@@ -14,15 +14,21 @@ import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import TextAnimation from '../components/TextAnimation'
 import awsPic from '../images/favtech/aws.webp';
+import clickUpPic from '../images/favtech/clickup.webp';
 import dockerPic from '../images/favtech/docker.webp';
+import fastApiPic from '../images/favtech/fastapi.webp';
 import gitPic from '../images/favtech/git.webp';
 import githubPic from '../images/favtech/github.webp';
+import graphQLPic from '../images/favtech/graph_ql.webp';
 import haPic from '../images/favtech/homeassistant.webp';
 import jetbrainPic from '../images/favtech/jetbrain.webp';
 import javascriptPic from '../images/favtech/js.webp';
 import mongoDB from '../images/favtech/mongoDB.webp';
+import muiPic from '../images/favtech/mui.webp';
 import mysqlPic from '../images/favtech/mysql.webp';
 import netlifyPic from '../images/favtech/netlify.webp';
+import nextJsPic from '../images/favtech/nextjs.webp';
+import openAiPic from '../images/favtech/open_ai.webp';
 import oraclePic from '../images/favtech/oracle.webp';
 import pythonPic from '../images/favtech/python.webp';
 import reactPic from '../images/favtech/react-js.webp';
@@ -85,13 +91,15 @@ export const heroData: Hero = {
     description: (
         <>
             <p className="prose-sm text-stone-50 sm:prose-base lg:prose-lg">
-                Israel based <strong className="text-sky-500">Full Stack Developer </strong> & <i className="text-sky-200 fa-brands fa-python"> Python</i> enthusiast. <br></br> Currently
-                working at  <strong className="text-sky-200">Moon Holidays</strong> as a Full Stack Developer & IT Manager.
+                Israel based <strong className="text-sky-500">Full Stack Developer </strong> & <i
+                className="text-sky-200 fa-brands fa-python"> Python</i> enthusiast. <br></br> Currently
+                working at <strong className="text-sky-200">Moon Holidays</strong> as a Full Stack Developer & IT
+                Manager.
             </p>
 
 
             <div className='lg:flex-row text-left bg-black w-4/5 p-2 rounded-lg'>
-                <div className='text-stone-300'><TextAnimation /></div>
+                <div className='text-stone-300'><TextAnimation/></div>
             </div>
 
             {/* <p className="prose-sm text-stone-300 sm:prose-base">
@@ -227,10 +235,17 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const FavoriteTechItems: FavoriteTechItem[] = [
     {
+        title: 'OpenAI',
+        image: openAiPic,
+    },
+    {
         title: 'Python 3+',
         image: pythonPic,
     },
-
+    {
+        title: 'Fast API',
+        image: fastApiPic,
+    },
     {
         title: 'GitHub',
         image: githubPic,
@@ -238,11 +253,6 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
     {
         title: 'Git',
         image: gitPic,
-    },
-
-    {
-        title: 'React',
-        image: reactPic,
     },
     {
         title: 'AWS',
@@ -256,11 +266,6 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
         title: 'Home Assistant',
         image: haPic,
     },
-    {
-        title: 'Netlify',
-        image: netlifyPic,
-    },
-
     {
         title: "vmware",
         image: vmwarePic,
@@ -286,12 +291,36 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
         image: mongoDB,
     },
     {
+        title: "JetBrain IDE",
+        image: jetbrainPic,
+    },
+    {
+        title: 'ClickUp',
+        image: clickUpPic,
+    },
+    {
+        title: 'GraphQL',
+        image: graphQLPic,
+    },
+    {
         title: 'JavaScript',
         image: javascriptPic,
     },
     {
-        title: "JetBrain IDE",
-        image: jetbrainPic,
+        title: 'React',
+        image: reactPic,
+    },
+    {
+        title: 'NextJS',
+        image: nextJsPic,
+    },
+    {
+        title: 'Mui Framework',
+        image: muiPic,
+    },
+    {
+        title: 'Netlify',
+        image: netlifyPic,
     },
 ];
 
@@ -303,17 +332,16 @@ export const education: TimelineItem[] = [
         date: '2022-2023',
         location: 'HackerU Collage',
         title: 'Java, OCA',
-        content: <p>Pursuing advanced studies in Java Full-Stack with a specialized emphasis on mobile applications development. Integrating cutting-edge frameworks and methodologies to cultivate a contemporary and versatile skill set.</p>,
+        content: <p>Pursuing advanced studies in Java Full-Stack with a specialized emphasis on mobile applications
+            development. Integrating cutting-edge frameworks and methodologies to cultivate a contemporary and versatile
+            skill set.</p>,
     },
     {
         date: '2020-2020',
         location: 'CampusIL',
         title: 'Python Course',
-        content: <p>Proficient in Python, with advanced expertise in utilizing libraries such as Pandas, NumPy, Requests, Flask, and other sophisticated tools to enhance programming capabilities.
-
-
-
-
+        content: <p>Proficient in Python, with advanced expertise in utilizing libraries such as Pandas, NumPy,
+            Requests, Flask, and other sophisticated tools to enhance programming capabilities.
 
 
         </p>,
@@ -327,8 +355,26 @@ export const experience: TimelineItem[] = [
         title: 'Full Stack Developer & Tech Manager.',
         content: (
             <ul className='ml-5 list-disc'>
-                <li>As an IT Manager, I am dedicated to ensuring the security, reliability, and scalability of our organization's IT systems. My role involves strategically planning and implementing technologies and systems to enhance the overall efficiency and effectiveness of our operations. Beyond my core responsibilities, I actively engage in strategic planning and decision-making. Collaborating closely with executives and stakeholders, I ensure that our IT strategy aligns seamlessly with the broader goals and objectives of the organization.</li>
-                <li>In a span of 5 months, I successfully conceptualized and developed an entire system to manage our offline contracts, attractions, hotels, and transportation services. This comprehensive system involved the creation of dozens of integrations with external APIs, including Agoda, Booking.com, Google Cloud, Cloudflare, Twilio, Firebase, and real-time currency exchange functionalities. Constructed entirely from scratch, the system utilizes Python and React Next.js, showcasing scalability and the incorporation of cutting-edge technologies. Noteworthy features include the utilization of Dragonfly in place of Redis for enhanced performance and encryption measures. The system is designed to be architecture-agnostic, capable of installation on any infrastructure, and operates within Docker containers, utilizing a NoSQL database to ensure flexibility and efficient deployment. This transformation significantly altered the way our company operates, leading to increased productivity and overall efficiency. This endeavor stands as a testament to my commitment to fostering innovation and efficiency within the organization.</li>
+                <li>As an IT Manager, I am dedicated to ensuring the security, reliability, and scalability of our
+                    organization's IT systems. My role involves strategically planning and implementing technologies and
+                    systems to enhance the overall efficiency and effectiveness of our operations. Beyond my core
+                    responsibilities, I actively engage in strategic planning and decision-making. Collaborating closely
+                    with executives and stakeholders, I ensure that our IT strategy aligns seamlessly with the broader
+                    goals and objectives of the organization.
+                </li>
+                <li>In a span of 5 months, I successfully conceptualized and developed an entire system to manage our
+                    offline contracts, attractions, hotels, and transportation services. This comprehensive system
+                    involved the creation of dozens of integrations with external APIs, including Agoda, Booking.com,
+                    Google Cloud, Cloudflare, Twilio, Firebase, and real-time currency exchange functionalities.
+                    Constructed entirely from scratch, the system utilizes Python and React Next.js, showcasing
+                    scalability and the incorporation of cutting-edge technologies. Noteworthy features include the
+                    utilization of Dragonfly in place of Redis for enhanced performance and encryption measures. The
+                    system is designed to be architecture-agnostic, capable of installation on any infrastructure, and
+                    operates within Docker containers, utilizing a NoSQL database to ensure flexibility and efficient
+                    deployment. This transformation significantly altered the way our company operates, leading to
+                    increased productivity and overall efficiency. This endeavor stands as a testament to my commitment
+                    to fostering innovation and efficiency within the organization.
+                </li>
             </ul>
         ),
     },
@@ -338,10 +384,19 @@ export const experience: TimelineItem[] = [
         title: 'Backend Software Developer',
         content: (
             <ul className='ml-8 list-disc'>
-                <li>Spearheaded the development of a Python-based backend system from inception, seamlessly synchronizing data across various ecommerce platforms and marketplaces, including eBay, Shopify, BigCommerce, WooCommerce, and more in real-time.</li>
-                <li>Engineered data analysis tools, reports, and other automations using Python to enhance operational efficiency.</li>
-                <li>Proficiently utilized AWS services, including RDS, VPS, and Linux-based servers, ensuring seamless integration and optimal performance.</li>
-                <li>Nurtured strong customer relationships, actively engaging with clients to discern and address their evolving business needs.</li>
+                <li>Spearheaded the development of a Python-based backend system from inception, seamlessly
+                    synchronizing data across various ecommerce platforms and marketplaces, including eBay, Shopify,
+                    BigCommerce, WooCommerce, and more in real-time.
+                </li>
+                <li>Engineered data analysis tools, reports, and other automations using Python to enhance operational
+                    efficiency.
+                </li>
+                <li>Proficiently utilized AWS services, including RDS, VPS, and Linux-based servers, ensuring seamless
+                    integration and optimal performance.
+                </li>
+                <li>Nurtured strong customer relationships, actively engaging with clients to discern and address their
+                    evolving business needs.
+                </li>
 
             </ul>
         ),
@@ -352,8 +407,12 @@ export const experience: TimelineItem[] = [
         title: 'Automation and Integration Developer',
         content: (
             <ul className='ml-5 list-disc'>
-                <li>Pioneered the development of Python and VBA-based automations for ecommerce stores, significantly enhancing customer service efficiency by eliminating routine tasks.</li>
-                <li>Applied data-driven decision-making to continually refine and optimize software functionality, ensuring alignment with evolving business requirements.</li>
+                <li>Pioneered the development of Python and VBA-based automations for ecommerce stores, significantly
+                    enhancing customer service efficiency by eliminating routine tasks.
+                </li>
+                <li>Applied data-driven decision-making to continually refine and optimize software functionality,
+                    ensuring alignment with evolving business requirements.
+                </li>
             </ul>
         ),
     },
