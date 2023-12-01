@@ -8,15 +8,12 @@ const TextAnimation = () => {
 
         <TypeAnimation
             sequence={[
-                "I'm a Python Full Stack Developer.",
+                "I specialize as a Python Full Stack Developer.",
                 2000,
-                "That's not all.",
-                1000,
-                'I can code with ReactJS, JavaScript, TypeScript VBA and Java.',
+                'Proficient in coding with ReactJS, JavaScript, TypeScript',
                 3000,
-                'Of course HTML, CSS, SASS and modern design frameworks too.',
-                3000,
-
+                'Certainly adept in HTML, CSS, SASS, and contemporary design frameworks.',
+                4000,
                 () => {
                     console.log('Done typing!');
                 }
@@ -25,7 +22,7 @@ const TextAnimation = () => {
             cursor={true}
             repeat={Infinity}
             omitDeletionAnimation={false}
-            className={"before:content-['React/Resume-Website/']"}
+            className={"before:content-['Resume-Website/']"}
 
             //   style={{ fontSize: '15px' }}
         />

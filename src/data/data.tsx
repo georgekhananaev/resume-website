@@ -55,7 +55,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
     title: 'George Khananaev',
-    description: "My Personal React Based Resume and Portfolio Website.",
+    description: "Developed a personalized React-based resume and portfolio website showcasing my professional accomplishments and expertise.",
 };
 
 /**
@@ -81,12 +81,12 @@ export type SectionId = typeof SectionId[keyof typeof SectionId];
  */
 export const heroData: Hero = {
     imageSrc: heroImage,
-    name: `I'm George Khananaev.`,
+    name: `George Khananaev`,
     description: (
         <>
             <p className="prose-sm text-stone-50 sm:prose-base lg:prose-lg">
                 Israel based <strong className="text-sky-500">Full Stack Developer </strong> & <i className="text-sky-200 fa-brands fa-python"> Python</i> enthusiast. <br></br> Currently
-                working at  <strong className="text-sky-200">Moon Holidays</strong> as a Full Stack Developer & Tech Manager.
+                working at  <strong className="text-sky-200">Moon Holidays</strong> as a Full Stack Developer & IT Manager.
             </p>
 
 
@@ -120,17 +120,15 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
     profileImageSrc: profilePic,
-    description: `I'm a diligent software developer with years of experience in e-commerce automatization's and overall
-  python based business applications.
-  Developer with none standard thinking, very often coming with creative new ideas or improvements... Not many know but I traveled half the world and visited more than 50 countries as of today. During my travels one country touched me the most, Japan.
-  I was amazed of the culture and the food and decided to take my enthusiasm a step forward. I studied about Japan and learned how to cook Japanese food. Mastered sushi making, so I am not just a software developer but secretly a chef too.`,
+    description: `
+I am a dedicated software developer boasting extensive experience in e-commerce automations and diverse Python-based business applications. Renowned for my non-traditional approach, I consistently introduce innovative ideas and enhancements to projects. Interestingly, beyond the realm of coding, I harbor a passion for globetrotting, having explored over 50 countries to date. Of all my travels, Japan left an indelible mark on me, capturing my heart with its rich culture and delectable cuisine. Motivated by this profound connection, I decided to channel my enthusiasm into a culinary pursuit. Delving into the intricacies of Japanese culture, I undertook the challenge of mastering the art of Japanese cuisine. Today, in addition to my role as a software developer, I take pride in my secret identity as a skilled sushi chef`,
     aboutItems: [
         {label: 'Location', text: 'Center, Israel', Icon: MapIcon},
-        {label: 'Age', text: '34', Icon: CalendarIcon},
+        {label: 'Age', text: '35', Icon: CalendarIcon},
         {label: 'Nationality', text: 'Israeli', Icon: FlagIcon},
-        {label: 'Interests', text: 'IT, Gadgets, Cooking', Icon: SparklesIcon},
+        {label: 'Interests', text: 'Development, Technology, Cooking', Icon: SparklesIcon},
         {label: 'Study', text: 'HackerU Collage, Israel', Icon: AcademicCapIcon},
-        {label: 'Employment', text: 'Freelancer', Icon: OfficeBuildingIcon},
+        {label: 'Employment', text: 'Moon Holidays, Remote Developer', Icon: OfficeBuildingIcon},
     ],
 };
 
@@ -305,13 +303,20 @@ export const education: TimelineItem[] = [
         date: '2022-2023',
         location: 'HackerU Collage',
         title: 'Java, OCA',
-        content: <p>Java Full-Stack studies with mobile applications development orientation and modern frameworks.</p>,
+        content: <p>Pursuing advanced studies in Java Full-Stack with a specialized emphasis on mobile applications development. Integrating cutting-edge frameworks and methodologies to cultivate a contemporary and versatile skill set.</p>,
     },
     {
         date: '2020-2020',
         location: 'CampusIL',
         title: 'Python Course',
-        content: <p>Python + Advanced Python Libraries such as Pandas, NumPy, Requests, FastAPI, Flask and more...</p>,
+        content: <p>Proficient in Python, with advanced expertise in utilizing libraries such as Pandas, NumPy, Requests, Flask, and other sophisticated tools to enhance programming capabilities.
+
+
+
+
+
+
+        </p>,
     },
 ];
 
@@ -387,7 +392,7 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
     headerText: 'Get in touch.',
-    description: 'You can get in touch with me by email or simply by filling the contact form.',
+    description: 'Feel free to reach out to me either via email or by conveniently completing the contact form. I am also available for remote job opportunities and excited to discuss potential collaborations.',
     items: [
         {
             type: ContactType.Email,
