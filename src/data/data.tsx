@@ -102,7 +102,7 @@ export const heroData: Hero = {
     ),
     actions: [
         {
-            href: 'https://drive.google.com/file/d/1G4maVgoRbcECff_XpZDrlP3HNQjNmG6v/view?usp=share_link',
+            href: 'https://drive.google.com/file/d/1_pE-yPs2wrXoPv-iKFSh-nuvQLqoQKxu/view?usp=sharing',
             text: 'Resume',
             primary: true,
             Icon: DownloadIcon,
@@ -160,11 +160,11 @@ export const skills: SkillGroup[] = [
         skills: [
             {
                 name: 'React',
-                level: 7,
+                level: 9,
             },
             {
                 name: 'JavaScript',
-                level: 8,
+                level: 9,
             },
             {
                 name: 'Typescript',
@@ -178,16 +178,8 @@ export const skills: SkillGroup[] = [
         skills: [
             {
                 name: 'Python',
-                level: 9,
-            },
-            {
-                name: 'Java',
-                level: 4,
-            },
-            {
-                name: 'Node.js',
-                level: 3,
-            },
+                level: 9.5,
+            }
         ],
     },
     {
@@ -195,16 +187,8 @@ export const skills: SkillGroup[] = [
         skills: [
             {
                 name: 'React Native',
-                level: 4,
-            },
-            {
-                name: 'Flutter',
-                level: 2,
-            },
-            {
-                name: 'Swift',
-                level: 2,
-            },
+                level: 7,
+            }
         ],
     },
 ];
@@ -334,12 +318,12 @@ export const education: TimelineItem[] = [
 export const experience: TimelineItem[] = [
     {
         date: 'Dec 2022 - Present',
-        location: 'Bangkok, Thailand',
+        location: 'Moon Holidays, Bangkok',
         title: 'Full Stack Developer & Tech Manager.',
         content: (
             <ul className='ml-5 list-disc'>
-                <li>Python, React based development of internal company services and integrations.</li>
-                <li>Responsible for management of creators, SEO, and all digital campaigns and services.</li>
+                <li>As an IT Manager, I am dedicated to ensuring the security, reliability, and scalability of our organization's IT systems. My role involves strategically planning and implementing technologies and systems to enhance the overall efficiency and effectiveness of our operations. Beyond my core responsibilities, I actively engage in strategic planning and decision-making. Collaborating closely with executives and stakeholders, I ensure that our IT strategy aligns seamlessly with the broader goals and objectives of the organization.</li>
+                <li>In a span of 5 months, I successfully conceptualized and developed an entire system to manage our offline contracts, attractions, hotels, and transportation services. This comprehensive system involved the creation of dozens of integrations with external APIs, including Agoda, Booking.com, Google Cloud, Cloudflare, Twilio, Firebase, and real-time currency exchange functionalities. Constructed entirely from scratch, the system utilizes Python and React Next.js, showcasing scalability and the incorporation of cutting-edge technologies. Noteworthy features include the utilization of Dragonfly in place of Redis for enhanced performance and encryption measures. The system is designed to be architecture-agnostic, capable of installation on any infrastructure, and operates within Docker containers, utilizing a NoSQL database to ensure flexibility and efficient deployment. This transformation significantly altered the way our company operates, leading to increased productivity and overall efficiency. This endeavor stands as a testament to my commitment to fostering innovation and efficiency within the organization.</li>
             </ul>
         ),
     },
@@ -349,13 +333,10 @@ export const experience: TimelineItem[] = [
         title: 'Backend Software Developer',
         content: (
             <ul className='ml-8 list-disc'>
-                <li>Developed from scratch Python based backend system which synchronizing multiple
-                    e-commerce platforms & marketplaces such as eBay, Shopify, BigCommerce, WooCommerce
-                    and more in real-time.
-                </li>
-                <li>Developed data analyzing tools, reports and other automatization's with Python.</li>
-                <li>Often worked with AWS services such as RDS, VPS and Linux based servers.</li>
-                <li>Maintained close relationships with our customers to understand the business needs.</li>
+                <li>Spearheaded the development of a Python-based backend system from inception, seamlessly synchronizing data across various ecommerce platforms and marketplaces, including eBay, Shopify, BigCommerce, WooCommerce, and more in real-time.</li>
+                <li>Engineered data analysis tools, reports, and other automations using Python to enhance operational efficiency.</li>
+                <li>Proficiently utilized AWS services, including RDS, VPS, and Linux-based servers, ensuring seamless integration and optimal performance.</li>
+                <li>Nurtured strong customer relationships, actively engaging with clients to discern and address their evolving business needs.</li>
 
             </ul>
         ),
@@ -363,12 +344,11 @@ export const experience: TimelineItem[] = [
     {
         date: '2016 - 2019',
         location: 'Kanzezol, Israel',
-        title: 'DevOps Software Developer',
+        title: 'Automation and Integration Developer',
         content: (
             <ul className='ml-5 list-disc'>
-                <li>Developed automatization's for our e-commerce stores by Python & VBA.</li>
-                <li>Increased customer service efficiency by removing all routine tasks with automatization's.</li>
-                <li>Very often did data-based decisions and adjusted the software accordingly.</li>
+                <li>Pioneered the development of Python and VBA-based automations for ecommerce stores, significantly enhancing customer service efficiency by eliminating routine tasks.</li>
+                <li>Applied data-driven decision-making to continually refine and optimize software functionality, ensuring alignment with evolving business requirements.</li>
             </ul>
         ),
     },
@@ -384,7 +364,7 @@ export const testimonial: TestimonialSection = {
             name: 'Hanan Hananaev',
             text: "Without doubt one of the most talented programmers out there.  I always go back to George when I'm out of my depth and he's never failed to deliver what I ask for. Smart, trustworthy and professional.",
             image: '/testimonials/hanan.webp',
-            alt: "חנן חננייב - קצין במילואים ומנכל עמותה לקידום צעירים יוצאי קווקאז",
+            alt: "חנן חננייב - רב סרן במילואים ומנכל עמותה לקידום צעירים יוצאי קווקאז",
         },
         {
             name: 'Tzuriel Nimni',
