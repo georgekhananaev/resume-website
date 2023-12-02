@@ -42,6 +42,7 @@ import resumeWebsite from '../images/portfolio/resume_website.webp';
 import topTen from '../images/portfolio/top10.webp';
 import profilePic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
+
 import {
     About,
     ContactSection,
@@ -62,6 +63,7 @@ import {
 export const homePageMeta: HomepageMeta = {
     title: 'George Khananaev',
     description: "Developed a personalized React-based resume and portfolio website showcasing my professional accomplishments and expertise.",
+    image: "/george_khanaanev_profile.webp",
 };
 
 /**

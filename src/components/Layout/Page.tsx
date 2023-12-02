@@ -5,7 +5,7 @@ import {memo} from 'react';
 
 import {HomepageMeta} from '../../data/dataDef';
 
-const Page: NextPage<HomepageMeta> = memo(({children, title, description}) => {
+const Page: NextPage<HomepageMeta> = memo(({children, title, description, image}) => {
     const {asPath: pathname} = useRouter();
 
     return (
@@ -13,6 +13,7 @@ const Page: NextPage<HomepageMeta> = memo(({children, title, description}) => {
             <Head>
                 <title>{title}</title>
                 <meta content={description} name="description"/>
+                {image && <meta content={image} property="og:image" />}
 
                 {/* several domains list the same content, make sure google knows we mean this one. */}
                 <link href={`https://reactresume.com${pathname}`} key="canonical" rel="canonical"/>
