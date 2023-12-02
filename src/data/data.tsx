@@ -62,7 +62,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
     title: 'George Khananaev',
-    description: "Developed a personalized React-based resume and portfolio website showcasing my professional accomplishments and expertise.",
+    description: "Results-oriented developer with extensive expertise in developing ecommerce automations and comprehensive Python-based business applications. Known for innovative thinking, consistently introducing fresh ideas and enhancements to drive project success.",
     image: "/george_khanaanev_profile.webp",
 };
 
