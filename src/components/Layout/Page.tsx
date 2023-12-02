@@ -14,9 +14,9 @@ const Page: NextPage<HomepageMeta> = memo(({children, title, description, image}
                 <title>{title}</title>
                 <meta content={description} name="description"/>
                 {image && <meta content={image} property="og:image" />}
-
+                <meta name="google-site-verification" content="1-dVg2TEGMtNGcmJ7Mg10WP1NBeH9fOVBhMqqDQNnhY" />
                 {/* several domains list the same content, make sure google knows we mean this one. */}
-                <link href={`https://reactresume.com${pathname}`} key="canonical" rel="canonical"/>
+                <link href={"https://github.com/georgekhananaev/resume-website"} key="canonical" rel="canonical"/>
 
                 <link href="/favicon.ico" rel="icon" sizes="any"/>
                 <link href="/icon.svg" rel="icon" type="image/svg+xml"/>
@@ -26,9 +26,7 @@ const Page: NextPage<HomepageMeta> = memo(({children, title, description, image}
                 {/* Open Graph : https://ogp.me/ */}
                 <meta content={title} property="og:title"/>
                 <meta content={description} property="og:description"/>
-                <meta content={`https://reactresume.com${pathname}`} property="og:url"/>
-
-                {/* Twitter: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup */}
+                <meta content={"https://github.com/georgekhananaev/resume-website"} property="og:url"/>
                 <meta content={title} name="twitter:title"/>
                 <meta content={description} name="twitter:description"/>
             </Head>
