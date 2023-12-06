@@ -1,4 +1,4 @@
-import {NextPage} from 'next';
+עןא import {NextPage} from 'next';
 import Head from 'next/head';
 import {memo} from 'react';
 

@@ -112,7 +112,7 @@ export const heroData: Hero = {
     ),
     actions: [
         {
-            href: 'https://drive.google.com/file/d/1_pE-yPs2wrXoPv-iKFSh-nuvQLqoQKxu/view?usp=sharing',
+            href: 'https://drive.google.com/file/d/1LJCYke8E7Tih2iHRmxVeTjhIBWSxWPMk/view?usp=sharing',
             text: 'Resume',
             primary: true,
             Icon: DownloadIcon,
@@ -354,7 +354,7 @@ export const experience: TimelineItem[] = [
     {
         date: 'Dec 2022 - Present',
         location: 'Moon Holidays, Bangkok',
-        title: 'Full Stack Developer & Tech Manager.',
+        title: 'Full Stack Developer & IT Manager.',
         content: (
             <ul className='ml-5 list-disc'>
                 <li>As an IT Manager, I am dedicated to ensuring the security, reliability, and scalability of our
