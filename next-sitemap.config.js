@@ -1,6 +1,7 @@
 /* eslint-env node */
 module.exports = {
     siteUrl: process.env.SITE_URL || 'https://george.khananaev.com',
+    generateIndexSitemap: false,
     exclude: ['/404*', '/500*'],
     transform: async (config, path) => {
         return {
