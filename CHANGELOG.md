@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+- **resume**: Dynamic PDF resume generation via `/api/resume` with two-column design
 - **app**: Next.js 16 App Router with server and client components
 - **github**: GitHub stats section with repo count, stars, followers, achievements, and top languages
 - **portfolio**: Animated particle canvas backgrounds on portfolio cards

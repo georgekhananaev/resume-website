@@ -14,6 +14,7 @@
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "clsx": "^2.1.0",
+    "jspdf": "^4.2.0",
     "libphonenumber-js": "^1.12.40",
     "next": "^16.1.0",
     "next-sitemap": "^4.2.0",

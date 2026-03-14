@@ -96,8 +96,8 @@ export const heroData: Hero = {
     ),
     actions: [
         {
-            href: 'https://drive.google.com/file/d/1LJCYke8E7Tih2iHRmxVeTjhIBWSxWPMk/view?usp=sharing',
-            text: 'Resume',
+            href: '/api/resume',
+            text: 'Download Resume',
             primary: true,
         },
         {
