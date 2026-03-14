@@ -11,6 +11,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 
 ### Fixed
 - **seo**: Replaced next-sitemap with Next.js built-in sitemap.ts and robots.ts (fixes 404 on Netlify)
+- **ui**: Improved error pages contrast to WCAG AAA and added global-error handler
 
 ## [4.0.0] - 2026-03-14
 
