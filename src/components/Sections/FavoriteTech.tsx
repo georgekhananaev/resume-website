@@ -19,7 +19,7 @@ export default function FavoriteTech() {
     return (
         <Section className="bg-neutral-800" sectionId={SectionId.FavoriteTech}>
             <div className="flex flex-col gap-y-6">
-                <h2 className="self-center text-2xl font-bold text-white">My Favorite Technologies</h2>
+                <h2 className="self-center text-2xl font-bold text-white">Technologies I Work With</h2>
 
                 {/* Category filter tabs */}
                 <div className="no-scrollbar flex justify-start gap-1.5 overflow-x-auto sm:flex-wrap sm:justify-center">

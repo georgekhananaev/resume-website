@@ -5,7 +5,7 @@ import Socials from '../Socials';
 
 export default function Footer() {
     return (
-        <div className="relative bg-neutral-900 px-4 pb-6 pt-12 sm:px-8 sm:pb-8 sm:pt-14">
+        <footer className="relative bg-neutral-900 px-4 pb-6 pt-12 sm:px-8 sm:pb-8 sm:pt-14">
             <div className="absolute inset-x-0 -top-4 flex justify-center sm:-top-6">
                 <a
                     aria-label="Scroll Back To Top Button"
@@ -21,6 +21,6 @@ export default function Footer() {
                 </div>
                 <span className="text-sm text-neutral-300">Copyright &copy; {new Date().getFullYear()} George Khananaev</span>
             </div>
-        </div>
+        </footer>
     );
 }

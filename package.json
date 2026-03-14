@@ -8,6 +8,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
+    "postbuild": "next-sitemap",
     "sitemap": "next-sitemap"
   },
   "dependencies": {

@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import Image from 'next/image';
 import {UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import {isApple, isMobile} from '../../config';
@@ -104,7 +105,8 @@ export default function Testimonials() {
                                         disabled={isActive}
                                         key={`select-button-${index}`}
                                         onClick={setTestimonial(index)}
-                                        title="Testimonials Navigation Buttons" />
+                                        aria-label={`Go to testimonial ${index + 1}`}
+                                        title={`Testimonial ${index + 1}`} />
                                 );
                             })}
                         </div>
@@ -125,7 +127,7 @@ function TestimonialCard({testimonial: {text, name, image, alt}, isActive}: {tes
             {image ? (
                 <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16">
                     <QuoteIcon className="absolute -left-2 -top-2 h-4 w-4 stroke-black text-white" />
-                    <img alt={alt} className="h-full w-full rounded-full" src={image} />
+                    <Image alt={alt} className="rounded-full" height={64} src={image} width={64} />
                 </div>
             ) : (
                 <QuoteIcon className="h-5 w-5 shrink-0 text-white sm:h-8 sm:w-8" />

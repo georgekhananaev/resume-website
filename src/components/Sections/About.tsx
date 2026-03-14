@@ -12,7 +12,7 @@ export default function About() {
                 {!!profileImageSrc && (
                     <div className="col-span-1 flex justify-center md:justify-start">
                         <div className="relative h-64 w-64 overflow-hidden rounded-xl md:h-56 md:w-56">
-                            <Image alt="about-me-image" fill src={profileImageSrc} style={{objectFit: 'cover'}} />
+                            <Image alt="George Khananaev profile photo" fill priority sizes="(max-width: 768px) 256px, 224px" src={profileImageSrc} style={{objectFit: 'cover'}} />
                         </div>
                     </div>
                 )}

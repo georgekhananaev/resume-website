@@ -41,6 +41,7 @@ export default function Contact() {
                                                     {'hover:text-white': href},
                                                 )}
                                                 href={href}
+                                                rel="me noopener noreferrer"
                                                 target="_blank">
                                                 <Icon aria-hidden="true"
                                                       className="h-4 w-4 flex-shrink-0 text-neutral-100 sm:h-5 sm:w-5" />

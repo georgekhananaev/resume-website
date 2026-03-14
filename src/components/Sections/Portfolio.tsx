@@ -40,7 +40,7 @@ export default function Portfolio({starCounts = {}}: {starCounts?: Record<string
                             <div className="pb-4" key={`${title}-${index}`}>
                                 <div className="portfolio-card relative h-full w-full overflow-hidden">
                                     <CardBackground seed={index} />
-                                    <Image alt={title} className="relative rounded-xl" src={image} />
+                                    <Image alt={`${title} project preview`} className="relative rounded-xl" src={image} />
                                     {stars !== undefined && stars > 0 && (
                                         <span className="absolute left-2 top-2 z-[5] flex items-center gap-1 rounded-full bg-black/70 px-2 py-0.5 text-xs font-medium text-yellow-400 backdrop-blur-sm">
                                             <StarIcon className="h-3 w-3" />
@@ -90,10 +90,11 @@ function ItemOverlay({item: {url, title, description}}: {item: PortfolioItem}) {
             href={url}
             onClick={handleItemClick}
             ref={linkRef}
+            rel="noopener noreferrer"
             target="_blank">
             <div className="relative h-full w-full p-4">
                 <div className="portfolio-scroll flex h-full w-full flex-col gap-y-2 overflow-y-auto">
-                    <h2 className="text-center text-xl font-bold text-white sm:text-base">{title}</h2>
+                    <h3 className="text-center text-xl font-bold text-white sm:text-base">{title}</h3>
                     <p className="text-lg leading-relaxed text-stone-200 sm:text-sm">{description}</p>
                 </div>
                 <ArrowTopRightOnSquareIcon

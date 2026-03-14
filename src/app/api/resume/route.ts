@@ -275,6 +275,7 @@ export async function GET() {
         headers: {
             'Content-Type': 'application/pdf',
             'Content-Disposition': 'attachment; filename="George_Khananaev_Resume.pdf"',
+            'X-Robots-Tag': 'noindex, nofollow, noarchive',
         },
     });
 }

@@ -201,7 +201,7 @@ export default async function GithubStats() {
             <div className="flex flex-col gap-y-8">
                 <div className="flex flex-col items-center gap-y-2">
                     <h2 className="text-2xl font-bold text-white">GitHub</h2>
-                    <a className="text-sm text-orange-400 transition-colors hover:text-orange-300" href={user.html_url} target="_blank">
+                    <a className="text-sm text-orange-400 transition-colors hover:text-orange-300" href={user.html_url} rel="noopener noreferrer" target="_blank">
                         @{username}
                     </a>
                 </div>
@@ -225,12 +225,14 @@ export default async function GithubStats() {
                                     className="group flex flex-col items-center gap-y-2 transition-transform hover:scale-105"
                                     href={`https://github.com/${username}?achievement=${slug}&tab=achievements`}
                                     key={slug}
-                                    target="_blank">
+                                    rel="noopener noreferrer" target="_blank">
                                     <div className="relative">
                                         {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
                                             alt={`Achievement: ${name}`}
                                             className="h-16 w-16 drop-shadow-lg sm:h-20 sm:w-20"
+                                            decoding="async"
+                                            loading="lazy"
                                             src={image}
                                         />
                                         {tier && (

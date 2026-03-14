@@ -5,6 +5,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+- **seo**: OpenGraph, Twitter Card, and JSON-LD structured data metadata
+- **seo**: Canonical URLs with language alternates and format detection
+- **seo**: PWA icons (apple-touch-icon, icon-192, icon-512) and web manifest
+- **seo**: OG image for social media sharing
+- **app**: Custom 404 page with back-home navigation
+- **security**: HTTP security headers (X-Frame-Options, HSTS, CSP, Referrer-Policy, Permissions-Policy)
+- **tech**: Added monday.com to favorite technologies
 - **tech**: 70 favorite technologies with category filtering (AI, Languages, Frameworks, Databases, Cloud, DevOps, Security, Services, Testing, Tools)
 - **portfolio**: Dynamic star counts fetched from GitHub API with 1hr ISR cache
 - **resume**: Dynamic PDF resume generation via `/api/resume` with two-column design
@@ -24,6 +31,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 - **env**: BIRTH_DATE for dynamic age calculation
 
 ### Changed
+- **images**: Updated favtech images (git, kamatera, netlify, oracle, react-js, ssh, ubuntu)
+- **contact**: Added server-side input length validation
 - **deps**: Upgraded all packages to latest (Next.js 16, React 19, TypeScript 5.9, Tailwind 4, Heroicons v2, Headless UI v2, ESLint 10)
 - **arch**: Migrated from Pages Router to App Router with proper server/client component split
 - **styling**: Migrated from Tailwind 3 to Tailwind 4 (CSS-first config)
@@ -42,6 +51,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 - **readme**: Complete rewrite with tech stack, setup, and credits
 
 ### Removed
+- Unused testimonial photos (_hanan.webp, _marina.webp)
+- github_actions.webp favtech image
 - Pages Router (`src/pages/`)
 - Font Awesome (5 packages)
 - 7 unused icon components and files

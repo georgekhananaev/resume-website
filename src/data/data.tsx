@@ -11,7 +11,7 @@ import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import TextAnimation from '../components/TextAnimation';
 import awsPic from '../images/favtech/aws.webp';
-import clickUpPic from '../images/favtech/clickup.webp';
+import mondayPic from '../images/favtech/monday.webp';
 import dockerPic from '../images/favtech/docker.webp';
 import fastApiPic from '../images/favtech/fastapi.webp';
 import gitPic from '../images/favtech/git.webp';
@@ -178,7 +178,7 @@ export const aboutData: About = {
         {label: 'Age', text: calcAge(), Icon: CalendarIcon},
         {label: 'Nationality', text: 'Israeli', Icon: FlagIcon},
         {label: 'Interests', text: 'Development, Technology, Cooking', Icon: SparklesIcon},
-        {label: 'Study', text: 'HackerU Collage, Israel', Icon: AcademicCapIcon},
+        {label: 'Study', text: 'HackerU College, Israel', Icon: AcademicCapIcon},
         {label: 'Employment', text: 'Moon Holidays, Head of Development', Icon: BuildingOfficeIcon},
     ],
 };
@@ -384,7 +384,7 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
     {title: 'Xcode', image: xcodePic, category: 'Tools'},
     {title: 'Jupyter', image: jupyterPic, category: 'Tools'},
     {title: 'Figma', image: figmaPic, category: 'Tools'},
-    {title: 'ClickUp', image: clickUpPic, category: 'Tools'},
+    {title: 'Monday', image: mondayPic, category: 'Tools'},
     {title: 'n8n', image: n8nPic, category: 'Tools'},
     {title: 'macOS / iOS', image: applePic, category: 'Tools'},
     {title: 'Home Assistant', image: haPic, category: 'Tools'},
@@ -397,14 +397,14 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
 export const education: TimelineItem[] = [
     {
         date: '2022-2023',
-        location: 'HackerU Collage',
+        location: 'HackerU College',
         title: 'Java, OCA',
         content: <p>Pursuing advanced studies in Java Full-Stack with a specialized emphasis on mobile applications
             development. Integrating cutting-edge frameworks and methodologies to cultivate a contemporary and versatile
             skill set.</p>,
     },
     {
-        date: '2020-2020',
+        date: '2020',
         location: 'CampusIL',
         title: 'Python Course',
         content: <p>Proficient in Python, with advanced expertise in utilizing libraries such as Pandas, NumPy,

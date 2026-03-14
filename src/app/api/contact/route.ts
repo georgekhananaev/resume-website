@@ -45,12 +45,23 @@ function parseUserAgent(ua: string) {
     return {browser, version, os, platform};
 }
 
+const noIndex = {'X-Robots-Tag': 'noindex, nofollow, noarchive'};
+
 export async function POST(request: NextRequest) {
     const body = await request.json();
     const {from_name, from_email, from_phone, message, user_agent, 'g-recaptcha-response': recaptchaToken} = body;
 
     if (!from_name || !from_email || !message) {
         return NextResponse.json({error: 'Missing required fields'}, {status: 400});
+    }
+
+    // Server-side input length validation
+    if (from_name.length > 100 || from_email.length > 200 || message.length > 500) {
+        return NextResponse.json({error: 'Input too long'}, {status: 400});
+    }
+
+    if (from_phone && from_phone.length > 20) {
+        return NextResponse.json({error: 'Invalid phone number'}, {status: 400});
     }
 
     // Verify reCAPTCHA server-side
@@ -61,7 +72,7 @@ export async function POST(request: NextRequest) {
         const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+            body: new URLSearchParams({secret: process.env.RECAPTCHA_SECRET_KEY || '', response: recaptchaToken}).toString(),
         });
         const verifyData = await verifyRes.json();
         if (!verifyData.success) {
@@ -108,7 +119,7 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({error: 'Failed to send message'}, {status: 500});
         }
 
-        return NextResponse.json({text: 'OK'});
+        return NextResponse.json({text: 'OK'}, {headers: noIndex});
     } catch (error) {
         console.error('Contact form error:', error);
         return NextResponse.json({error: 'Failed to send message'}, {status: 500});

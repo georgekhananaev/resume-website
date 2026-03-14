@@ -19,7 +19,7 @@ export default function Resume() {
                     ))}
                 </ResumeSection>
                 <ResumeSection title="Skills">
-                    <p className="pb-8"></p>
+                    <div className="pb-8" />
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         {skills.map((skillgroup, index) => (
                             <SkillGroup key={`${skillgroup.name}-${index}`} skillGroup={skillgroup} />

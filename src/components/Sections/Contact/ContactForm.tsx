@@ -187,12 +187,13 @@ export default function ContactForm() {
     );
 
     const inputClasses =
-        'bg-neutral-700 border-0 focus:border-0 focus:outline-hidden focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-sm';
+        'bg-neutral-700 border-0 focus:border-0 focus:outline-hidden focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-base sm:text-sm';
 
     return (
         <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={handleSendMessage}>
-            <input className={inputClasses} name="from_name" onChange={onChange} placeholder="Name" required type="text" />
+            <input aria-label="Your name" className={inputClasses} name="from_name" onChange={onChange} placeholder="Name" required type="text" />
             <input
+                aria-label="Your email address"
                 autoComplete="email"
                 className={inputClasses}
                 name="from_email"
@@ -216,6 +217,7 @@ export default function ContactForm() {
                 )}
             </div>
             <textarea
+                aria-label="Your message"
                 className={inputClasses}
                 maxLength={250}
                 name="message"
@@ -228,11 +230,13 @@ export default function ContactForm() {
             {/* Anti-spam: math challenge rendered as SVG */}
             {challenge && (
                 <div>
-                    <label className="mb-1 flex items-center gap-2 text-xs text-neutral-400">
+                    <label className="mb-1 flex items-center gap-2 text-xs text-neutral-400" htmlFor="math-challenge">
                         Solve: <ChallengeSVG text={challenge.question} /> = ?
                     </label>
                     <input
+                        aria-label="Math challenge answer"
                         className={inputClasses}
+                        id="math-challenge"
                         onChange={e => setChallengeAnswer(e.target.value)}
                         placeholder="Your answer"
                         required

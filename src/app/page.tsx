@@ -54,17 +54,50 @@ async function getStarCounts(): Promise<Record<string, number>> {
 export default async function Home() {
     const starCounts = await getStarCounts();
 
+    const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace(/\/$/, '');
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'Person',
+                '@id': `${siteUrl}/#person`,
+                name: 'George Khananaev',
+                url: siteUrl,
+                jobTitle: 'Head of Development',
+                worksFor: {'@type': 'Organization', name: 'Moon Holidays'},
+                sameAs: [
+                    'https://github.com/georgekhananaev',
+                    'https://www.linkedin.com/in/georgekhananaev/',
+                ],
+                knowsAbout: ['Python', 'TypeScript', 'Swift', 'FastAPI', 'Next.js', 'React', 'Docker', 'AWS', 'AI', 'LLMs'],
+                description: 'Full Stack Developer specializing in Python, TypeScript & AI-driven enterprise applications.',
+            },
+            {
+                '@type': 'WebSite',
+                '@id': `${siteUrl}/#website`,
+                url: siteUrl,
+                name: 'George Khananaev',
+                description: 'Full Stack Developer specializing in Python, TypeScript & AI-driven enterprise applications.',
+                inLanguage: 'en-US',
+                publisher: {'@id': `${siteUrl}/#person`},
+            },
+        ],
+    };
+
     return (
         <>
+            <script dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}} type="application/ld+json" />
             <Header />
-            <Hero />
-            <About />
-            <Resume />
-            <FavoriteTech />
-            <GithubStats />
-            <Portfolio starCounts={starCounts} />
-            <Testimonials />
-            <Contact />
+            <main>
+                <Hero />
+                <About />
+                <Resume />
+                <FavoriteTech />
+                <GithubStats />
+                <Portfolio starCounts={starCounts} />
+                <Testimonials />
+                <Contact />
+            </main>
             <Footer />
         </>
     );
