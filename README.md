@@ -138,3 +138,5 @@ Initial design based on a template by [Tim Baker](https://github.com/tbakerx). F
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e6cdcf5-06db-4e22-9739-cefd33f748b5/deploy-status)](https://app.netlify.com/sites/georgekhananaev/deploys)

@@ -7,6 +7,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ### Added
 
 ### Changed
+- **readme**: Restored Netlify deploy status badge
 
 ### Fixed
 
