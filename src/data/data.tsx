@@ -32,6 +32,53 @@ import reactPic from '../images/favtech/react-js.webp';
 import sshPic from '../images/favtech/ssh.webp';
 import ubuntuPic from '../images/favtech/ubuntu.webp';
 import vmwarePic from '../images/favtech/vmware.webp';
+import applePic from '../images/favtech/apple.webp';
+import claudePic from '../images/favtech/claude.webp';
+import cloudflarePic from '../images/favtech/cloudflare.webp';
+import firebasePic from '../images/favtech/firebase.webp';
+import gcloudPic from '../images/favtech/gcloud.webp';
+import geminiPic from '../images/favtech/gemini.webp';
+import linuxPic from '../images/favtech/linux.webp';
+import nginxPic from '../images/favtech/nginx.webp';
+import nodejsPic from '../images/favtech/nodejs.webp';
+import ollamaPic from '../images/favtech/ollama.webp';
+import postgresqlPic from '../images/favtech/postgresql.webp';
+import pydanticPic from '../images/favtech/pydantic.webp';
+import redisPic from '../images/favtech/redis.webp';
+import swiftPic from '../images/favtech/swift.webp';
+import tailwindPic from '../images/favtech/tailwind.webp';
+import twilioPic from '../images/favtech/twilio.webp';
+import typescriptPic from '../images/favtech/typescript.webp';
+import vercelPic from '../images/favtech/vercel.webp';
+import vscodePic from '../images/favtech/vscode.webp';
+import ansiblePic from '../images/favtech/ansible.webp';
+import css3Pic from '../images/favtech/css3.webp';
+import elasticsearchPic from '../images/favtech/elasticsearch.webp';
+import figmaPic from '../images/favtech/figma.webp';
+import grafanaPic from '../images/favtech/grafana.webp';
+import html5Pic from '../images/favtech/html5.webp';
+import jwtPic from '../images/favtech/jwt.webp';
+import kubernetesPic from '../images/favtech/kubernetes.webp';
+import letsencryptPic from '../images/favtech/letsencrypt.webp';
+import playwrightPic from '../images/favtech/playwright.webp';
+import prometheusPic from '../images/favtech/prometheus.webp';
+import proxmoxPic from '../images/favtech/proxmox.webp';
+import pytestPic from '../images/favtech/pytest.webp';
+import rabbitmqPic from '../images/favtech/rabbitmq.webp';
+import sassPic from '../images/favtech/sass.webp';
+import seleniumPic from '../images/favtech/selenium.webp';
+import stripePic from '../images/favtech/stripe.webp';
+import terraformPic from '../images/favtech/terraform.webp';
+import traefikPic from '../images/favtech/traefik.webp';
+import websocketPic from '../images/favtech/websocket.webp';
+import xcodePic from '../images/favtech/xcode.webp';
+import n8nPic from '../images/favtech/n8n.webp';
+import homebrewPic from '../images/favtech/homebrew.webp';
+import framermotionPic from '../images/favtech/framermotion.webp';
+import dragonflyPic from '../images/favtech/dragonfly.webp';
+import htmxPic from '../images/favtech/htmx.webp';
+import jupyterPic from '../images/favtech/jupyter.webp';
+import supabasePic from '../images/favtech/supabase.webp';
 import heroImage from '../images/header-background.webp';
 import claudeSkillsVault from '../images/portfolio/claude-skills-vault.svg';
 import darkthemeAuthFastapi from '../images/portfolio/darktheme-auth-fastapi.svg';
@@ -261,94 +308,85 @@ export const portfolioItems: PortfolioItem[] = [
  * FavoriteTechItem section
  */
 export const FavoriteTechItems: FavoriteTechItem[] = [
-    {
-        title: 'OpenAI',
-        image: openAiPic,
-    },
-    {
-        title: 'Python 3+',
-        image: pythonPic,
-    },
-    {
-        title: 'Fast API',
-        image: fastApiPic,
-    },
-    {
-        title: 'GitHub',
-        image: githubPic,
-    },
-    {
-        title: 'Git',
-        image: gitPic,
-    },
-    {
-        title: 'AWS',
-        image: awsPic,
-    },
-    {
-        title: 'Ubuntu',
-        image: ubuntuPic,
-    },
-    {
-        title: 'Home Assistant',
-        image: haPic,
-    },
-    {
-        title: "vmware",
-        image: vmwarePic,
-    },
-    {
-        title: 'Oracle Cloud',
-        image: oraclePic,
-    },
-    {
-        title: 'SSH',
-        image: sshPic,
-    },
-    {
-        title: 'Docker',
-        image: dockerPic,
-    },
-    {
-        title: 'MySql/SQL',
-        image: mysqlPic,
-    },
-    {
-        title: 'mongoDB',
-        image: mongoDB,
-    },
-    {
-        title: "JetBrain IDE",
-        image: jetbrainPic,
-    },
-    {
-        title: 'ClickUp',
-        image: clickUpPic,
-    },
-    {
-        title: 'GraphQL',
-        image: graphQLPic,
-    },
-    {
-        title: 'JavaScript',
-        image: javascriptPic,
-    },
-    {
-        title: 'React',
-        image: reactPic,
-    },
-    {
-        title: 'NextJS',
-        image: nextJsPic,
-    },
-    {
-        title: 'Mui Framework',
-        image: muiPic,
-    },
-    {
-        title: 'Netlify',
-        image: netlifyPic,
-    },
+    // AI & LLMs
+    {title: 'Claude', image: claudePic, category: 'AI & LLMs'},
+    {title: 'OpenAI', image: openAiPic, category: 'AI & LLMs'},
+    {title: 'Gemini', image: geminiPic, category: 'AI & LLMs'},
+    {title: 'Ollama', image: ollamaPic, category: 'AI & LLMs'},
+    // Languages
+    {title: 'Python', image: pythonPic, category: 'Languages'},
+    {title: 'TypeScript', image: typescriptPic, category: 'Languages'},
+    {title: 'JavaScript', image: javascriptPic, category: 'Languages'},
+    {title: 'Swift', image: swiftPic, category: 'Languages'},
+    {title: 'HTML5', image: html5Pic, category: 'Languages'},
+    {title: 'CSS3', image: css3Pic, category: 'Languages'},
+    {title: 'Sass', image: sassPic, category: 'Languages'},
+    // Frameworks
+    {title: 'FastAPI', image: fastApiPic, category: 'Frameworks'},
+    {title: 'Next.js', image: nextJsPic, category: 'Frameworks'},
+    {title: 'React', image: reactPic, category: 'Frameworks'},
+    {title: 'Node.js', image: nodejsPic, category: 'Frameworks'},
+    {title: 'Tailwind CSS', image: tailwindPic, category: 'Frameworks'},
+    {title: 'Pydantic', image: pydanticPic, category: 'Frameworks'},
+    {title: 'MUI', image: muiPic, category: 'Frameworks'},
+    {title: 'GraphQL', image: graphQLPic, category: 'Frameworks'},
+    // Databases
+    {title: 'MongoDB', image: mongoDB, category: 'Databases'},
+    {title: 'MySQL', image: mysqlPic, category: 'Databases'},
+    {title: 'PostgreSQL', image: postgresqlPic, category: 'Databases'},
+    {title: 'Redis', image: redisPic, category: 'Databases'},
+    {title: 'Elasticsearch', image: elasticsearchPic, category: 'Databases'},
+    {title: 'RabbitMQ', image: rabbitmqPic, category: 'Databases'},
+    // Cloud & Hosting
+    {title: 'Docker', image: dockerPic, category: 'Cloud'},
+    {title: 'AWS', image: awsPic, category: 'Cloud'},
+    {title: 'Google Cloud', image: gcloudPic, category: 'Cloud'},
+    {title: 'Oracle Cloud', image: oraclePic, category: 'Cloud'},
+    {title: 'Cloudflare', image: cloudflarePic, category: 'Cloud'},
+    {title: 'Vercel', image: vercelPic, category: 'Cloud'},
+    {title: 'Netlify', image: netlifyPic, category: 'Cloud'},
+    {title: 'Firebase', image: firebasePic, category: 'Cloud'},
+    {title: 'Kubernetes', image: kubernetesPic, category: 'Cloud'},
+    {title: 'Proxmox', image: proxmoxPic, category: 'Cloud'},
+    // DevOps & Infra
+    {title: 'Nginx', image: nginxPic, category: 'DevOps'},
+    {title: 'Traefik', image: traefikPic, category: 'DevOps'},
+    {title: 'Terraform', image: terraformPic, category: 'DevOps'},
+    {title: 'Ansible', image: ansiblePic, category: 'DevOps'},
+    {title: 'Grafana', image: grafanaPic, category: 'DevOps'},
+    {title: 'Prometheus', image: prometheusPic, category: 'DevOps'},
+    {title: 'Git', image: gitPic, category: 'DevOps'},
+    {title: 'GitHub', image: githubPic, category: 'DevOps'},
+    {title: 'Linux', image: linuxPic, category: 'DevOps'},
+    {title: 'Ubuntu', image: ubuntuPic, category: 'DevOps'},
+    {title: 'SSH', image: sshPic, category: 'DevOps'},
+    {title: 'VMware', image: vmwarePic, category: 'DevOps'},
+    // Security & APIs
+    {title: 'JWT', image: jwtPic, category: 'Security'},
+    {title: "Let's Encrypt", image: letsencryptPic, category: 'Security'},
+    {title: 'WebSocket', image: websocketPic, category: 'Security'},
+    {title: 'Stripe', image: stripePic, category: 'Security'},
+    {title: 'Twilio', image: twilioPic, category: 'Security'},
+    // Testing
+    {title: 'Pytest', image: pytestPic, category: 'Testing'},
+    {title: 'Selenium', image: seleniumPic, category: 'Testing'},
+    {title: 'Playwright', image: playwrightPic, category: 'Testing'},
+    // Tools & IDEs
+    {title: 'JetBrains', image: jetbrainPic, category: 'Tools'},
+    {title: 'VS Code', image: vscodePic, category: 'Tools'},
+    {title: 'Xcode', image: xcodePic, category: 'Tools'},
+    {title: 'Figma', image: figmaPic, category: 'Tools'},
+    {title: 'ClickUp', image: clickUpPic, category: 'Tools'},
+    {title: 'macOS / iOS', image: applePic, category: 'Tools'},
+    {title: 'Home Assistant', image: haPic, category: 'Tools'},
+    {title: 'Homebrew', image: homebrewPic, category: 'Tools'},
+    // Automation & Data
+    {title: 'n8n', image: n8nPic, category: 'Frameworks'},
+    {title: 'HTMX', image: htmxPic, category: 'Frameworks'},
+    {title: 'Framer Motion', image: framermotionPic, category: 'Frameworks'},
+    {title: 'Jupyter', image: jupyterPic, category: 'AI & LLMs'},
+    {title: 'Dragonfly', image: dragonflyPic, category: 'Databases'},
+    {title: 'Supabase', image: supabasePic, category: 'Databases'},
 ];
 
 /**

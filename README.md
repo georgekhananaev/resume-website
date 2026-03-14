@@ -86,11 +86,14 @@ Copy `.env.example` to `.env` and fill in your values:
 | `EMAILJS_PUBLIC_KEY` | Server | EmailJS public key |
 | `EMAILJS_PRIVATE_KEY` | Server | EmailJS private/access key |
 | `EMAILJS_TO_EMAIL` | Server | Recipient email for contact form |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Client | Google reCAPTCHA v2 site key |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Client | Google reCAPTCHA v3 site key |
+| `RECAPTCHA_SECRET_KEY` | Server | Google reCAPTCHA v3 secret key |
+| `NEXT_PUBLIC_DISABLE_RECAPTCHA` | Client | Set `true` to disable reCAPTCHA in dev |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Client | Google Search Console verification |
 | `GITHUB_USERNAME` | Server | GitHub username for stats section |
 | `GITHUB_PRIVATE_REPOS` | Server | Number of private repos (added to public count) |
 | `GITHUB_TOKEN` | Server | GitHub fine-grained token (for rate limits) |
+| `BIRTH_DATE` | Server | Birth date for dynamic age calculation (YYYY-MM-DD) |
 | `SITE_URL` | Build | Site URL for sitemap generation |
 
 ### Customize Content

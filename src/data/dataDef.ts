@@ -51,6 +51,7 @@ export interface PortfolioItem {
 export interface FavoriteTechItem {
     title: string;
     image: string | StaticImageData;
+    category: string;
 }
 
 export interface TimelineItem {
