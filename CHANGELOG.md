@@ -5,6 +5,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+- **seo**: `/llms.txt` endpoint for AI crawler discoverability
+- **seo**: Enriched JSON-LD with location, languages, education, occupation, and 30+ skills
+- **seo**: Explicit AI bot permissions in robots.txt (GPTBot, ClaudeBot, PerplexityBot, etc.)
 
 ### Changed
 - **readme**: Restored Netlify deploy status badge
