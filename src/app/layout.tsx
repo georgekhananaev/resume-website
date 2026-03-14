@@ -1,5 +1,7 @@
 import type {Metadata} from 'next';
 
+import RecaptchaProvider from '../components/RecaptchaProvider';
+
 import './globals.css';
 
 const description = "Results-oriented developer with extensive expertise in developing ecommerce automations and comprehensive Python-based business applications. Known for innovative thinking, consistently introducing fresh ideas and enhancements to drive project success.";
@@ -37,7 +39,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     return (
         <html lang="en">
             <body className="bg-black">
-                {children}
+                <RecaptchaProvider>
+                    {children}
+                </RecaptchaProvider>
             </body>
         </html>
     );

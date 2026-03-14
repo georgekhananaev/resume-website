@@ -53,8 +53,20 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({error: 'Missing required fields'}, {status: 400});
     }
 
-    if (!recaptchaToken && process.env.NODE_ENV !== 'development') {
-        return NextResponse.json({error: 'reCAPTCHA verification required'}, {status: 400});
+    // Verify reCAPTCHA server-side
+    if (process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA !== 'true') {
+        if (!recaptchaToken) {
+            return NextResponse.json({error: 'reCAPTCHA verification required'}, {status: 400});
+        }
+        const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+        });
+        const verifyData = await verifyRes.json();
+        if (!verifyData.success) {
+            return NextResponse.json({error: 'reCAPTCHA verification failed'}, {status: 400});
+        }
     }
 
     // Parse user agent from client or fallback to request header
@@ -92,12 +104,13 @@ export async function POST(request: NextRequest) {
         });
 
         if (!response.ok) {
-            const errorText = await response.text();
-            return NextResponse.json({error: errorText}, {status: 500});
+            console.error('EmailJS error:', await response.text());
+            return NextResponse.json({error: 'Failed to send message'}, {status: 500});
         }
 
         return NextResponse.json({text: 'OK'});
     } catch (error) {
-        return NextResponse.json({error: String(error)}, {status: 500});
+        console.error('Contact form error:', error);
+        return NextResponse.json({error: 'Failed to send message'}, {status: 500});
     }
 }

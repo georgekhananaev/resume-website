@@ -85,8 +85,7 @@ export const heroData: Hero = {
         <>
             <p className="prose-sm text-stone-50 sm:prose-base lg:prose-lg">
                 Israel based <strong className="text-sky-500">Full Stack Developer </strong> & <strong className="text-sky-200">Python</strong> enthusiast. <br></br> Currently
-                working at <strong className="text-sky-200">Moon Holidays</strong> as a Full Stack Developer & IT
-                Manager.
+                working at <strong className="text-sky-200">Moon Holidays</strong> as Head of Development.
             </p>
 
 
@@ -109,20 +108,30 @@ export const heroData: Hero = {
     ],
 };
 
+function calcAge(): string {
+    const bd = process.env.BIRTH_DATE;
+    if (!bd) return '';
+    const birth = new Date(bd);
+    const today = new Date();
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+    return String(age);
+}
+
 /**
  * About section
  */
 export const aboutData: About = {
     profileImageSrc: profilePic,
-    description: `
-I am a dedicated software developer boasting extensive experience in e-commerce automations and diverse Python-based business applications. Renowned for my non-traditional approach, I consistently introduce innovative ideas and enhancements to projects. Interestingly, beyond the realm of coding, I harbor a passion for globetrotting, having explored over 50 countries to date. Of all my travels, Japan left an indelible mark on me, capturing my heart with its rich culture and delectable cuisine. Motivated by this profound connection, I decided to channel my enthusiasm into a culinary pursuit. Delving into the intricacies of Japanese culture, I undertook the challenge of mastering the art of Japanese cuisine. Today, in addition to my role as a software developer, I take pride in my secret identity as a skilled sushi chef`,
+    description: `Full Stack Developer working across Python, TypeScript, and Swift, building enterprise-grade systems designed for scale. In the AI era, my focus has shifted from writing every line of code to architecting solutions that combine user experience, performance, and security at the highest level. I design multi-tenant platforms, real-time data pipelines, and AI-driven applications for corporations, not individuals. Every project I take on is built with scale, reliability, and long-term maintainability in mind. Beyond tech, I've explored over 50 countries and picked up the art of Japanese cuisine along the way.`,
     aboutItems: [
-        {label: 'Location', text: 'Center, Israel', Icon: MapIcon},
-        {label: 'Age', text: '35', Icon: CalendarIcon},
+        {label: 'Location', text: 'Bangkok, Thailand', Icon: MapIcon},
+        {label: 'Age', text: calcAge(), Icon: CalendarIcon},
         {label: 'Nationality', text: 'Israeli', Icon: FlagIcon},
         {label: 'Interests', text: 'Development, Technology, Cooking', Icon: SparklesIcon},
         {label: 'Study', text: 'HackerU Collage, Israel', Icon: AcademicCapIcon},
-        {label: 'Employment', text: 'Moon Holidays, Remote Developer', Icon: BuildingOfficeIcon},
+        {label: 'Employment', text: 'Moon Holidays, Head of Development', Icon: BuildingOfficeIcon},
     ],
 };
 
@@ -131,56 +140,57 @@ I am a dedicated software developer boasting extensive experience in e-commerce 
  */
 export const skills: SkillGroup[] = [
     {
-        name: 'Spoken languages',
+        name: 'AI & LLMs',
         skills: [
-            {
-                name: 'English',
-                level: 8,
-            },
-            {
-                name: 'Hebrew',
-                level: 10,
-            },
-            {
-                name: 'Russian',
-                level: 9,
-            },
+            {name: 'Claude Code / Codex CLI / Gemini CLI', level: 10},
+            {name: 'OpenAI API / Ollama', level: 9},
+            {name: 'LLM Integration', level: 9},
+            {name: 'Prompt Engineering', level: 9},
         ],
     },
     {
-        name: 'Frontend development',
+        name: 'Full Stack Development',
         skills: [
-            {
-                name: 'React',
-                level: 9,
-            },
-            {
-                name: 'JavaScript',
-                level: 9,
-            },
-            {
-                name: 'Typescript',
-                level: 6,
-            },
-
+            {name: 'Python / FastAPI', level: 10},
+            {name: 'TypeScript / Next.js / React', level: 9},
+            {name: 'Swift / macOS & iOS', level: 7},
+            {name: 'Node.js / Express', level: 8},
         ],
     },
     {
-        name: 'Backend development',
+        name: 'Architecture & Infrastructure',
         skills: [
-            {
-                name: 'Python',
-                level: 9.5,
-            }
+            {name: 'System Design / Multi-Tenant', level: 9},
+            {name: 'Docker / CI-CD / Cloud', level: 9},
+            {name: 'Database Design (SQL / NoSQL)', level: 9},
+            {name: 'Security & Performance', level: 9},
         ],
     },
     {
-        name: 'Mobile development',
+        name: 'Product & Design',
         skills: [
-            {
-                name: 'React Native',
-                level: 7,
-            }
+            {name: 'UI/UX Design', level: 8},
+            {name: 'Responsive & Mobile-First', level: 9},
+            {name: 'REST / GraphQL API Design', level: 9},
+            {name: 'Agile / Technical Leadership', level: 8},
+        ],
+    },
+    {
+        name: 'Spoken Languages',
+        skills: [
+            {name: 'Hebrew', level: 10},
+            {name: 'Russian', level: 9},
+            {name: 'English', level: 9},
+            {name: 'Thai', level: 1},
+        ],
+    },
+    {
+        name: 'DevOps & Tools',
+        skills: [
+            {name: 'Git / GitHub Actions', level: 9},
+            {name: 'Linux / SSH / Shell', level: 9},
+            {name: 'AWS / Oracle / Google Cloud', level: 9},
+            {name: 'Monitoring / Logging', level: 8},
         ],
     },
 ];
@@ -367,30 +377,57 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
     {
-        date: 'Dec 2022 - Present',
+        date: 'Mid 2025 - Present',
         location: 'Moon Holidays, Bangkok',
-        title: 'Full Stack Developer & IT Manager.',
+        title: 'Head of Development & IT Infrastructure',
         content: (
             <ul className='ml-5 list-disc'>
-                <li>As an IT Manager, I am dedicated to ensuring the security, reliability, and scalability of our
-                    organization's IT systems. My role involves strategically planning and implementing technologies and
-                    systems to enhance the overall efficiency and effectiveness of our operations. Beyond my core
-                    responsibilities, I actively engage in strategic planning and decision-making. Collaborating closely
-                    with executives and stakeholders, I ensure that our IT strategy aligns seamlessly with the broader
-                    goals and objectives of the organization.
+                <li>Leading the full engineering organization, overseeing architecture, development, and
+                    infrastructure across all company platforms and products.
                 </li>
-                <li>In a span of 5 months, I successfully conceptualized and developed an entire system to manage our
-                    offline contracts, attractions, hotels, and transportation services. This comprehensive system
-                    involved the creation of dozens of integrations with external APIs, including Agoda, Booking.com,
-                    Google Cloud, Cloudflare, Twilio, Firebase, and real-time currency exchange functionalities.
-                    Constructed entirely from scratch, the system utilizes Python and React Next.js, showcasing
-                    scalability and the incorporation of cutting-edge technologies. Noteworthy features include the
-                    utilization of Dragonfly in place of Redis for enhanced performance and encryption measures. The
-                    system is designed to be architecture-agnostic, capable of installation on any infrastructure, and
-                    operates within Docker containers, utilizing a NoSQL database to ensure flexibility and efficient
-                    deployment. This transformation significantly altered the way our company operates, leading to
-                    increased productivity and overall efficiency. This endeavor stands as a testament to my commitment
-                    to fostering innovation and efficiency within the organization.
+                <li>Expanding the platform ecosystem with B2B partner portal (travelpanel-b2b-nextjs),
+                    StaySync hotel integration system, and new client-facing products scheduled for 2026.
+                </li>
+                <li>Driving technical strategy, DevOps practices, cloud infrastructure, and security
+                    standards across the organization.
+                </li>
+            </ul>
+        ),
+    },
+    {
+        date: 'Dec 2024 - Mid 2025',
+        location: 'Moon Holidays, Bangkok',
+        title: 'Engineering Team Lead',
+        content: (
+            <ul className='ml-5 list-disc'>
+                <li>Promoted to lead the engineering team, managing developers and coordinating delivery
+                    across multiple products simultaneously.
+                </li>
+                <li>Architected and shipped Support Hub, Travel Offer booking engine, Live Deck
+                    presentation system, real-time WebSocket server for notifications and chat,
+                    and a Vercel deployment controller with async job processing.
+                </li>
+                <li>Established microservices architecture patterns, code review processes, and
+                    deployment pipelines used across the team.
+                </li>
+            </ul>
+        ),
+    },
+    {
+        date: 'Dec 2022 - Dec 2024',
+        location: 'Moon Holidays, Bangkok',
+        title: 'Full Stack Developer',
+        content: (
+            <ul className='ml-5 list-disc'>
+                <li>Designed and built Travel Panel from scratch, a multi-tenant enterprise platform
+                    using FastAPI (Python) and Next.js (TypeScript), covering both the core API
+                    (travelpanel-fastapi) and client portal (travelpanel-nextjs).
+                </li>
+                <li>Integrated dozens of external APIs including Agoda, Booking.com, Google Cloud,
+                    Cloudflare, Twilio, Firebase, and real-time currency exchange services.
+                </li>
+                <li>Built infrastructure-agnostic deployments using Docker, Dragonfly (Redis alternative),
+                    NoSQL databases, and queue-based async architecture.
                 </li>
             </ul>
         ),
@@ -458,6 +495,18 @@ export const testimonial: TestimonialSection = {
             text: "Any problem, malfunction or other hardware or software related issue that so called experts can't find or refuse to handle with hundred of excuses such as: not worth it, impossible. George probably will do quickly and hassle free. Very glad that I've met him and always able to direct to him some of my challenges. For sure, one of the most talented guys I've ever met.",
             image: '/testimonials/marina.webp',
             alt: "מרינה רפפורט - לוחמת בצהל לשעבר, בעלת תואר ביחסי מדינה וחוץ ועובדת ממשלתית",
+        },
+        {
+            name: 'Zahi Bella',
+            text: "George is a true leader and an exceptionally talented developer who consistently thinks outside the box. He approaches every challenge with creativity and delivers results that exceed expectations. His drive for performance and excellence sets him apart.",
+            image: '/testimonials/zahi.webp',
+            alt: "Zahi Bella - CEO of Moon Holidays",
+        },
+        {
+            name: 'Lior R.',
+            text: "One of the most talented and dedicated people I've ever worked with. George brings a rare combination of deep technical skill and genuine commitment to every project. He doesn't just write code, he solves problems and makes sure everything works flawlessly.",
+            image: '/testimonials/lior.webp',
+            alt: "Lior R.",
         },
     ],
 };
