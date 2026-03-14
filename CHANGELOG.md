@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [4.1.0] - 2026-03-15
+
+### Added
 - **seo**: `/llms.txt` endpoint for AI crawler discoverability
 - **seo**: Enriched JSON-LD with location, languages, education, occupation, and 30+ skills
 - **seo**: Explicit AI bot permissions in robots.txt (GPTBot, ClaudeBot, PerplexityBot, etc.)
