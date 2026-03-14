@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [4.0.0] - 2026-03-14
+
+### Added
 - **seo**: OpenGraph, Twitter Card, and JSON-LD structured data metadata
 - **seo**: Canonical URLs with language alternates and format detection
 - **seo**: PWA icons (apple-touch-icon, icon-192, icon-512) and web manifest
