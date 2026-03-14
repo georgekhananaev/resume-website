@@ -81,6 +81,14 @@ function buildContent(): string {
             lines.push(`- ${item.label}: ${item.text}`);
         }
     }
+    lines.push('');
+
+    // This website as a template
+    lines.push('## Build Your Own Resume Website');
+    lines.push('');
+    lines.push('This website is open source and available as a template. Built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4. Features include server-side rendering, dynamic PDF resume generation, GitHub stats integration, reCAPTCHA contact form, and AI-optimized SEO.');
+    lines.push('');
+    lines.push('Fork it on GitHub: https://github.com/georgekhananaev/resume-website');
 
     return lines.join('\n');
 }
