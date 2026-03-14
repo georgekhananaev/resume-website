@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="20" fill="transparent"/>
+  <!-- Icon: magnifying glass with star reviews -->
+  <circle cx="185" cy="110" r="60" fill="none" stroke="#f59e0b" stroke-width="5"/>
+  <path d="M230 150 L270 190" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+  <!-- Stars inside magnifier -->
+  <path d="M160 100 L163 108 L172 108 L165 113 L167 122 L160 117 L153 122 L155 113 L148 108 L157 108Z" fill="#fbbf24"/>
+  <path d="M190 90 L193 98 L202 98 L195 103 L197 112 L190 107 L183 112 L185 103 L178 98 L187 98Z" fill="#fbbf24"/>
+  <path d="M175 125 L177 130 L183 130 L179 134 L180 139 L175 136 L170 139 L171 134 L167 130 L173 130Z" fill="#fbbf24" opacity="0.7"/>
+  <!-- Review lines -->
+  <rect x="130" y="210" width="140" height="10" rx="5" fill="#fbbf24" opacity="0.6"/>
+  <rect x="145" y="226" width="110" height="10" rx="5" fill="#fbbf24" opacity="0.4"/>
+  <!-- Labels -->
+  <text x="200" y="280" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="700">Google Reviews</text>
+  <text x="200" y="308" text-anchor="middle" fill="#d4d4d4" font-family="system-ui" font-size="16">Scraper Pro</text>
+  <text x="200" y="386" text-anchor="middle" fill="#f59e0b" font-family="system-ui" font-size="14" font-weight="600">Python</text>
+</svg>

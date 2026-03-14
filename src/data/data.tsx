@@ -1,18 +1,15 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';
-
 import {
     AcademicCapIcon,
+    BuildingOfficeIcon,
     CalendarIcon,
-    DownloadIcon,
     FlagIcon,
     MapIcon,
-    OfficeBuildingIcon,
     SparklesIcon,
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import TextAnimation from '../components/TextAnimation'
+import TextAnimation from '../components/TextAnimation';
 import awsPic from '../images/favtech/aws.webp';
 import clickUpPic from '../images/favtech/clickup.webp';
 import dockerPic from '../images/favtech/docker.webp';
@@ -36,35 +33,28 @@ import sshPic from '../images/favtech/ssh.webp';
 import ubuntuPic from '../images/favtech/ubuntu.webp';
 import vmwarePic from '../images/favtech/vmware.webp';
 import heroImage from '../images/header-background.webp';
-import mediaRobot from '../images/portfolio/mediarobot.webp';
-import pyImageCompressor from '../images/portfolio/py-impage-compressor.webp';
-import resumeWebsite from '../images/portfolio/resume_website.webp';
-import topTen from '../images/portfolio/top10.webp';
+import claudeSkillsVault from '../images/portfolio/claude-skills-vault.svg';
+import darkthemeAuthFastapi from '../images/portfolio/darktheme-auth-fastapi.svg';
+import excelAiAssistant from '../images/portfolio/excel-ai-assistant.svg';
+import fastapiDocshield from '../images/portfolio/fastapi-docshield.svg';
+import googleReviewsScraper from '../images/portfolio/google-reviews-scraper-pro.svg';
+import pyImageCompressor from '../images/portfolio/py-image-compressor.svg';
+import pynextstack from '../images/portfolio/pynextstack.svg';
+import sparkClean from '../images/portfolio/spark-clean.svg';
 import profilePic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
-
 import {
     About,
     ContactSection,
     ContactType,
     FavoriteTechItem,
     Hero,
-    HomepageMeta,
     PortfolioItem,
     SkillGroup,
     Social,
     TestimonialSection,
     TimelineItem,
 } from './dataDef';
-
-/**
- * Page meta data
- */
-export const homePageMeta: HomepageMeta = {
-    title: 'George Khananaev',
-    description: "Results-oriented developer with extensive expertise in developing ecommerce automations and comprehensive Python-based business applications. Known for innovative thinking, consistently introducing fresh ideas and enhancements to drive project success.",
-    image: "/george_khanaanev_profile.webp",
-};
 
 /**
  * Section definition
@@ -78,7 +68,8 @@ export const SectionId = {
     Skills: 'skills',
     Stats: 'stats',
     Testimonials: 'testimonials',
-    FavoriteTech: "favoritetech"
+    FavoriteTech: "favoritetech",
+    Github: "github",
 
 } as const;
 
@@ -93,8 +84,7 @@ export const heroData: Hero = {
     description: (
         <>
             <p className="prose-sm text-stone-50 sm:prose-base lg:prose-lg">
-                Israel based <strong className="text-sky-500">Full Stack Developer </strong> & <i
-                className="text-sky-200 fa-brands fa-python"> Python</i> enthusiast. <br></br> Currently
+                Israel based <strong className="text-sky-500">Full Stack Developer </strong> & <strong className="text-sky-200">Python</strong> enthusiast. <br></br> Currently
                 working at <strong className="text-sky-200">Moon Holidays</strong> as a Full Stack Developer & IT
                 Manager.
             </p>
@@ -103,11 +93,6 @@ export const heroData: Hero = {
             <div className='lg:flex-row text-left bg-black w-4/5 p-2 rounded-lg'>
                 <div className='text-stone-300'><TextAnimation/></div>
             </div>
-
-            {/* <p className="prose-sm text-stone-300 sm:prose-base">
-        
-         <i className="text-yellow-500 fa-regular fa-face-laugh-wink"></i>
-      </p> */}
         </>
     ),
     actions: [
@@ -115,7 +100,6 @@ export const heroData: Hero = {
             href: 'https://drive.google.com/file/d/1LJCYke8E7Tih2iHRmxVeTjhIBWSxWPMk/view?usp=sharing',
             text: 'Resume',
             primary: true,
-            Icon: DownloadIcon,
         },
         {
             href: `#${SectionId.Contact}`,
@@ -138,7 +122,7 @@ I am a dedicated software developer boasting extensive experience in e-commerce 
         {label: 'Nationality', text: 'Israeli', Icon: FlagIcon},
         {label: 'Interests', text: 'Development, Technology, Cooking', Icon: SparklesIcon},
         {label: 'Study', text: 'HackerU Collage, Israel', Icon: AcademicCapIcon},
-        {label: 'Employment', text: 'Moon Holidays, Remote Developer', Icon: OfficeBuildingIcon},
+        {label: 'Employment', text: 'Moon Holidays, Remote Developer', Icon: BuildingOfficeIcon},
     ],
 };
 
@@ -206,30 +190,61 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
     {
-        title: 'Top10',
-        description: 'React, Python, MySql based AI websites engine that building itself automatically. Building it own content, graphics, articles and also promoting it own content by google ads and self managing promoted campaigns based on statistics and income.',
-        url: 'https://github.com/georgekhananaev',
-        image: topTen,
+        title: 'Google Reviews Scraper Pro',
+        description: 'A powerful Google Maps review scraper that extracts multi-language reviews with images, handles MongoDB integration, and bypasses detection. Features incremental scraping, image downloading, and URL replacement.',
+        url: 'https://github.com/georgekhananaev/google-reviews-scraper-pro',
+        image: googleReviewsScraper,
+        stars: 134,
     },
     {
-        title: 'MediaRobot',
-        description: "Pure Python Bot. Which is extracting fresh data from marketplaces such as AliExpress and Amazon and then creating video based reviews. All videos uploaded by API to YouTube. Driving affiliated traffic and creating income automatically. Click Here for Video Sample.",
-        url: 'https://www.youtube.com/watch?v=PeguOBRrJXM',
-        image: mediaRobot,
-    },
-    {
-        title: 'Resume Website',
-        description: "This is my personal resume website. React, JS, TYPESCRIPT based. It based on open source code, however many key features added and fixed by me. More features will be added... Click Here for Source Code.",
-        url: 'https://github.com/georgekhananaev/resume-website',
-        image: resumeWebsite,
+        title: 'Excel AI Assistant',
+        description: 'A Python desktop application that enhances Excel and CSV files using AI transformations. Features dual AI backends (OpenAI API and local Ollama), customizable prompt templates, and batch processing.',
+        url: 'https://github.com/georgekhananaev/excel-ai-assistant',
+        image: excelAiAssistant,
+        stars: 61,
     },
     {
         title: 'py-image-compressor',
-        description: "Open-Source small weight Python based tool. This tool convert multiple images at once to modern formats such as webp. Can speed up any website with a single command.",
+        description: 'Efficient software for swift compression, conversion, and resizing of multiple images simultaneously. Supports modern formats like WebP.',
         url: 'https://github.com/georgekhananaev/py-image-compressor',
         image: pyImageCompressor,
+        stars: 36,
     },
-
+    {
+        title: 'PyNextStack',
+        description: 'Full-Stack User Management System with Next.js frontend and FastAPI backend. Features registration, authentication, profile management, and Material-UI interface.',
+        url: 'https://github.com/georgekhananaev/PyNextStack',
+        image: pynextstack,
+        stars: 25,
+    },
+    {
+        title: 'Spark Clean',
+        description: 'Free, open-source macOS storage and cache cleaner built for developers. Scans Docker, Xcode, Node.js, Ollama, JetBrains, Homebrew, and more.',
+        url: 'https://github.com/georgekhananaev/spark-clean',
+        image: sparkClean,
+        stars: 16,
+    },
+    {
+        title: 'FastAPI DocShield',
+        description: 'A simple FastAPI integration to protect documentation endpoints with HTTP Basic Authentication.',
+        url: 'https://github.com/georgekhananaev/fastapi-docshield',
+        image: fastapiDocshield,
+        stars: 13,
+    },
+    {
+        title: 'Claude Skills Vault',
+        description: 'A curated collection of high-impact skills for Claude Code designed to supercharge the senior full-stack workflow. Automates architectural reviews, TDD cycles, and PR management.',
+        url: 'https://github.com/georgekhananaev/claude-skills-vault',
+        image: claudeSkillsVault,
+        stars: 10,
+    },
+    {
+        title: 'Dark Theme Auth FastAPI Server',
+        description: 'A versatile FastAPI server template with authentication-protected endpoints, Redis caching, comprehensive logging, and a custom dark theme for API documentation.',
+        url: 'https://github.com/georgekhananaev/darktheme-auth-fastapi-server',
+        image: darkthemeAuthFastapi,
+        stars: 10,
+    },
 ];
 
 /**
@@ -327,7 +342,7 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
 ];
 
 /**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Resume section
  */
 export const education: TimelineItem[] = [
     {
@@ -453,22 +468,17 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
     headerText: 'Get in touch.',
-    description: 'Feel free to reach out to me either via email or by conveniently completing the contact form. I am also available for remote job opportunities and excited to discuss potential collaborations.',
+    description: 'Available for remote opportunities and open to collaborations. For faster responses on serious inquiries, include your WhatsApp number and I will reach out directly. Email responses may take a few days.',
     items: [
         {
-            type: ContactType.Email,
-            text: 'georgekhananaev@gmail.com',
-            href: 'mailto:georgekhananaev@gmail.com',
-        },
-        {
-            type: ContactType.Location,
-            text: 'Center, Israel',
-            href: 'https://www.google.com/maps/place/hadera',
-        },
-        {
             type: ContactType.Github,
-            text: 'georgekhananaev',
+            text: 'github.com/georgekhananaev',
             href: 'https://github.com/georgekhananaev',
+        },
+        {
+            type: ContactType.LinkedIn,
+            text: 'linkedin.com/in/georgekhananaev',
+            href: 'https://www.linkedin.com/in/georgekhananaev/',
         },
     ],
 };

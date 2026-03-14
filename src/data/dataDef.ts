@@ -1,30 +1,12 @@
 import {StaticImageData} from 'next/image';
-import {FC, SVGProps} from 'react';
+import {ReactNode, SVGProps} from 'react';
 
 import {IconProps} from '../components/Icon/Icon';
 
-export interface HomepageMeta {
-    title: string;
-    description: string;
-    image: string;
-    ogImageUrl?: string;
-    twitterCardType?: 'summary' | 'summary_large';
-    twitterTitle?: string;
-    twitterSite?: string;
-    twitterCreator?: string;
-    twitterDomain?: string;
-    twitterUrl?: string;
-    twitterDescription?: string;
-    twitterImageUrl?: string;
-}
-
-/**
- * Hero section
- */
 export interface Hero {
-    imageSrc: string;
+    imageSrc: string | StaticImageData;
     name: string;
-    description: JSX.Element;
+    description: ReactNode;
     actions: HeroActionItem[];
 }
 
@@ -32,14 +14,11 @@ interface HeroActionItem {
     href: string;
     text: string;
     primary?: boolean;
-    Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+    Icon?: (props: SVGProps<SVGSVGElement>) => ReactNode;
 }
 
-/**
- * About section
- */
 export interface About {
-    profileImageSrc?: string;
+    profileImageSrc?: string | StaticImageData;
     description: string;
     aboutItems: AboutItem[];
 }
@@ -47,21 +26,8 @@ export interface About {
 export interface AboutItem {
     label: string;
     text: string;
-    Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+    Icon?: (props: SVGProps<SVGSVGElement>) => ReactNode;
 }
-
-/**
- * Stat section
- */
-export interface Stat {
-    title: string;
-    value: number;
-    Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-}
-
-/**
- * Skills section
- */
 
 export interface Skill {
     name: string;
@@ -74,14 +40,12 @@ export interface SkillGroup {
     skills: Skill[];
 }
 
-/**
- * Portfolio section
- */
 export interface PortfolioItem {
     title: string;
     description: string;
     url: string;
     image: string | StaticImageData;
+    stars?: number;
 }
 
 export interface FavoriteTechItem {
@@ -89,19 +53,13 @@ export interface FavoriteTechItem {
     image: string | StaticImageData;
 }
 
-/**
- * Resume section
- */
 export interface TimelineItem {
     date: string;
     location: string;
     title: string;
-    content: JSX.Element;
+    content: ReactNode;
 }
 
-/**
- * Testimonial section
- */
 export interface TestimonialSection {
     imageSrc?: string | StaticImageData;
     testimonials: Testimonial[];
@@ -114,9 +72,6 @@ export interface Testimonial {
     alt: string;
 }
 
-/**
- * Contact section
- */
 export interface ContactSection {
     headerText?: string;
     description: string;
@@ -124,14 +79,8 @@ export interface ContactSection {
 }
 
 export const ContactType = {
-    Email: 'Email',
-    Phone: 'Phone',
-    Location: 'Location',
     Github: 'Github',
     LinkedIn: 'LinkedIn',
-    Facebook: 'Facebook',
-    Twitter: 'Twitter',
-    Instagram: 'Instagram',
 } as const;
 
 export type ContactType = typeof ContactType[keyof typeof ContactType];
@@ -143,15 +92,12 @@ export interface ContactItem {
 }
 
 export interface ContactValue {
-    Icon: FC<IconProps> | ((props: SVGProps<SVGSVGElement>) => JSX.Element);
+    Icon: ((props: IconProps) => ReactNode) | ((props: SVGProps<SVGSVGElement>) => ReactNode);
     srLabel: string;
 }
 
-/**
- * Social items
- */
 export interface Social {
     label: string;
-    Icon: FC<IconProps>;
+    Icon: (props: IconProps) => ReactNode;
     href: string;
 }

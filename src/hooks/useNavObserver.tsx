@@ -1,60 +1,58 @@
 import {useEffect} from 'react';
 
-import {headerID} from '../components/Sections/Header';
 import {SectionId} from '../data/data';
 
 export const useNavObserver = (selectors: string, handler: (section: SectionId | null) => void) => {
     useEffect(() => {
-        // Get all sections
-        const headings = document.querySelectorAll(selectors);
-        const headingsArray = Array.from(headings);
-        const headerWrapper = document.getElementById(headerID);
+        const sections = Array.from(document.querySelectorAll(selectors));
+        if (!sections.length) return;
 
-        // Create the IntersectionObserver API
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    const currentY = entry.boundingClientRect.y;
-                    const id = entry.target.getAttribute('id');
-                    if (headerWrapper) {
-                        // Create a decision object
-                        const decision = {
-                            id,
-                            currentIndex: headingsArray.findIndex(heading => heading.getAttribute('id') === id),
-                            isIntersecting: entry.isIntersecting,
-                            currentRatio: entry.intersectionRatio,
-                            aboveToc: currentY < headerWrapper.getBoundingClientRect().y,
-                            belowToc: !(currentY < headerWrapper.getBoundingClientRect().y),
-                        };
-                        if (decision.isIntersecting) {
-                            // Header at 30% from the top, update to current header
-                            handler(decision.id as SectionId);
-                        } else if (
-                            !decision.isIntersecting &&
-                            decision.currentRatio < 1 &&
-                            decision.currentRatio > 0 &&
-                            decision.belowToc
-                        ) {
-                            const currentVisible = headingsArray[decision.currentIndex - 1]?.getAttribute('id');
-                            handler(currentVisible as SectionId);
-                        }
-                    }
+        let ticking = false;
+
+        const update = () => {
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+
+            // If at the bottom of page, select last section
+            if (scrollY + viewportHeight >= docHeight - 50) {
+                const id = sections[sections.length - 1]?.getAttribute('id');
+                if (id) handler(id as SectionId);
+                return;
+            }
+
+            // Find the section whose top is closest to (but above) the viewport top + offset
+            const offset = viewportHeight * 0.3;
+            let active: string | null = null;
+
+            for (const section of sections) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= offset) {
+                    active = section.getAttribute('id');
+                }
+            }
+
+            if (active) {
+                handler(active as SectionId);
+            }
+        };
+
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    update();
+                    ticking = false;
                 });
-            },
-            {
-                root: null,
-                threshold: 0.1,
-                rootMargin: '0px 0px -70% 0px',
-            },
-        );
-        // Observe all the Sections
-        headings.forEach(section => {
-            observer.observe(section);
-        });
-        // Cleanup
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, {passive: true});
+        update();
+
         return () => {
-            observer.disconnect();
+            window.removeEventListener('scroll', onScroll);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []); // Dependency here is the post content.
+    }, []);
 };

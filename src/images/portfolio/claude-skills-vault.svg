@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="20" fill="transparent"/>
+  <!-- Vault box -->
+  <rect x="120" y="40" width="160" height="160" rx="14" fill="#1e1040" stroke="#a78bfa" stroke-width="2.5"/>
+  <circle cx="200" cy="95" r="30" fill="#7c3aed"/>
+  <text x="200" y="103" text-anchor="middle" fill="white" font-family="system-ui" font-size="20" font-weight="800">C</text>
+  <rect x="148" y="140" width="104" height="7" rx="3.5" fill="#a78bfa" opacity="0.5"/>
+  <rect x="155" y="154" width="90" height="7" rx="3.5" fill="#a78bfa" opacity="0.35"/>
+  <rect x="162" y="168" width="76" height="7" rx="3.5" fill="#a78bfa" opacity="0.2"/>
+  <!-- Skill cards -->
+  <rect x="75" y="218" width="80" height="42" rx="8" fill="#0f1f3a" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="115" y="244" text-anchor="middle" fill="#60a5fa" font-family="system-ui" font-size="14" font-weight="600">TDD</text>
+  <rect x="162" y="218" width="80" height="42" rx="8" fill="#0a2818" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="202" y="244" text-anchor="middle" fill="#4ade80" font-family="system-ui" font-size="14" font-weight="600">Review</text>
+  <rect x="249" y="218" width="80" height="42" rx="8" fill="#2a0a0a" stroke="#f87171" stroke-width="1.5"/>
+  <text x="289" y="244" text-anchor="middle" fill="#f87171" font-family="system-ui" font-size="14" font-weight="600">Deploy</text>
+  <!-- Labels -->
+  <text x="200" y="308" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="700">Claude Skills Vault</text>
+  <text x="200" y="336" text-anchor="middle" fill="#d4d4d4" font-family="system-ui" font-size="16">AI Dev Automation</text>
+  <text x="200" y="386" text-anchor="middle" fill="#a78bfa" font-family="system-ui" font-size="14" font-weight="600">Python</text>
+</svg>

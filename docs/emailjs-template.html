@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>New Message</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center" style="padding: 40px 16px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 520px;">
+
+          <!-- Accent bar -->
+          <tr>
+            <td style="height: 3px; background-color: #f97316; font-size: 0; line-height: 0;">&nbsp;</td>
+          </tr>
+
+          <!-- Card -->
+          <tr>
+            <td style="background-color: #ffffff; padding: 32px; border: 1px solid #e5e7eb; border-top: none;">
+
+              <!-- Header -->
+              <div style="font-size: 11px; font-weight: 600; color: #f97316; text-transform: uppercase; letter-spacing: 1.5px;">New Inquiry</div>
+              <div style="font-size: 22px; font-weight: 700; color: #111111; margin-top: 4px;">{{from_name}}</div>
+              <div style="margin-top: 16px; height: 1px; background-color: #f0f0f0;"></div>
+
+              <!-- Contact details -->
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 20px;">
+                <tr>
+                  <td style="padding-bottom: 12px;">
+                    <div style="font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px;">Email</div>
+                    <a href="mailto:{{from_email}}" style="font-size: 14px; color: #111111; text-decoration: none;">{{from_email}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding-bottom: 12px;">
+                    <div style="font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px;">WhatsApp</div>
+                    <a href="https://wa.me/{{from_phone}}" style="font-size: 14px; color: #111111; text-decoration: none;">{{from_phone}}</a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Message -->
+              <div style="margin-top: 8px; height: 1px; background-color: #f0f0f0;"></div>
+              <div style="font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 20px; margin-bottom: 10px;">Message</div>
+              <div style="font-size: 15px; line-height: 1.7; color: #1f2937; white-space: pre-wrap; word-wrap: break-word;">{{message}}</div>
+
+              <!-- Actions -->
+              <div style="margin-top: 28px;">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="mailto:{{from_email}}?subject=Re: Your message" style="height:36px;v-text-anchor:middle;width:140px;" arcsize="50%" strokecolor="#f97316" strokeweight="1px" fillcolor="#ffffff"><center style="color:#f97316;font-family:sans-serif;font-size:13px;font-weight:600;">Reply by Email</center></v:roundrect><![endif]-->
+                      <a href="mailto:{{from_email}}?subject=Re: Your message on george.khananaev.com" style="display: inline-block; padding: 9px 20px; font-size: 13px; font-weight: 600; color: #f97316; text-decoration: none; border: 1px solid #f97316;">Reply by Email</a>
+                    </td>
+                    <td style="width: 10px;"></td>
+                    <td>
+                      <a href="https://wa.me/{{from_phone}}" style="display: inline-block; padding: 9px 20px; font-size: 13px; font-weight: 600; color: #25d366; text-decoration: none; border: 1px solid #25d366;">WhatsApp</a>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Device info (outside card) -->
+          <tr>
+            <td style="padding: 20px 4px 0 4px;">
+              <div style="font-size: 11px; color: #c0c0c0; line-height: 1.6;">
+                {{user_browser}} {{user_version}} &middot; {{user_os}} &middot; {{user_platform}} &middot; {{user_referrer}}
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,17 +1,18 @@
-import classNames from 'classnames';
-import {FC, memo} from 'react';
+import clsx from 'clsx';
+import {ReactNode} from 'react';
 
 import {SectionId} from '../../data/data';
 
-const Section: FC<{ sectionId: SectionId; sectionTitle?: string; noPadding?: boolean; className?: string }> = memo(
-    ({children, sectionId, noPadding = false, className}) => {
-        return (
-            <section className={classNames(className, {'px-4 py-12 md:py-16 lg:px-8': !noPadding})} id={sectionId}>
-                <div className={classNames({'mx-auto max-w-screen-lg': !noPadding})}>{children}</div>
-            </section>
-        );
-    },
-);
-
-Section.displayName = 'Section';
-export default Section;
+export default function Section({children, sectionId, noPadding = false, className}: {
+    children: ReactNode;
+    sectionId: SectionId;
+    sectionTitle?: string;
+    noPadding?: boolean;
+    className?: string;
+}) {
+    return (
+        <section className={clsx(className, {'px-4 py-10 sm:px-6 sm:py-12 md:py-16 lg:px-8': !noPadding})} id={sectionId}>
+            <div className={clsx({'mx-auto max-w-screen-lg': !noPadding})}>{children}</div>
+        </section>
+    );
+}

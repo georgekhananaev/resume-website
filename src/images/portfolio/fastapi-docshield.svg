@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="20" fill="transparent"/>
+  <!-- Shield -->
+  <path d="M200 45 L275 85 L275 165 L200 210 L125 165 L125 85 Z" fill="none" stroke="#22c55e" stroke-width="4"/>
+  <path d="M200 60 L265 95 L265 158 L200 198 L135 158 L135 95 Z" fill="#166534" opacity="0.3"/>
+  <!-- Checkmark -->
+  <path d="M175 120 L195 140 L230 105" fill="none" stroke="#4ade80" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- API endpoint bars -->
+  <rect x="115" y="225" width="170" height="10" rx="5" fill="#0f1f3a"/>
+  <rect x="115" y="225" width="120" height="10" rx="5" fill="#3b82f6"/>
+  <rect x="115" y="242" width="170" height="10" rx="5" fill="#0f1f3a"/>
+  <rect x="115" y="242" width="140" height="10" rx="5" fill="#3b82f6" opacity="0.7"/>
+  <!-- Labels -->
+  <text x="200" y="300" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="700">FastAPI DocShield</text>
+  <text x="200" y="328" text-anchor="middle" fill="#d4d4d4" font-family="system-ui" font-size="16">API Auth Protection</text>
+  <text x="200" y="386" text-anchor="middle" fill="#22c55e" font-family="system-ui" font-size="14" font-weight="600">Python</text>
+</svg>

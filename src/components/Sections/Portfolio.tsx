@@ -1,32 +1,51 @@
-/* eslint-disable */
+'use client';
 
-import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
-import {portfolioItems, SectionId} from '../../data/data';
-
-import {ExternalLinkIcon} from '@heroicons/react/outline';
+import {ArrowTopRightOnSquareIcon, StarIcon} from '@heroicons/react/24/outline';
+import clsx from 'clsx';
 import Image from 'next/image';
-import {PortfolioItem} from '../../data/dataDef';
-import Section from '../Layout/Section';
-import classNames from 'classnames';
-import {isMobile} from '../../config';
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
+import {MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
 
-const Portfolio: FC = memo(() => {
+import {isMobile} from '../../config';
+import {portfolioItems, SectionId} from '../../data/data';
+import {PortfolioItem} from '../../data/dataDef';
+import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
+import CardBackground from '../CardBackground';
+import Section from '../Layout/Section';
+
+export default function Portfolio() {
     return (
-        <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
-            <div className="flex flex-col gap-y-8">
-                <h2 className="self-center text-2xl font-bold text-white">Check out some of my work</h2>
-                <div className="w-full columns-2 md:columns-4 lg:columns-4 mb-6">
+        <Section className="relative overflow-hidden bg-neutral-800" sectionId={SectionId.Portfolio}>
+            {/* Floating background orbs */}
+            <div className="pointer-events-none absolute inset-0">
+                <div className="absolute left-[10%] top-[20%] h-64 w-64 rounded-full bg-orange-500/5 blur-3xl" style={{animation: 'orb-float-1 12s ease-in-out infinite'}} />
+                <div className="absolute right-[15%] top-[50%] h-48 w-48 rounded-full bg-blue-500/5 blur-3xl" style={{animation: 'orb-float-2 15s ease-in-out infinite'}} />
+                <div className="absolute bottom-[10%] left-[40%] h-56 w-56 rounded-full bg-purple-500/5 blur-3xl" style={{animation: 'orb-float-3 18s ease-in-out infinite'}} />
+            </div>
+
+            <div className="relative flex flex-col gap-y-8">
+                <div className="flex flex-col items-center gap-y-2">
+                    <h2 className="text-2xl font-bold text-white">Check out some of my public work</h2>
+                    <p className="max-w-2xl text-center text-sm text-neutral-400">
+                        Beyond open source, I design and build multi-tenant enterprise applications end to end,
+                        from architecture to deployment. My private work includes AI-driven platforms, full-stack
+                        travel systems, e-commerce automation engines, and real-time data pipelines for corporations.
+                    </p>
+                </div>
+                <div className="mb-6 w-full columns-1 sm:columns-2 md:columns-3 lg:columns-4">
                     {portfolioItems.map((item, index) => {
-                        const {title, image} = item;
+                        const {title, image, stars} = item;
                         return (
-                            <div className="pb-3" key={`${title}-${index}`}>
-                                <div
-                                    className={classNames(
-                                        'relative h-full w-full overflow-hidden',
-                                    )}>
-                                    <Image className="rounded-lg" alt={title} src={image}/>
-                                    <ItemOverlay item={item}/>
+                            <div className="pb-4" key={`${title}-${index}`}>
+                                <div className="portfolio-card relative h-full w-full overflow-hidden">
+                                    <CardBackground seed={index} />
+                                    <Image alt={title} className="relative rounded-xl" src={image} />
+                                    {stars !== undefined && stars > 0 && (
+                                        <span className="absolute left-2 top-2 z-[5] flex items-center gap-1 rounded-full bg-black/70 px-2 py-0.5 text-xs font-medium text-yellow-400 backdrop-blur-sm">
+                                            <StarIcon className="h-3 w-3" />
+                                            {stars}
+                                        </span>
+                                    )}
+                                    <ItemOverlay item={item} />
                                 </div>
                             </div>
                         );
@@ -35,18 +54,14 @@ const Portfolio: FC = memo(() => {
             </div>
         </Section>
     );
-});
+}
 
-Portfolio.displayName = 'Portfolio';
-export default Portfolio;
-
-const ItemOverlay: FC<{ item: PortfolioItem }> = memo(({item: {url, title, description}}) => {
+function ItemOverlay({item: {url, title, description}}: {item: PortfolioItem}) {
     const [mobile, setMobile] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
     const linkRef = useRef<HTMLAnchorElement>(null);
 
     useEffect(() => {
-        // Avoid hydration styling errors by setting mobile in useEffect
         if (isMobile) {
             setMobile(true);
         }
@@ -65,23 +80,23 @@ const ItemOverlay: FC<{ item: PortfolioItem }> = memo(({item: {url, title, descr
 
     return (
         <a
-            className={classNames(
-                'absolute inset-0 rounded-lg custom-h-full w-full  bg-gray-900 transition-all duration-300',
-                {'opacity-0 hover:opacity-80': !mobile},
-                showOverlay ? 'opacity-80' : 'opacity-0',
+            className={clsx(
+                'absolute inset-0 z-10 rounded-xl custom-h-full w-full bg-gradient-to-t from-black/90 via-gray-900/80 to-gray-900/60 transition-all duration-300',
+                {'opacity-0 hover:opacity-100': !mobile},
+                showOverlay ? 'opacity-100' : 'opacity-0',
             )}
             href={url}
             onClick={handleItemClick}
             ref={linkRef}
             target="_blank">
             <div className="relative h-full w-full p-4">
-                <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto">
-                    <h2 className="text-center font-bold text-white opacity-100">{title}</h2>
-                    <p className="text-base text-stone-100 opacity-100 sm:text-base">{description}</p>
+                <div className="portfolio-scroll flex h-full w-full flex-col gap-y-2 overflow-y-auto">
+                    <h2 className="text-center font-bold text-white">{title}</h2>
+                    <p className="text-sm text-stone-200">{description}</p>
                 </div>
-                <ExternalLinkIcon
-                    className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2"/>
+                <ArrowTopRightOnSquareIcon
+                    className="absolute bottom-2 right-2 h-4 w-4 shrink-0 text-orange-400" />
             </div>
         </a>
     );
-});
+}

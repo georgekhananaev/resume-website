@@ -1,27 +1,27 @@
-/* eslint-disable */
+'use client';
 
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 
-function MatrixBackground({timeout}) {
-    const canvas = useRef(null);
+export default function MatrixBackground({timeout}: {timeout: number}) {
+    const canvas = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        const context = canvas.current.getContext('2d');
+        const canvasEl = canvas.current;
+        if (!canvasEl) return;
+
+        const context = canvasEl.getContext('2d');
+        if (!context) return;
 
         const width = document.body.offsetWidth;
         const height = document.body.offsetHeight;
-        canvas.current.width = width;
-        canvas.current.height = height;
+        canvasEl.width = width;
+        canvasEl.height = height;
 
         context.fillStyle = '#000';
         context.fillRect(0, 0, width, height);
 
-        // calculate how many 'lines' to show and animate
         const columns = Math.floor(width / 20) + 1;
-        const yPositions = Array.from({length: columns}).fill(0);
-
-        context.fillStyle = '#000';
-        context.fillRect(0, 0, width, height);
+        const yPositions = Array.from({length: columns}).fill(0) as number[];
 
         const matrixEffect = () => {
             context.fillStyle = '#0001';
@@ -47,27 +47,11 @@ function MatrixBackground({timeout}) {
         return () => {
             clearInterval(interval);
         };
-    }, [canvas, timeout]);
+    }, [timeout]);
 
     return (
-        <div
-            style={{
-                // custom styles to make it show up in the background
-                background: '#000000',
-                overflow: 'hidden',
-                position: 'fixed',
-                height: '100%',
-                width: '100%',
-                zIndex: -1,
-                left: '0',
-                top: '0',
-            }}
-        >
-            <canvas
-                ref={canvas}
-            />
+        <div className="fixed left-0 top-0 -z-10 h-full w-full overflow-hidden bg-black">
+            <canvas ref={canvas} />
         </div>
     );
 }
-
-export default MatrixBackground;

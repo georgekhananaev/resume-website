@@ -1,12 +1,14 @@
-/* eslint-disable */
+'use client';
 
-import React from 'react';
 import {TypeAnimation} from 'react-type-animation';
 
-const TextAnimation = () => {
+export default function TextAnimation() {
     return (
-
         <TypeAnimation
+            className={"before:content-['Resume-Website/']"}
+            cursor={true}
+            omitDeletionAnimation={false}
+            repeat={Infinity}
             sequence={[
                 "I specialize as a Python Full Stack Developer.",
                 2000,
@@ -14,22 +16,8 @@ const TextAnimation = () => {
                 3000,
                 'Certainly adept in HTML, CSS, SASS, and contemporary design frameworks.',
                 4000,
-                () => {
-                    console.log('Done typing!');
-                }
             ]}
             wrapper="div"
-            cursor={true}
-            repeat={Infinity}
-            omitDeletionAnimation={false}
-            className={"before:content-['Resume-Website/']"}
-
-            //   style={{ fontSize: '15px' }}
         />
-
-
     );
-};
-
-
-export default TextAnimation;
+}
