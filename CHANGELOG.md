@@ -5,7 +5,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
-- **tech**: 70 favorite technologies with category filtering (AI, Languages, Frameworks, Databases, Cloud, DevOps, Security, Testing, Tools)
+- **tech**: 70 favorite technologies with category filtering (AI, Languages, Frameworks, Databases, Cloud, DevOps, Security, Services, Testing, Tools)
+- **portfolio**: Dynamic star counts fetched from GitHub API with 1hr ISR cache
 - **resume**: Dynamic PDF resume generation via `/api/resume` with two-column design
 - **app**: Next.js 16 App Router with server and client components
 - **github**: GitHub stats section with repo count, stars, followers, achievements, and top languages

@@ -12,7 +12,7 @@ import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import CardBackground from '../CardBackground';
 import Section from '../Layout/Section';
 
-export default function Portfolio() {
+export default function Portfolio({starCounts = {}}: {starCounts?: Record<string, number>}) {
     return (
         <Section className="relative overflow-hidden bg-neutral-800" sectionId={SectionId.Portfolio}>
             {/* Floating background orbs */}
@@ -33,7 +33,9 @@ export default function Portfolio() {
                 </div>
                 <div className="mb-6 w-full columns-1 sm:columns-2 md:columns-3 lg:columns-4">
                     {portfolioItems.map((item, index) => {
-                        const {title, image, stars} = item;
+                        const {title, image, url} = item;
+                        const repoMatch = url.match(/github\.com\/[^/]+\/([^/]+)/);
+                        const stars = repoMatch ? (starCounts[repoMatch[1]] ?? item.stars) : item.stars;
                         return (
                             <div className="pb-4" key={`${title}-${index}`}>
                                 <div className="portfolio-card relative h-full w-full overflow-hidden">
@@ -91,8 +93,8 @@ function ItemOverlay({item: {url, title, description}}: {item: PortfolioItem}) {
             target="_blank">
             <div className="relative h-full w-full p-4">
                 <div className="portfolio-scroll flex h-full w-full flex-col gap-y-2 overflow-y-auto">
-                    <h2 className="text-center font-bold text-white">{title}</h2>
-                    <p className="text-sm text-stone-200">{description}</p>
+                    <h2 className="text-center text-xl font-bold text-white sm:text-base">{title}</h2>
+                    <p className="text-lg leading-relaxed text-stone-200 sm:text-sm">{description}</p>
                 </div>
                 <ArrowTopRightOnSquareIcon
                     className="absolute bottom-2 right-2 h-4 w-4 shrink-0 text-orange-400" />

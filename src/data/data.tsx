@@ -79,6 +79,7 @@ import dragonflyPic from '../images/favtech/dragonfly.webp';
 import htmxPic from '../images/favtech/htmx.webp';
 import jupyterPic from '../images/favtech/jupyter.webp';
 import supabasePic from '../images/favtech/supabase.webp';
+import kamateraPic from '../images/favtech/kamatera.webp';
 import heroImage from '../images/header-background.webp';
 import claudeSkillsVault from '../images/portfolio/claude-skills-vault.svg';
 import darkthemeAuthFastapi from '../images/portfolio/darktheme-auth-fastapi.svg';
@@ -313,30 +314,35 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
     {title: 'OpenAI', image: openAiPic, category: 'AI & LLMs'},
     {title: 'Gemini', image: geminiPic, category: 'AI & LLMs'},
     {title: 'Ollama', image: ollamaPic, category: 'AI & LLMs'},
-    // Languages
+    // Languages & Runtimes
     {title: 'Python', image: pythonPic, category: 'Languages'},
     {title: 'TypeScript', image: typescriptPic, category: 'Languages'},
     {title: 'JavaScript', image: javascriptPic, category: 'Languages'},
     {title: 'Swift', image: swiftPic, category: 'Languages'},
+    {title: 'Node.js', image: nodejsPic, category: 'Languages'},
     {title: 'HTML5', image: html5Pic, category: 'Languages'},
     {title: 'CSS3', image: css3Pic, category: 'Languages'},
     {title: 'Sass', image: sassPic, category: 'Languages'},
-    // Frameworks
+    // Frameworks & Libraries
     {title: 'FastAPI', image: fastApiPic, category: 'Frameworks'},
     {title: 'Next.js', image: nextJsPic, category: 'Frameworks'},
     {title: 'React', image: reactPic, category: 'Frameworks'},
-    {title: 'Node.js', image: nodejsPic, category: 'Frameworks'},
     {title: 'Tailwind CSS', image: tailwindPic, category: 'Frameworks'},
     {title: 'Pydantic', image: pydanticPic, category: 'Frameworks'},
     {title: 'MUI', image: muiPic, category: 'Frameworks'},
-    {title: 'GraphQL', image: graphQLPic, category: 'Frameworks'},
-    // Databases
+    {title: 'HTMX', image: htmxPic, category: 'Frameworks'},
+    {title: 'Framer Motion', image: framermotionPic, category: 'Frameworks'},
+    // Databases & Messaging
     {title: 'MongoDB', image: mongoDB, category: 'Databases'},
     {title: 'MySQL', image: mysqlPic, category: 'Databases'},
     {title: 'PostgreSQL', image: postgresqlPic, category: 'Databases'},
     {title: 'Redis', image: redisPic, category: 'Databases'},
+    {title: 'Dragonfly', image: dragonflyPic, category: 'Databases'},
     {title: 'Elasticsearch', image: elasticsearchPic, category: 'Databases'},
-    {title: 'RabbitMQ', image: rabbitmqPic, category: 'Databases'},
+    {title: 'Supabase', image: supabasePic, category: 'Databases'},
+    {title: 'RabbitMQ', image: rabbitmqPic, category: 'DevOps'},
+    {title: 'WebSocket', image: websocketPic, category: 'Frameworks'},
+    {title: 'GraphQL', image: graphQLPic, category: 'Frameworks'},
     // Cloud & Hosting
     {title: 'Docker', image: dockerPic, category: 'Cloud'},
     {title: 'AWS', image: awsPic, category: 'Cloud'},
@@ -348,7 +354,8 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
     {title: 'Firebase', image: firebasePic, category: 'Cloud'},
     {title: 'Kubernetes', image: kubernetesPic, category: 'Cloud'},
     {title: 'Proxmox', image: proxmoxPic, category: 'Cloud'},
-    // DevOps & Infra
+    {title: 'Kamatera', image: kamateraPic, category: 'Cloud'},
+    // DevOps & Infrastructure
     {title: 'Nginx', image: nginxPic, category: 'DevOps'},
     {title: 'Traefik', image: traefikPic, category: 'DevOps'},
     {title: 'Terraform', image: terraformPic, category: 'DevOps'},
@@ -361,12 +368,12 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
     {title: 'Ubuntu', image: ubuntuPic, category: 'DevOps'},
     {title: 'SSH', image: sshPic, category: 'DevOps'},
     {title: 'VMware', image: vmwarePic, category: 'DevOps'},
-    // Security & APIs
+    // Security & Auth
     {title: 'JWT', image: jwtPic, category: 'Security'},
     {title: "Let's Encrypt", image: letsencryptPic, category: 'Security'},
-    {title: 'WebSocket', image: websocketPic, category: 'Security'},
-    {title: 'Stripe', image: stripePic, category: 'Security'},
-    {title: 'Twilio', image: twilioPic, category: 'Security'},
+    // APIs & Services
+    {title: 'Stripe', image: stripePic, category: 'Services'},
+    {title: 'Twilio', image: twilioPic, category: 'Services'},
     // Testing
     {title: 'Pytest', image: pytestPic, category: 'Testing'},
     {title: 'Selenium', image: seleniumPic, category: 'Testing'},
@@ -375,18 +382,13 @@ export const FavoriteTechItems: FavoriteTechItem[] = [
     {title: 'JetBrains', image: jetbrainPic, category: 'Tools'},
     {title: 'VS Code', image: vscodePic, category: 'Tools'},
     {title: 'Xcode', image: xcodePic, category: 'Tools'},
+    {title: 'Jupyter', image: jupyterPic, category: 'Tools'},
     {title: 'Figma', image: figmaPic, category: 'Tools'},
     {title: 'ClickUp', image: clickUpPic, category: 'Tools'},
+    {title: 'n8n', image: n8nPic, category: 'Tools'},
     {title: 'macOS / iOS', image: applePic, category: 'Tools'},
     {title: 'Home Assistant', image: haPic, category: 'Tools'},
     {title: 'Homebrew', image: homebrewPic, category: 'Tools'},
-    // Automation & Data
-    {title: 'n8n', image: n8nPic, category: 'Frameworks'},
-    {title: 'HTMX', image: htmxPic, category: 'Frameworks'},
-    {title: 'Framer Motion', image: framermotionPic, category: 'Frameworks'},
-    {title: 'Jupyter', image: jupyterPic, category: 'AI & LLMs'},
-    {title: 'Dragonfly', image: dragonflyPic, category: 'Databases'},
-    {title: 'Supabase', image: supabasePic, category: 'Databases'},
 ];
 
 /**
