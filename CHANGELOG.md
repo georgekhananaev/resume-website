@@ -10,6 +10,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 - **seo**: Explicit AI bot permissions in robots.txt (GPTBot, ClaudeBot, PerplexityBot, etc.)
 
 ### Changed
+- **perf**: Lighthouse score improved from 58 to 94 (TBT: 2,220ms → 0ms, Speed Index: 5.1s → 1.7s)
+- **perf**: Lazy-load reCAPTCHA via IntersectionObserver (loads only when contact section visible)
+- **perf**: Dynamic imports for below-fold sections (Portfolio, FavoriteTech, GithubStats, Testimonials, Contact)
+- **perf**: Canvas animations pause when off-screen via IntersectionObserver
+- **perf**: MatrixBackground uses requestAnimationFrame instead of setInterval
+- **perf**: Added loading="lazy" and sizes to below-fold images
+- **perf**: Enabled ISR with 1-hour revalidation
 - **readme**: Restored Netlify deploy status badge
 
 ### Fixed

@@ -1,14 +1,19 @@
+import dynamic from 'next/dynamic';
+
 import About from '../components/Sections/About';
-import Contact from '../components/Sections/Contact';
-import FavoriteTech from '../components/Sections/FavoriteTech';
 import Footer from '../components/Sections/Footer';
-import GithubStats from '../components/Sections/GithubStats';
 import Header from '../components/Sections/Header';
 import Hero from '../components/Sections/Hero';
-import Portfolio from '../components/Sections/Portfolio';
 import Resume from '../components/Sections/Resume';
-import Testimonials from '../components/Sections/Testimonials';
 import {portfolioItems} from '../data/data';
+
+const FavoriteTech = dynamic(() => import('../components/Sections/FavoriteTech'));
+const GithubStats = dynamic(() => import('../components/Sections/GithubStats'));
+const Portfolio = dynamic(() => import('../components/Sections/Portfolio'));
+const Testimonials = dynamic(() => import('../components/Sections/Testimonials'));
+const Contact = dynamic(() => import('../components/Sections/Contact'));
+
+export const revalidate = 3600;
 
 async function getStarCounts(): Promise<Record<string, number>> {
     const token = process.env.GITHUB_TOKEN;

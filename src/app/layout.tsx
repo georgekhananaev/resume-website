@@ -1,7 +1,5 @@
 import type {Metadata, Viewport} from 'next';
 
-import RecaptchaProvider from '../components/RecaptchaProvider';
-
 import './globals.css';
 
 const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace(/\/$/, '');
@@ -93,9 +91,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                 <a className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-orange-500 focus:px-4 focus:py-2 focus:text-white" href="#about">
                     Skip to main content
                 </a>
-                <RecaptchaProvider>
-                    {children}
-                </RecaptchaProvider>
+                {children}
             </body>
         </html>
     );

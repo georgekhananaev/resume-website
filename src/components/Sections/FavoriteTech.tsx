@@ -51,7 +51,7 @@ export default function FavoriteTech() {
                                 className="flex w-14 flex-col items-center gap-y-1.5 transition-all duration-200 hover:scale-105 sm:w-[72px]"
                                 key={`${title}-${index}`}>
                                 <div className="relative h-12 w-12 overflow-hidden rounded-lg sm:h-14 sm:w-14">
-                                    <Image alt={title} className="rounded-lg" fill src={image} style={{objectFit: 'cover'}} />
+                                    <Image alt={title} className="rounded-lg" fill loading="lazy" sizes="56px" src={image} style={{objectFit: 'cover'}} />
                                 </div>
                                 <span className="text-center text-[9px] leading-tight text-neutral-400 sm:text-[11px]">{title}</span>
                             </div>

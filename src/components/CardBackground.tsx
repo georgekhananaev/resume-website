@@ -21,6 +21,7 @@ export default function CardBackground({seed = 0}: {seed?: number}) {
         if (!ctx) return;
 
         let animId: number;
+        let visible = false;
         const dpr = window.devicePixelRatio || 1;
 
         const resize = () => {
@@ -58,6 +59,10 @@ export default function CardBackground({seed = 0}: {seed?: number}) {
         const color = colors[seed % colors.length];
 
         const draw = () => {
+            if (!visible) {
+                animId = requestAnimationFrame(draw);
+                return;
+            }
             const cw = w();
             const ch = h();
             ctx.clearRect(0, 0, cw, ch);
@@ -121,9 +126,16 @@ export default function CardBackground({seed = 0}: {seed?: number}) {
         const ro = new ResizeObserver(resize);
         ro.observe(el);
 
+        const io = new IntersectionObserver(
+            ([entry]) => { visible = entry.isIntersecting; },
+            {threshold: 0},
+        );
+        io.observe(el);
+
         return () => {
             cancelAnimationFrame(animId);
             ro.disconnect();
+            io.disconnect();
         };
     }, [seed]);
 

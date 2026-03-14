@@ -6,6 +6,7 @@ import {ContactType, ContactValue} from '../../../data/dataDef';
 import GithubIcon from '../../Icon/GithubIcon';
 import LinkedInIcon from '../../Icon/LinkedInIcon';
 import Section from '../../Layout/Section';
+import RecaptchaProvider from '../../RecaptchaProvider';
 import ContactForm from './ContactForm';
 
 const ContactValueMap: Record<ContactType, ContactValue> = {
@@ -24,7 +25,9 @@ export default function Contact() {
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
                     <div className="order-2 col-span-1 md:order-1">
-                        <ContactForm />
+                        <RecaptchaProvider>
+                            <ContactForm />
+                        </RecaptchaProvider>
                     </div>
                     <div className="order-1 col-span-1 flex flex-col gap-y-3 sm:gap-y-4 md:order-2">
                         <p className="prose text-sm leading-6 text-neutral-300 sm:text-base">{description}</p>

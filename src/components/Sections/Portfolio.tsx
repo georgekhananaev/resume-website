@@ -40,7 +40,7 @@ export default function Portfolio({starCounts = {}}: {starCounts?: Record<string
                             <div className="pb-4" key={`${title}-${index}`}>
                                 <div className="portfolio-card relative h-full w-full overflow-hidden">
                                     <CardBackground seed={index} />
-                                    <Image alt={`${title} project preview`} className="relative rounded-xl" src={image} />
+                                    <Image alt={`${title} project preview`} className="relative rounded-xl" loading="lazy" src={image} />
                                     {stars !== undefined && stars > 0 && (
                                         <span className="absolute left-2 top-2 z-[5] flex items-center gap-1 rounded-full bg-black/70 px-2 py-0.5 text-xs font-medium text-yellow-400 backdrop-blur-sm">
                                             <StarIcon className="h-3 w-3" />
