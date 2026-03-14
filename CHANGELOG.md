@@ -10,7 +10,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 - **readme**: Restored Netlify deploy status badge
 
 ### Fixed
-- **seo**: Fixed empty sitemapindex rejected by Google Search Console
+- **seo**: Replaced next-sitemap with Next.js built-in sitemap.ts and robots.ts (fixes 404 on Netlify)
 
 ## [4.0.0] - 2026-03-14
 
