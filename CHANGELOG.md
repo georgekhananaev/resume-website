@@ -7,6 +7,8 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ### Added
 
 ### Changed
+- **docs**: `.env.example` now includes `MONGODB_URI` and `MONGODB_DB` at the top with a header comment linking [MongoDB Atlas](https://www.mongodb.com/) and calling out the free M0 tier (500 MB, no credit card) — the previous example silently omitted the blog's most critical env var
+- **docs**: README rewritten to reflect v4.3.0. Tech Stack adds MongoDB 7, unified/remark/rehype pipeline, Sharp, jspdf. Features list drops the deleted Matrix Rain / carousel / TextAnimation and adds the MongoDB-backed blog, editorial dark redesign, modern header, `/contact` + `/work-with-me` pages, `/api/health`, dynamic PDF resume, CSP + rate-limited contact form. Getting Started gains a 4-step onboarding flow including a dedicated "MongoDB Atlas setup" subsection, a post-seeding verification step via `/api/health`, and a "Brand assets" section documenting `scripts/generate-images.mjs`. Env var table prepended with `MONGODB_URI`/`MONGODB_DB` rows. Scripts table drops the stale `npm run sitemap` and adds `npm run typecheck`
 
 ### Fixed
 
