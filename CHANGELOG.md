@@ -5,9 +5,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [4.3.0] - 2026-04-12
+
+### Added
 - **api**: New `/api/health` endpoint that runs a real MongoDB `ping` (3s timeout via `Promise.race`), audits 9 required env vars, and aggregates the result into a public-safe JSON response (`status`, `name`, `version`, `timestamp`). HTTP 200 on healthy, 503 on critical failure — uptime monitors can page on the status code. Per-check details (Mongo latency, missing env var names, driver error strings) are NOT echoed back to keep the endpoint public-safe. `Cache-Control: public max-age=30` short enough for post-deploy checks, long enough to avoid ping-bombing Atlas
 - **lib**: New `src/lib/version.ts` — single source of truth that imports `package.json` via `resolveJsonModule` and exports `APP_VERSION`/`APP_NAME` as compile-time constants for both server and client code
-- **ui**: Live health indicator + version badge in the Footer bottom bar. New `HealthIndicator` client component fetches `/api/health` once on mount (`cache: 'no-store'` to bypass browser disk cache) and renders a three-state dot: gray "checking", emerald with `animate-ping` halo when OK, red on error. Sits inside the `v4.2.1` pill, which now links to `/api/health` in a new tab. Respects `prefers-reduced-motion`, full status in `aria-label`/`title` for screen readers
+- **ui**: Live health indicator + version badge in the Footer bottom bar. New `HealthIndicator` client component fetches `/api/health` once on mount (`cache: 'no-store'` to bypass browser disk cache) and renders a three-state dot: gray "checking", emerald with `animate-ping` halo when OK, red on error. Sits inside the version pill, which now links to `/api/health` in a new tab. Respects `prefers-reduced-motion`, full status in `aria-label`/`title` for screen readers
 - **ui**: Redesigned Hero scroll-down indicator — replaced the plain white chevron circle with a three-chevron iOS-style cascade (stacked indigo chevrons that blink in sequence via the new `chevron-blink` keyframe) plus a "SCROLL" editorial eyebrow label. Respects `prefers-reduced-motion` and has a proper keyboard focus ring
 
 ### Changed
