@@ -33,7 +33,7 @@ export interface PageHeroProps {
  */
 export default function PageHero({eyebrow, title, subtitle, description, image}: PageHeroProps) {
     return (
-        <section className="relative overflow-hidden border-b border-white/5 bg-neutral-950 px-4 py-28 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <section className="relative overflow-hidden border-b border-white/5 bg-neutral-950 px-4 pb-28 pt-32 sm:px-6 sm:pb-32 sm:pt-36 lg:px-8 lg:pb-40 lg:pt-44">
             {/* Grid mesh backdrop — matches Services / FavoriteTech / GithubStats */}
             <div
                 aria-hidden="true"

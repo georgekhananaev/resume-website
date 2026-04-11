@@ -11,6 +11,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ### Fixed
 - **seo**: Append `?v=2` to every `/og-image.png` reference (layout, contact, work-with-me, tag archive) so WhatsApp / Facebook / LinkedIn / Slack link-preview scrapers treat it as a new cache key and fetch the updated 1200×630 branded banner instead of the old portrait that was cached at the same URL
 - **ui**: HireHero "Open to new projects" eyebrow pill no longer collides with the `Home > Work with me` breadcrumb on mobile. Bumped top padding from `py-24` → `pt-32 sm:pt-36 lg:pt-44` so the pill always sits below the absolute-positioned breadcrumb strip
+- **ui**: PageHero top padding bumped from `py-28` → `pt-32 sm:pt-36 lg:pt-44` to match HireHero's breadcrumb clearance pattern. Fixes the cramped 12px gap between the breadcrumb strip and the eyebrow pill on `/portfolio`, `/contact`, and `/portfolio/tag/[tag]` on mobile (now 28px safe clearance)
 
 ## [4.2.1] - 2026-04-11
 
