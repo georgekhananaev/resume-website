@@ -5,10 +5,53 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+- **blog**: MongoDB-backed portfolio blog with dynamic /portfolio/[slug], /portfolio/tag/[tag], per-post opengraph-image generator, RSS feed, and llms.txt integration
+- **blog**: Public vs Commercial portfolio split with featured posts, GitHub star enrichment, TOC, related posts, and editorial PostCard/PostRow components
+- **blog**: scripts/seed-posts.mjs upserts 15 posts (8 open source + 7 commercial case studies)
+- **pages**: Dedicated /contact page with ContactPage JSON-LD, two-column form layout, "Preferred: WhatsApp" card, and response-time copy
+- **pages**: Dedicated /work-with-me page (replaces /hire-me via 301) with HireHero, Services, and ContactCTA
+- **ui**: Modern header with usePathname active state, GK avatar, pill indicators, and mobile slide-in drawer
+- **ui**: Shared PageHero and PageBreadcrumbs layout components used across landing pages
+- **ui**: GridBackground animated canvas replacing MatrixBackground on Hero
+- **ui**: Editorial dark redesign across About, Resume, GithubStats, FavoriteTech, Testimonials, and Footer
+- **ui**: Vertical timeline rail in Resume Work with indigo dot markers and monospace meta
+- **ui**: Multi-column editorial Footer with brand bio, Explore/Resources nav, and Back-to-top pill
+- **security**: Content-Security-Policy header with scoped connect-src for google/emailjs/github and frame-ancestors 'none'
+- **security**: IP-keyed in-memory rate limiter on /api/contact (5/min, 20/hour)
+- **security**: typeof guards, RFC-lite email regex, and min/max length bounds on /api/contact
+- **security**: reCAPTCHA v3 score >= 0.5 + action match verification on /api/contact
+- **security**: Cache-Control: public, max-age=3600, s-maxage=3600 on /api/resume to neutralize DoS vector
+- **tools**: scripts/generate-images.mjs — Sharp-based OG banner, PWA icons, and favicon generator from source profile + indigo palette
+- **seo**: Per-post dynamic 1200x630 PNG OG images via Next.js ImageResponse
+- **seo**: data-scroll-behavior="smooth" on <html> to silence Next 16 smooth-scroll warning
 
 ### Changed
+- **brand**: Unified role copy across the site. Home and taglines use "Senior Full Stack Developer" (SEO speciality); "Head of Development & IT Infrastructure at Moon Holidays" now appears only in descriptions and JSON-LD jobTitle
+- **seo**: All page titles follow "<Page> | George Khananaev" direction including home
+- **seo**: Home page, /portfolio, /contact, /work-with-me, /portfolio/tag/[tag], and /portfolio/[slug] all emit consistent metadata, canonicals, and JSON-LD
+- **seo**: Global og-image.png regenerated as 1200x630 branded banner (replaces portrait og-profile.jpg for OG/Twitter contexts)
+- **seo**: /portfolio/[slug] no longer overrides openGraph.images so the dynamic PNG generator route takes over
+- **seo**: Work-with-me description trimmed to ~156 chars for SERP snippets
+- **seo**: Moon Holidays URL corrected from moonholidays.com to moonholidays.co.th across JSON-LD, Footer, PostFooter, and seed script
+- **deps**: jspdf ^4.2.0 -> ^4.2.1 (patches CVSS 9.6 XSS + 8.1 PDF object injection)
+- **deps**: next ^16.1.0 -> ^16.2.3 (patches DoS, CSRF bypass, HTTP smuggling, cache growth, resume buffer)
+- **deps**: eslint ^10 -> ^9 (compatible with eslint-config-next v16 peer)
+- **eslint**: Rewrote eslint.config.mjs to use eslint-config-next v16 native flat-config exports, dropping the FlatCompat shim that crashed on react-plugin's circular configs ref
+- **build**: Replaced stale "next lint" npm script with "eslint src/**/*.{ts,tsx}" and added a "typecheck" script
+- **pdf**: /api/resume now renders an editorial grid mesh in both the sidebar and main column and surfaces /portfolio in the sidebar links
 
 ### Fixed
+- **a11y**: Post pages now consistently append "| George Khananaev" to titles even when MongoDB-seeded metaTitle omits the suffix
+- **ui**: react-phone-number-input flags bundled locally via `react-phone-number-input/flags` so the country-code dropdown renders under the new strict CSP
+- **seo**: Tag archive pages now emit openGraph.images + twitter.card: summary_large_image (were previously missing)
+- **ui**: Dynamic opengraph-image.tsx route no longer returns empty responses — fixed a Satori two-child issue where `#{tag}` compiled to two JSX children without explicit display: flex on the parent
+- **seo**: Canonical Moon Holidays domain (moonholidays.co.th) is now used consistently in place of the incorrect .com
+
+### Removed
+- **cleanup**: src/hooks/ directory (useNavObserver, useInterval, useWindow, useDetectOutsideClick) — all unused after the header rewrite
+- **cleanup**: src/components/TextAnimation.tsx, MatrixBackground.tsx, and Sections/Portfolio.tsx — replaced by new design system
+- **cleanup**: .prettierrc — formatting handled by prettier-plugin-tailwindcss via ESLint config
+- **cleanup**: Unused SectionId enum entries (Skills, Stats, Testimonials, FavoriteTech), `contact.headerText` field, and `countWords`/`readingTimeMinutes` markdown helpers
 
 ## [4.1.0] - 2026-03-15
 
