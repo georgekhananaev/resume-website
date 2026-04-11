@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import {SectionId} from '../../data/data';
+import {APP_VERSION} from '../../lib/version';
+import HealthIndicator from '../HealthIndicator';
 import Socials from '../Socials';
 
 /**
@@ -142,9 +144,21 @@ export default function Footer() {
 
                 {/* Bottom bar */}
                 <div className="mt-16 flex flex-col gap-4 border-t border-white/5 pt-8 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs text-neutral-500">
-                        &copy; {year} George Khananaev. All rights reserved.
-                    </p>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <p className="text-xs text-neutral-500">
+                            &copy; {year} George Khananaev. All rights reserved.
+                        </p>
+                        <a
+                            aria-label={`View health check — running v${APP_VERSION}`}
+                            className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[10px] font-semibold text-neutral-400 transition-colors hover:border-indigo-400/40 hover:text-indigo-300"
+                            href="/api/health"
+                            rel="noopener"
+                            target="_blank"
+                            title="Deployed version — click for health check">
+                            <HealthIndicator />
+                            v{APP_VERSION}
+                        </a>
+                    </div>
                     <div className="flex items-center gap-5">
                         <span className="text-xs text-neutral-500">
                             Built with Next.js, Tailwind, and MongoDB
