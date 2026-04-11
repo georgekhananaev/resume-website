@@ -9,6 +9,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ### Changed
 
 ### Fixed
+- **build**: Track 87 favtech SVG icons that were blocked from git by a stale `src/images/favtech/.gitignore` — fixes Netlify "Module not found" errors for apache/astro/bun/drizzle/fly/gunicorn/hetzner/hono/jest/kafka/linear/mcp/minio/neon/nestjs/notion/opentelemetry/pm2/podman/prisma/radix/raycast/resend/sentry/shadcn/swagger/tanstack/turso/uvicorn/uwebsockets/valkey/vite/vitest/... Local builds passed because the files were on disk.
 
 ## [4.2.0] - 2026-04-11
 
