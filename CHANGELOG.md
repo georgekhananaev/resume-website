@@ -8,6 +8,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 - **ui**: Redesigned Hero scroll-down indicator — replaced the plain white chevron circle with a three-chevron iOS-style cascade (stacked indigo chevrons that blink in sequence via the new `chevron-blink` keyframe) plus a "SCROLL" editorial eyebrow label. Respects `prefers-reduced-motion` and has a proper keyboard focus ring
 
 ### Changed
+- **content**: Rewrote the Hero bio on the home page to remove the "Senior Full Stack Developer" duplicate (already carried by the eyebrow pill above). The subtitle now leads with the employment context ("Currently Head of Development & IT Infrastructure at Moon Holidays, leading the engineering team across every platform and product…") and the body paragraph switched to first-person ("I architect…") for tonal consistency with the rest of the site
 
 ### Fixed
 - **seo**: Append `?v=2` to every `/og-image.png` reference (layout, contact, work-with-me, tag archive) so WhatsApp / Facebook / LinkedIn / Slack link-preview scrapers treat it as a new cache key and fetch the updated 1200×630 branded banner instead of the old portrait that was cached at the same URL

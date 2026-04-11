@@ -175,10 +175,10 @@ export const heroData: Hero = {
     description: (
         <>
             <p className="mt-5 text-lg font-medium text-indigo-400 sm:text-xl">
-                Senior Full Stack Developer · Head of Development &amp; IT Infrastructure at Moon Holidays
+                Currently Head of Development &amp; IT Infrastructure at Moon Holidays, leading the engineering team across every platform and product the company ships.
             </p>
             <p className="mt-6 text-base leading-relaxed text-stone-300 sm:text-lg">
-                Architecting multi-tenant platforms, real-time data pipelines, and AI-driven enterprise systems in Python, TypeScript, and Swift.
+                I architect multi-tenant platforms, real-time data pipelines, and AI-driven enterprise systems in Python, TypeScript, and Swift.
             </p>
         </>
     ),
