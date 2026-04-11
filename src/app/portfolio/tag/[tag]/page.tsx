@@ -40,7 +40,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
             url,
             siteName: 'George Khananaev',
             images: [{
-                url: '/og-image.png',
+                url: '/og-image.png?v=2',
                 width: 1200,
                 height: 630,
                 alt: `Posts tagged #${tag} — George Khananaev`,
@@ -51,7 +51,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
             card: 'summary_large_image',
             title,
             description,
-            images: ['/og-image.png'],
+            images: ['/og-image.png?v=2'],
         },
     };
 }

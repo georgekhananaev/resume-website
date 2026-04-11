@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         description,
         url: siteUrl,
         images: [{
-            url: '/og-image.png',
+            url: '/og-image.png?v=2',
             width: 1200,
             height: 630,
             alt: 'George Khananaev, Senior Full Stack Developer',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title,
         description,
-        images: ['/og-image.png'],
+        images: ['/og-image.png?v=2'],
     },
     verification: {
         google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,

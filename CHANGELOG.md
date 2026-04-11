@@ -9,6 +9,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ### Changed
 
 ### Fixed
+- **seo**: Append `?v=2` to every `/og-image.png` reference (layout, contact, work-with-me, tag archive) so WhatsApp / Facebook / LinkedIn / Slack link-preview scrapers treat it as a new cache key and fetch the updated 1200×630 branded banner instead of the old portrait that was cached at the same URL
 
 ## [4.2.1] - 2026-04-11
 

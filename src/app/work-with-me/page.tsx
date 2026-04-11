@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         description,
         url: pageUrl,
         images: [{
-            url: '/og-image.png',
+            url: '/og-image.png?v=2',
             width: 1200,
             height: 630,
             alt: 'George Khananaev, Full Stack Engineer & Tech Lead',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title,
         description,
-        images: ['/og-image.png'],
+        images: ['/og-image.png?v=2'],
     },
 };
 
