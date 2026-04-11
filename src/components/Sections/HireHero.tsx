@@ -6,7 +6,7 @@ import GridBackground from '../GridBackground';
 
 export default function HireHero() {
     return (
-        <section className="relative overflow-hidden bg-neutral-950 px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <section className="relative overflow-hidden bg-neutral-950 px-4 pb-24 pt-32 sm:px-6 sm:pb-32 sm:pt-36 lg:px-8 lg:pb-40 lg:pt-44">
             <GridBackground />
             <div
                 aria-hidden="true"
