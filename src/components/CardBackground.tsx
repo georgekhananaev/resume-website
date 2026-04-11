@@ -51,7 +51,7 @@ export default function CardBackground({seed = 0}: {seed?: number}) {
 
         // Color based on seed
         const colors = [
-            [249, 115, 22],  // orange
+            [99, 102, 241],  // indigo
             [59, 130, 246],  // blue
             [167, 139, 250], // purple
             [34, 197, 94],   // green

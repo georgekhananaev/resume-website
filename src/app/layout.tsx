@@ -1,10 +1,10 @@
-import type {Metadata, Viewport} from 'next';
-
 import './globals.css';
 
+import type {Metadata, Viewport} from 'next';
+
 const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace(/\/$/, '');
-const title = 'George Khananaev | Full Stack Developer & Head of Development';
-const description = 'Full Stack Developer specializing in Python, TypeScript & AI-driven enterprise applications. Building scalable multi-tenant platforms and cloud infrastructure.';
+const title = 'Senior Full Stack Developer | George Khananaev';
+const description = 'Senior Full Stack Developer specializing in Python, TypeScript, and Swift. Currently Head of Development & IT Infrastructure at Moon Holidays, Bangkok — building scalable multi-tenant platforms, real-time data pipelines, and AI-driven enterprise systems.';
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -40,7 +40,8 @@ export const metadata: Metadata = {
             url: '/og-image.png',
             width: 1200,
             height: 630,
-            alt: 'George Khananaev - Full Stack Developer',
+            alt: 'George Khananaev, Senior Full Stack Developer',
+            type: 'image/png',
         }],
         locale: 'en_US',
     },
@@ -81,14 +82,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
     return (
-        <html lang="en">
+        <html data-scroll-behavior="smooth" lang="en">
             <head>
                 <link href="https://www.google.com" rel="preconnect" />
                 <link href="https://api.github.com" rel="preconnect" />
                 <link href="https://www.google.com" rel="dns-prefetch" />
             </head>
             <body className="bg-black">
-                <a className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-orange-500 focus:px-4 focus:py-2 focus:text-white" href="#about">
+                <a className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-indigo-500 focus:px-4 focus:py-2 focus:text-white" href="#about">
                     Skip to main content
                 </a>
                 {children}

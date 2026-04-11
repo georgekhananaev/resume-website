@@ -1,7 +1,6 @@
-import {CalendarDaysIcon, CodeBracketIcon, StarIcon, UserGroupIcon} from '@heroicons/react/24/outline';
+import {ArrowTopRightOnSquareIcon, CalendarDaysIcon, CodeBracketIcon, StarIcon, UserGroupIcon} from '@heroicons/react/24/outline';
 
 import {SectionId} from '../../data/data';
-import Section from '../Layout/Section';
 
 interface GithubRepo {
     stargazers_count: number;
@@ -110,7 +109,7 @@ async function fetchGithubData(username: string): Promise<GithubData | null> {
         if (profileHtml.ok) {
             const html = await profileHtml.text();
 
-            // Parse from sidebar section — most reliable, contains all achievements
+            // Parse from sidebar section: most reliable, contains all achievements
             const sidebarSection = html.match(/achievement-badge-sidebar[\s\S]{0,5000}/);
             if (sidebarSection) {
                 const badgePattern = /alt="Achievement: ([^"]*)"[\s\S]*?(?:achievement-tier-label[^>]*>([^<]*)<|<\/a>)/g;
@@ -159,17 +158,17 @@ const langColors: Record<string, string> = {
     JavaScript: 'bg-yellow-400',
     Python: 'bg-green-500',
     Java: 'bg-red-500',
-    Rust: 'bg-orange-600',
+    Rust: 'bg-indigo-600',
     Go: 'bg-cyan-500',
     'C++': 'bg-pink-500',
     C: 'bg-gray-400',
     'C#': 'bg-purple-500',
     Ruby: 'bg-red-600',
     PHP: 'bg-indigo-400',
-    Swift: 'bg-orange-500',
+    Swift: 'bg-indigo-500',
     Kotlin: 'bg-violet-500',
     Dart: 'bg-sky-400',
-    HTML: 'bg-orange-400',
+    HTML: 'bg-indigo-400',
     CSS: 'bg-blue-400',
     Shell: 'bg-emerald-500',
     Dockerfile: 'bg-sky-600',
@@ -197,61 +196,66 @@ export default async function GithubStats() {
     ];
 
     return (
-        <Section className="bg-neutral-900" sectionId={SectionId.Github}>
-            <div className="flex flex-col gap-y-8">
-                <div className="flex flex-col items-center gap-y-2">
-                    <h2 className="text-2xl font-bold text-white">GitHub</h2>
-                    <a className="text-sm text-orange-400 transition-colors hover:text-orange-300" href={user.html_url} rel="noopener noreferrer" target="_blank">
+        <section
+            className="relative overflow-hidden bg-neutral-950 px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+            id={SectionId.Github}>
+            {/* Grid mesh backdrop — matches Services.tsx / FavoriteTech.tsx */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-[0.035]"
+                style={{
+                    backgroundImage:
+                        'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+                    backgroundSize: '80px 80px',
+                }}
+            />
+
+            <div className="relative mx-auto max-w-screen-lg">
+                {/* Section header — eyebrow + title + lede, same rhythm as Services */}
+                <div className="mb-16 max-w-2xl">
+                    <p className="text-sm font-semibold uppercase tracking-widest text-indigo-400">Open source</p>
+                    <h2 className="mt-3 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+                        Building in public
+                    </h2>
+                    <p className="mt-6 text-base leading-relaxed text-neutral-400 sm:text-lg">
+                        A live snapshot of my GitHub profile: repositories, stars, languages, and badges earned along the way.
+                    </p>
+                    <a
+                        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-400 transition-colors hover:text-indigo-300"
+                        href={user.html_url}
+                        rel="noopener noreferrer"
+                        target="_blank">
                         @{username}
+                        <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                     </a>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-4">
+                {/* Stats grid — big monospace numbers in individual editorial cards */}
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
                     {stats.map(({label, value, Icon}) => (
-                        <div className="flex flex-col items-center gap-y-1 rounded-xl bg-neutral-800/60 p-3 sm:gap-y-2 sm:p-5" key={label}>
-                            <Icon className="h-5 w-5 text-orange-400 sm:h-6 sm:w-6" />
-                            <span className="text-xl font-bold text-white sm:text-2xl">{value}</span>
-                            <span className="text-xs text-neutral-400">{label}</span>
+                        <div
+                            className="group rounded-2xl border border-white/10 bg-white/[0.02] px-5 py-7 transition-all hover:border-indigo-400/30 hover:bg-indigo-400/[0.03] sm:px-7 sm:py-9"
+                            key={label}>
+                            <Icon className="h-5 w-5 text-indigo-400 transition-colors group-hover:text-indigo-300" />
+                            <span className="mt-4 block font-mono text-3xl font-bold tabular-nums text-white sm:text-4xl lg:text-5xl">
+                                {value.toLocaleString()}
+                            </span>
+                            <span className="mt-2 block text-xs font-semibold uppercase tracking-widest text-neutral-500">
+                                {label}
+                            </span>
                         </div>
                     ))}
                 </div>
 
-                {achievements.length > 0 && (
-                    <div className="flex flex-col items-center gap-y-4">
-                        <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-400">Achievements</h3>
-                        <div className="flex flex-wrap justify-center gap-6">
-                            {achievements.map(({name, slug, image, tier}) => (
-                                <a
-                                    className="group flex flex-col items-center gap-y-2 transition-transform hover:scale-105"
-                                    href={`https://github.com/${username}?achievement=${slug}&tab=achievements`}
-                                    key={slug}
-                                    rel="noopener noreferrer" target="_blank">
-                                    <div className="relative">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img
-                                            alt={`Achievement: ${name}`}
-                                            className="h-16 w-16 drop-shadow-lg sm:h-20 sm:w-20"
-                                            decoding="async"
-                                            loading="lazy"
-                                            src={image}
-                                        />
-                                        {tier && (
-                                            <span className="absolute -bottom-1 -right-1 rounded-full bg-orange-500 px-1.5 py-0.5 text-[10px] font-bold text-white shadow">
-                                                {tier}
-                                            </span>
-                                        )}
-                                    </div>
-                                    <span className="text-xs text-neutral-400 group-hover:text-orange-400">{name}</span>
-                                </a>
-                            ))}
-                        </div>
+                {/* Top languages — minimal bar, editorial label */}
+                <div className="mt-16 grid grid-cols-1 gap-y-4 sm:grid-cols-[160px_1fr] sm:gap-x-10 sm:gap-y-0">
+                    <div className="sm:pt-1">
+                        <p className="font-mono text-xs font-bold uppercase tracking-widest text-indigo-400/80 sm:text-sm">
+                            Top languages
+                        </p>
                     </div>
-                )}
-
-                <div className="flex flex-col items-center gap-y-4">
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-400">Top Languages</h3>
-                    <div className="w-full max-w-lg">
-                        <div className="mb-3 flex h-3 w-full overflow-hidden rounded-full">
+                    <div>
+                        <div className="flex h-2 w-full overflow-hidden rounded-full bg-white/5">
                             {topLanguages.map(({name, percentage}) => (
                                 <div
                                     className={`${langColors[name] || 'bg-neutral-500'} transition-all`}
@@ -261,10 +265,12 @@ export default async function GithubStats() {
                                 />
                             ))}
                         </div>
-                        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 sm:gap-x-4">
+                        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
                             {topLanguages.map(({name, percentage}) => (
-                                <span className="flex items-center gap-x-1 text-xs text-neutral-300 sm:gap-x-1.5 sm:text-sm" key={name}>
-                                    <span className={`inline-block h-2.5 w-2.5 rounded-full ${langColors[name] || 'bg-neutral-500'}`} />
+                                <span className="flex items-center gap-1.5 text-sm text-neutral-300" key={name}>
+                                    <span
+                                        className={`inline-block h-2 w-2 rounded-full ${langColors[name] || 'bg-neutral-500'}`}
+                                    />
                                     {name}
                                     <span className="text-neutral-500">{percentage}%</span>
                                 </span>
@@ -272,7 +278,46 @@ export default async function GithubStats() {
                         </div>
                     </div>
                 </div>
+
+                {achievements.length > 0 && (
+                    <div className="mt-14 grid grid-cols-1 gap-y-6 sm:grid-cols-[160px_1fr] sm:gap-x-10 sm:gap-y-0">
+                        <div className="sm:pt-1">
+                            <p className="font-mono text-xs font-bold uppercase tracking-widest text-indigo-400/80 sm:text-sm">
+                                Achievements
+                            </p>
+                        </div>
+                        <div className="flex flex-wrap gap-4 sm:gap-5">
+                            {achievements.map(({name, slug, image, tier}) => (
+                                <a
+                                    className="group relative flex flex-col items-center gap-2 rounded-xl border border-white/5 bg-white/[0.02] p-4 transition-all hover:-translate-y-0.5 hover:border-indigo-400/40 hover:bg-indigo-400/5"
+                                    href={`https://github.com/${username}?achievement=${slug}&tab=achievements`}
+                                    key={slug}
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <div className="relative">
+                                        { }
+                                        <img
+                                            alt={`Achievement: ${name}`}
+                                            className="h-14 w-14 drop-shadow-lg sm:h-16 sm:w-16"
+                                            decoding="async"
+                                            loading="lazy"
+                                            src={image}
+                                        />
+                                        {tier && (
+                                            <span className="absolute -bottom-1 -right-1 rounded-full bg-indigo-500 px-1.5 py-0.5 text-[10px] font-bold text-white shadow-lg shadow-indigo-500/30">
+                                                {tier}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <span className="text-xs text-neutral-400 transition-colors group-hover:text-indigo-300">
+                                        {name}
+                                    </span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
-        </Section>
+        </section>
     );
 }

@@ -1,141 +1,84 @@
-'use client';
-
-import clsx from 'clsx';
 import Image from 'next/image';
-import {UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
-import {isApple, isMobile} from '../../config';
-import {SectionId, testimonial} from '../../data/data';
-import type {Testimonial} from '../../data/dataDef';
-import useInterval from '../../hooks/useInterval';
-import useWindow from '../../hooks/useWindow';
-import QuoteIcon from '../Icon/QuoteIcon';
-import Section from '../Layout/Section';
+import {testimonial} from '../../data/data';
 
+/**
+ * Editorial pull-quote layout. Replaces the old parallax carousel with a
+ * stacked list of quotes, each styled like a magazine pull quote with a
+ * large faded quote mark behind it.
+ *
+ * No client-side state, no auto-advance, no dot navigation. All testimonials
+ * visible at once. Every visitor sees every piece of social proof on first
+ * paint.
+ */
 export default function Testimonials() {
-    const [activeIndex, setActiveIndex] = useState<number>(0);
-    const [scrollValue, setScrollValue] = useState(0);
-    const [parallaxEnabled, setParallaxEnabled] = useState(false);
-
-    const itemWidth = useRef(0);
-    const scrollContainer = useRef<HTMLDivElement>(null);
-
-    const {width} = useWindow();
-
-    const {imageSrc, testimonials} = testimonial;
-
-    const resolveSrc = useMemo(() => {
-        if (!imageSrc) return undefined;
-        return typeof imageSrc === 'string' ? imageSrc : imageSrc.src;
-    }, [imageSrc]);
-
-    useEffect(() => {
-        setParallaxEnabled(!(isMobile && isApple));
-    }, []);
-
-    useEffect(() => {
-        itemWidth.current = scrollContainer.current ? scrollContainer.current.offsetWidth : 0;
-    }, [width]);
-
-    useEffect(() => {
-        if (scrollContainer.current) {
-            const newIndex = Math.round(scrollContainer.current.scrollLeft / itemWidth.current);
-            setActiveIndex(newIndex);
-        }
-    }, [itemWidth, scrollValue]);
-
-    const setTestimonial = useCallback(
-        (index: number) => () => {
-            if (scrollContainer !== null && scrollContainer.current !== null) {
-                scrollContainer.current.scrollLeft = itemWidth.current * index;
-            }
-        },
-        [],
-    );
-    const next = useCallback(() => {
-        if (activeIndex + 1 === testimonials.length) {
-            setTestimonial(0)();
-        } else {
-            setTestimonial(activeIndex + 1)();
-        }
-    }, [activeIndex, setTestimonial, testimonials.length]);
-
-    const handleScroll = useCallback<UIEventHandler<HTMLDivElement>>(event => {
-        setScrollValue(event.currentTarget.scrollLeft);
-    }, []);
-
-    useInterval(next, 20000);
-
-    if (!testimonials.length) {
-        return null;
-    }
+    const {testimonials} = testimonial;
+    if (!testimonials.length) return null;
 
     return (
-        <Section noPadding sectionId={SectionId.Testimonials}>
+        <section className="relative bg-neutral-950 px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+            {/* Radial glow backdrop, subtle */}
             <div
-                className={clsx(
-                    'flex w-full items-center justify-center bg-cover bg-center px-4 py-10 sm:px-6 sm:py-16 md:py-24 lg:px-8',
-                    parallaxEnabled && 'bg-fixed',
-                    {'bg-neutral-700': !imageSrc},
-                )}
-                style={imageSrc ? {backgroundImage: `url(${resolveSrc}`} : undefined}>
-                <div className="z-10 w-full max-w-screen-md">
-                    <div className="flex flex-col items-center gap-y-4 rounded-xl bg-gray-800/60 p-4 shadow-lg sm:gap-y-6 sm:p-6">
-                        <div
-                            className="no-scrollbar flex w-full touch-pan-x snap-x snap-mandatory gap-x-6 overflow-x-auto scroll-smooth"
-                            onScroll={handleScroll}
-                            ref={scrollContainer}>
-                            {testimonials.map((testimonialItem, index) => {
-                                const isActive = index === activeIndex;
-                                return (
-                                    <TestimonialCard isActive={isActive} key={`${testimonialItem.name}-${index}`}
-                                                 testimonial={testimonialItem} />
-                                );
-                            })}
-                        </div>
-                        <div className="flex gap-x-4">
-                            {[...Array(testimonials.length)].map((_, index) => {
-                                const isActive = index === activeIndex;
-                                return (
-                                    <button
-                                        className={clsx(
-                                            'h-3 w-3 rounded-full bg-gray-300 transition-all duration-500 sm:h-4 sm:w-4',
-                                            isActive ? 'scale-100 opacity-100' : 'scale-75 opacity-60',
-                                        )}
-                                        disabled={isActive}
-                                        key={`select-button-${index}`}
-                                        onClick={setTestimonial(index)}
-                                        aria-label={`Go to testimonial ${index + 1}`}
-                                        title={`Testimonial ${index + 1}`} />
-                                );
-                            })}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </Section>
-    );
-}
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
+                style={{
+                    background:
+                        'radial-gradient(ellipse at center, rgba(99, 102, 241, 0.08) 0%, rgba(10,10,10,0) 55%)',
+                }}
+            />
 
-function TestimonialCard({testimonial: {text, name, image, alt}, isActive}: {testimonial: Testimonial; isActive: boolean}) {
-    return (
-        <div
-            className={clsx(
-                'flex w-full shrink-0 snap-start snap-always flex-col items-start gap-y-4 p-2 transition-opacity duration-1000 sm:flex-row sm:gap-x-6',
-                isActive ? 'opacity-100' : 'opacity-0',
-            )}>
-            {image ? (
-                <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16">
-                    <QuoteIcon className="absolute -left-2 -top-2 h-4 w-4 stroke-black text-white" />
-                    <Image alt={alt} className="rounded-full" height={64} loading="lazy" src={image} width={64} />
+            <div className="relative mx-auto max-w-screen-md">
+                <div className="mb-16 text-center">
+                    <p className="text-sm font-semibold uppercase tracking-widest text-indigo-400">What clients say</p>
+                    <h2 className="mt-3 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+                        Trusted by founders and operators
+                    </h2>
+                    <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-neutral-400 sm:text-lg">
+                        Unedited feedback from people I&apos;ve worked with over the last decade.
+                    </p>
                 </div>
-            ) : (
-                <QuoteIcon className="h-5 w-5 shrink-0 text-white sm:h-8 sm:w-8" />
-            )}
-            <div className="flex flex-col gap-y-4">
-                <p className="prose prose-sm font-medium italic text-white sm:prose-base">{text}</p>
-                <p className="text-xs italic text-white sm:text-sm md:text-base lg:text-lg">-- {name}</p>
+
+                <div className="space-y-16 sm:space-y-20">
+                    {testimonials.map((t, idx) => (
+                        <figure className="relative" key={`${t.name}-${idx}`}>
+                            {/* Oversized decorative quote mark */}
+                            <span
+                                aria-hidden="true"
+                                className="pointer-events-none absolute -left-2 -top-8 select-none font-serif text-[120px] leading-none text-indigo-400/20 sm:-left-8 sm:-top-12 sm:text-[180px]">
+                                &ldquo;
+                            </span>
+
+                            <blockquote className="relative text-lg italic leading-relaxed text-neutral-200 sm:text-xl sm:leading-relaxed">
+                                {t.text}
+                            </blockquote>
+
+                            <figcaption className="mt-6 flex items-center gap-4">
+                                {t.image && (
+                                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-2 ring-indigo-400/30 sm:h-14 sm:w-14">
+                                        <Image
+                                            alt={t.alt}
+                                            className="object-cover"
+                                            fill
+                                            loading="lazy"
+                                            sizes="56px"
+                                            src={t.image}
+                                        />
+                                    </div>
+                                )}
+                                <div>
+                                    <p className="text-sm font-semibold uppercase tracking-widest text-indigo-400">
+                                        {t.name}
+                                    </p>
+                                </div>
+                            </figcaption>
+
+                            {idx < testimonials.length - 1 && (
+                                <div className="mt-16 h-px w-32 bg-gradient-to-r from-indigo-400/30 to-transparent" />
+                            )}
+                        </figure>
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }

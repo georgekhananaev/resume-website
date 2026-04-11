@@ -74,7 +74,6 @@ export interface Testimonial {
 }
 
 export interface ContactSection {
-    headerText?: string;
     description: string;
     items: ContactItem[];
 }
@@ -101,4 +100,10 @@ export interface Social {
     label: string;
     Icon: (props: IconProps) => ReactNode;
     href: string;
+}
+
+export interface HireService {
+    title: string;
+    description: string;
+    Icon?: (props: SVGProps<SVGSVGElement>) => ReactNode;
 }

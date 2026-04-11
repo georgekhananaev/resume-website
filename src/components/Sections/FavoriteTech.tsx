@@ -1,64 +1,90 @@
-'use client';
-
 import Image from 'next/image';
-import {useMemo, useState} from 'react';
 
-import {FavoriteTechItems, SectionId} from '../../data/data';
-import Section from '../Layout/Section';
+import {FavoriteTechItems} from '../../data/data';
+import type {FavoriteTechItem} from '../../data/dataDef';
+
+/**
+ * Editorial tech stack layout. Replaces the old filterable icon grid with a
+ * category-grouped list in the same visual language as Services.tsx and
+ * ContactCTA.tsx: dark background, subtle grid mesh, typography-forward,
+ * indigo-400 accents, monospace category labels on the left.
+ *
+ * No client-side state (removed the All/category filter). All tools are
+ * shown at once, grouped by category in the order they appear in the source.
+ */
+
+function groupByCategory(): Array<[string, FavoriteTechItem[]]> {
+    const groups = new Map<string, FavoriteTechItem[]>();
+    for (const item of FavoriteTechItems) {
+        const existing = groups.get(item.category);
+        if (existing) {
+            existing.push(item);
+        } else {
+            groups.set(item.category, [item]);
+        }
+    }
+    return Array.from(groups.entries());
+}
 
 export default function FavoriteTech() {
-    const categories = useMemo(() => {
-        const cats = ['All', ...new Set(FavoriteTechItems.map(i => i.category))];
-        return cats;
-    }, []);
-
-    const [active, setActive] = useState('All');
-
-    const filtered = active === 'All' ? FavoriteTechItems : FavoriteTechItems.filter(i => i.category === active);
+    const groups = groupByCategory();
 
     return (
-        <Section className="bg-neutral-800" sectionId={SectionId.FavoriteTech}>
-            <div className="flex flex-col gap-y-6">
-                <h2 className="self-center text-2xl font-bold text-white">Technologies I Work With</h2>
+        <section className="relative bg-neutral-950 px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+            {/* Grid mesh backdrop — matches Services.tsx */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-[0.035]"
+                style={{
+                    backgroundImage:
+                        'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+                    backgroundSize: '80px 80px',
+                }}
+            />
 
-                {/* Category filter tabs */}
-                <div className="no-scrollbar flex justify-start gap-1.5 overflow-x-auto sm:flex-wrap sm:justify-center">
-                    {categories.map(cat => (
-                        <button
-                            className={`whitespace-nowrap rounded-full px-2.5 py-0.5 text-[11px] font-medium transition-all sm:px-3 sm:py-1 sm:text-xs ${
-                                active === cat
-                                    ? 'bg-orange-500 text-white'
-                                    : 'bg-neutral-700 text-neutral-400 hover:bg-neutral-600 hover:text-neutral-200'
-                            }`}
-                            key={cat}
-                            onClick={() => setActive(cat)}>
-                            {cat}
-                            {cat !== 'All' && (
-                                <span className="ml-1.5 text-[10px] opacity-60">
-                                    {FavoriteTechItems.filter(i => i.category === cat).length}
-                                </span>
-                            )}
-                        </button>
+            <div className="relative mx-auto max-w-screen-md">
+                <div className="mb-16">
+                    <p className="text-sm font-semibold uppercase tracking-widest text-indigo-400">Tech stack</p>
+                    <h2 className="mt-3 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+                        Tools I reach for
+                    </h2>
+                    <p className="mt-6 max-w-xl text-base leading-relaxed text-neutral-400 sm:text-lg">
+                        The stack behind every case study in the portfolio, grouped by category.
+                    </p>
+                </div>
+
+                <div className="space-y-12 sm:space-y-14">
+                    {groups.map(([category, items]) => (
+                        <div
+                            className="grid grid-cols-1 gap-y-4 sm:grid-cols-[160px_1fr] sm:gap-x-10 sm:gap-y-0"
+                            key={category}>
+                            <div className="sm:pt-2">
+                                <p className="font-mono text-xs font-bold uppercase tracking-widest text-indigo-400/80 sm:text-sm">
+                                    {category}
+                                </p>
+                            </div>
+                            <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                                {items.map(({title, image}) => (
+                                    <div className="flex items-center gap-2" key={title}>
+                                        <div className="relative h-6 w-6 flex-shrink-0 overflow-hidden rounded">
+                                            <Image
+                                                alt={title}
+                                                className="rounded"
+                                                fill
+                                                loading="lazy"
+                                                sizes="24px"
+                                                src={image}
+                                                style={{objectFit: 'cover'}}
+                                            />
+                                        </div>
+                                        <span className="text-sm text-neutral-300">{title}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     ))}
                 </div>
-
-                {/* Tech grid */}
-                <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
-                    {filtered.map((item, index) => {
-                        const {title, image} = item;
-                        return (
-                            <div
-                                className="flex w-14 flex-col items-center gap-y-1.5 transition-all duration-200 hover:scale-105 sm:w-[72px]"
-                                key={`${title}-${index}`}>
-                                <div className="relative h-12 w-12 overflow-hidden rounded-lg sm:h-14 sm:w-14">
-                                    <Image alt={title} className="rounded-lg" fill loading="lazy" sizes="56px" src={image} style={{objectFit: 'cover'}} />
-                                </div>
-                                <span className="text-center text-[9px] leading-tight text-neutral-400 sm:text-[11px]">{title}</span>
-                            </div>
-                        );
-                    })}
-                </div>
             </div>
-        </Section>
+        </section>
     );
 }

@@ -8,6 +8,18 @@
     --animate-typing: typing 4s steps(40) infinite;
     --animate-blink: blink 0.5s step-end infinite alternate;
     --animate-rotate-loader: rotate-loader 2s linear infinite;
+    --animate-fade-in-up: fade-in-up 0.55s cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 18px, 0) scale(0.985);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
 }
 
 @keyframes typing {
@@ -69,7 +81,7 @@
 
 .portfolio-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(249, 115, 22, 0.15), 0 0 60px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.15), 0 0 60px rgba(59, 130, 246, 0.1);
 }
 
 .portfolio-scroll {
@@ -117,7 +129,7 @@
     66% { transform: translate(-30px, -10px) scale(0.95); }
 }
 
-/* Phone input — match other form fields */
+/* Phone input: match other form fields */
 .phone-input-dark {
     background: #404040;
     border: 0;
@@ -127,7 +139,7 @@
 }
 
 .phone-input-dark:focus-within {
-    box-shadow: 0 0 0 1px #ea580c;
+    box-shadow: 0 0 0 1px #4f46e5;
     outline: none;
 }
 

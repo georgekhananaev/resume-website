@@ -1,15 +1,19 @@
 import {ReactNode} from 'react';
 
+/**
+ * Editorial subsection row used inside /#resume — left column monospace label,
+ * right column content. Matches the label pattern used by FavoriteTech and
+ * GithubStats so all dark editorial sections feel like one family.
+ */
 export default function ResumeSection({title, children}: {title: string; children: ReactNode}) {
     return (
-        <div className="grid grid-cols-1 gap-y-4 py-8 first:pt-0 last:pb-0 md:grid-cols-4">
-            <div className="col-span-1 flex justify-center md:justify-start">
-                <div className="relative h-max">
-                    <h2 className="text-xl font-bold uppercase text-neutral-800">{title}</h2>
-                    <span className="absolute inset-x-0 -bottom-1 border-b-2 border-orange-400" />
-                </div>
+        <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-[160px_1fr] sm:gap-x-10 sm:gap-y-0">
+            <div className="sm:pt-1">
+                <p className="font-mono text-xs font-bold uppercase tracking-widest text-indigo-400/80 sm:text-sm">
+                    {title}
+                </p>
             </div>
-            <div className="col-span-1 flex flex-col md:col-span-3">{children}</div>
+            <div className="flex flex-col">{children}</div>
         </div>
     );
 }
