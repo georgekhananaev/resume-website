@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="20" fill="transparent"/>
+  <!-- App icon background -->
+  <defs>
+    <linearGradient id="sparkGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <rect x="120" y="40" width="160" height="160" rx="36" fill="url(#sparkGrad)"/>
+  <!-- Large sparkle -->
+  <path d="M200 70 C200 105 215 120 250 120 C215 120 200 135 200 170 C200 135 185 120 150 120 C185 120 200 105 200 70Z" fill="white"/>
+  <!-- Small sparkle top-right -->
+  <path d="M248 58 C248 72 254 78 268 78 C254 78 248 84 248 98 C248 84 242 78 228 78 C242 78 248 72 248 58Z" fill="white" opacity="0.8"/>
+  <!-- Small sparkle bottom-left -->
+  <path d="M148 138 C148 148 152 152 162 152 C152 152 148 156 148 166 C148 156 144 152 134 152 C144 152 148 148 148 138Z" fill="white" opacity="0.7"/>
+  <!-- Labels -->
+  <text x="200" y="250" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="700">Spark Clean</text>
+  <text x="200" y="278" text-anchor="middle" fill="#d4d4d4" font-family="system-ui" font-size="16">macOS Storage &amp; Cache Cleaner</text>
+  <text x="200" y="306" text-anchor="middle" fill="#a3a3a3" font-family="system-ui" font-size="13">Docker · Xcode · Node.js · Ollama · JetBrains</text>
+  <text x="200" y="386" text-anchor="middle" fill="#c084fc" font-family="system-ui" font-size="14" font-weight="600">Swift</text>
+</svg>

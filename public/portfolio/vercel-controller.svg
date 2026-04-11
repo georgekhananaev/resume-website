@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="vcBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="vcGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#vcBg)"/>
+  <circle cx="200" cy="200" r="180" fill="url(#vcGlow)"/>
+
+  <!-- Queue of 5 jobs flowing right -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" text-anchor="middle">
+    <rect x="50" y="170" width="60" height="60" rx="8" fill="#a5b4fc" opacity="0.35" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="80" y="195" fill="#c7d2fe">Job 5</text>
+    <text x="80" y="210" fill="#a5b4fc" font-size="8">queued</text>
+
+    <rect x="120" y="170" width="60" height="60" rx="8" fill="#a5b4fc" opacity="0.45" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="150" y="195" fill="#c7d2fe">Job 4</text>
+    <text x="150" y="210" fill="#a5b4fc" font-size="8">queued</text>
+
+    <rect x="190" y="170" width="60" height="60" rx="8" fill="#818cf8" opacity="0.6" stroke="#a5b4fc" stroke-width="1.5"/>
+    <text x="220" y="195" fill="#ffffff">Job 3</text>
+    <text x="220" y="210" fill="#e0e7ff" font-size="8">running</text>
+
+    <rect x="260" y="170" width="60" height="60" rx="8" fill="#6366f1"/>
+    <text x="290" y="195" fill="#ffffff">Job 2</text>
+    <text x="290" y="210" fill="#ffffff" font-size="8">done</text>
+
+    <rect x="330" y="170" width="50" height="60" rx="8" fill="#6366f1" opacity="0.7"/>
+    <text x="355" y="195" fill="#ffffff">Job 1</text>
+    <text x="355" y="210" fill="#ffffff" font-size="8">done</text>
+  </g>
+
+  <!-- Label above -->
+  <text x="200" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#c7d2fe" text-anchor="middle">Async Job Queue</text>
+
+  <!-- Flow arrow below -->
+  <g stroke="#818cf8" stroke-width="2" fill="#818cf8" opacity="0.7">
+    <line x1="50" y1="260" x2="370" y2="260"/>
+    <polygon points="365,255 365,265 375,260"/>
+  </g>
+  <text x="200" y="285" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#818cf8" text-anchor="middle">queued → running → done</text>
+
+  <!-- Rate limit indicator -->
+  <g opacity="0.75">
+    <circle cx="80" cy="320" r="5" fill="#818cf8"/>
+    <text x="92" y="324" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#c7d2fe">60s rate limit respected</text>
+  </g>
+  <g opacity="0.75">
+    <circle cx="80" cy="340" r="5" fill="#818cf8"/>
+    <text x="92" y="344" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#c7d2fe">dedup across callers</text>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="ecBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="ecGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#ecBg)"/>
+  <circle cx="200" cy="200" r="180" fill="url(#ecGlow)"/>
+
+  <!-- Central sync engine -->
+  <rect x="155" y="155" width="90" height="90" rx="12" fill="#6366f1"/>
+  <rect x="165" y="165" width="70" height="70" rx="8" fill="#a5b4fc" opacity="0.9"/>
+  <text x="200" y="197" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e1b4b" text-anchor="middle">SYNC</text>
+  <text x="200" y="213" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="500" fill="#1e1b4b" text-anchor="middle">engine</text>
+
+  <!-- Platform circles around -->
+  <g>
+    <!-- top -->
+    <circle cx="200" cy="60" r="30" fill="none" stroke="#818cf8" stroke-width="2"/>
+    <text x="200" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#c7d2fe" text-anchor="middle">eBay</text>
+
+    <!-- right -->
+    <circle cx="340" cy="200" r="30" fill="none" stroke="#818cf8" stroke-width="2"/>
+    <text x="340" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700" fill="#c7d2fe" text-anchor="middle">Shopify</text>
+
+    <!-- bottom -->
+    <circle cx="200" cy="340" r="30" fill="none" stroke="#818cf8" stroke-width="2"/>
+    <text x="200" y="338" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="700" fill="#c7d2fe" text-anchor="middle">Big-</text>
+    <text x="200" y="348" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="700" fill="#c7d2fe" text-anchor="middle">Commerce</text>
+
+    <!-- left -->
+    <circle cx="60" cy="200" r="30" fill="none" stroke="#818cf8" stroke-width="2"/>
+    <text x="60" y="198" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="700" fill="#c7d2fe" text-anchor="middle">Woo-</text>
+    <text x="60" y="209" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700" fill="#c7d2fe" text-anchor="middle">Comm</text>
+  </g>
+
+  <!-- Bi-directional arrows from engine to platforms -->
+  <g stroke="#818cf8" stroke-width="1.5" fill="none" opacity="0.55">
+    <line x1="200" y1="155" x2="200" y2="95"/>
+    <line x1="245" y1="200" x2="305" y2="200"/>
+    <line x1="200" y1="245" x2="200" y2="305"/>
+    <line x1="155" y1="200" x2="95" y2="200"/>
+  </g>
+  <g fill="#818cf8">
+    <polygon points="197,99 203,99 200,93"/>
+    <polygon points="301,197 301,203 307,200"/>
+    <polygon points="197,301 203,301 200,307"/>
+    <polygon points="99,197 99,203 93,200"/>
+    <polygon points="197,151 203,151 200,157"/>
+    <polygon points="249,197 249,203 243,200"/>
+    <polygon points="197,249 203,249 200,243"/>
+    <polygon points="151,197 151,203 157,200"/>
+  </g>
+</svg>

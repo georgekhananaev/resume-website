@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="wsBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="wsGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#wsBg)"/>
+  <circle cx="200" cy="200" r="180" fill="url(#wsGlow)"/>
+
+  <!-- Pulse rings from center -->
+  <g fill="none" stroke="#6366f1" stroke-width="2" opacity="0.6">
+    <circle cx="200" cy="200" r="50"/>
+  </g>
+  <g fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.45">
+    <circle cx="200" cy="200" r="90"/>
+  </g>
+  <g fill="none" stroke="#a5b4fc" stroke-width="1.25" opacity="0.3">
+    <circle cx="200" cy="200" r="130"/>
+  </g>
+  <g fill="none" stroke="#c7d2fe" stroke-width="1" opacity="0.2">
+    <circle cx="200" cy="200" r="170"/>
+  </g>
+
+  <!-- Central server node -->
+  <circle cx="200" cy="200" r="28" fill="#6366f1"/>
+  <circle cx="200" cy="200" r="18" fill="#a5b4fc"/>
+  <text x="200" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#1e1b4b" text-anchor="middle">ws://</text>
+
+  <!-- Client nodes around ring -->
+  <g fill="#818cf8">
+    <circle cx="200" cy="60" r="8"/>
+    <circle cx="340" cy="200" r="8"/>
+    <circle cx="200" cy="340" r="8"/>
+    <circle cx="60" cy="200" r="8"/>
+    <circle cx="295" cy="105" r="6"/>
+    <circle cx="295" cy="295" r="6"/>
+    <circle cx="105" cy="295" r="6"/>
+    <circle cx="105" cy="105" r="6"/>
+  </g>
+
+  <!-- Data lines to clients -->
+  <g stroke="#818cf8" stroke-width="1.2" opacity="0.35" stroke-dasharray="4,4">
+    <line x1="200" y1="172" x2="200" y2="68"/>
+    <line x1="228" y1="200" x2="332" y2="200"/>
+    <line x1="200" y1="228" x2="200" y2="332"/>
+    <line x1="172" y1="200" x2="68" y2="200"/>
+  </g>
+</svg>

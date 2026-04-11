@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="20" fill="transparent"/>
+  <!-- Spreadsheet -->
+  <rect x="100" y="45" width="160" height="155" rx="12" fill="#0f1f3a" stroke="#3b82f6" stroke-width="2.5"/>
+  <rect x="115" y="68" width="55" height="22" rx="4" fill="#22c55e" opacity="0.9"/>
+  <rect x="178" y="68" width="68" height="22" rx="4" fill="#3b82f6" opacity="0.7"/>
+  <line x1="115" y1="102" x2="248" y2="102" stroke="#334155" stroke-width="1.5"/>
+  <line x1="115" y1="124" x2="248" y2="124" stroke="#334155" stroke-width="1.5"/>
+  <line x1="115" y1="146" x2="248" y2="146" stroke="#334155" stroke-width="1.5"/>
+  <line x1="115" y1="168" x2="248" y2="168" stroke="#334155" stroke-width="1.5"/>
+  <line x1="178" y1="95" x2="178" y2="185" stroke="#334155" stroke-width="1.5"/>
+  <rect x="120" y="107" width="50" height="10" rx="3" fill="#94a3b8" opacity="0.5"/>
+  <rect x="183" y="107" width="55" height="10" rx="3" fill="#94a3b8" opacity="0.5"/>
+  <rect x="120" y="129" width="40" height="10" rx="3" fill="#94a3b8" opacity="0.4"/>
+  <rect x="183" y="129" width="45" height="10" rx="3" fill="#94a3b8" opacity="0.4"/>
+  <rect x="120" y="151" width="50" height="10" rx="3" fill="#94a3b8" opacity="0.3"/>
+  <rect x="183" y="151" width="50" height="10" rx="3" fill="#94a3b8" opacity="0.3"/>
+  <!-- AI bubble -->
+  <circle cx="300" cy="95" r="38" fill="#7c3aed"/>
+  <text x="300" y="103" text-anchor="middle" fill="white" font-family="system-ui" font-size="20" font-weight="800">AI</text>
+  <path d="M268 118 L252 140" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6,5"/>
+  <!-- Labels -->
+  <text x="200" y="268" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="700">Excel AI Assistant</text>
+  <text x="200" y="296" text-anchor="middle" fill="#d4d4d4" font-family="system-ui" font-size="16">OpenAI &amp; Ollama</text>
+  <text x="200" y="386" text-anchor="middle" fill="#3b82f6" font-family="system-ui" font-size="14" font-weight="600">Python</text>
+</svg>

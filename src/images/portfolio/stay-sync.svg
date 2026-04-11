@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="ssBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="ssGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#ssBg)"/>
+  <circle cx="200" cy="200" r="180" fill="url(#ssGlow)"/>
+
+  <!-- Calendar header -->
+  <rect x="70" y="90" width="260" height="30" rx="6" fill="#6366f1"/>
+  <text x="200" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">ALLOTMENT CALENDAR</text>
+
+  <!-- Calendar grid: 7 days × 4 weeks -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" text-anchor="middle">
+    <!-- Week 1: some sold, some hardblock, some available -->
+    <rect x="70" y="130" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="88" y="149" fill="#ffffff">8</text>
+    <rect x="107" y="130" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="125" y="149" fill="#ffffff">7</text>
+    <rect x="144" y="130" width="37" height="30" fill="#818cf8" opacity="0.5"/>
+    <text x="162" y="149" fill="#c7d2fe">3</text>
+    <rect x="181" y="130" width="37" height="30" fill="#818cf8" opacity="0.5"/>
+    <text x="199" y="149" fill="#c7d2fe">4</text>
+    <rect x="218" y="130" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="236" y="149" fill="#e0e7ff">12</text>
+    <rect x="255" y="130" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="273" y="149" fill="#e0e7ff">12</text>
+    <rect x="292" y="130" width="38" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="311" y="149" fill="#e0e7ff">10</text>
+
+    <!-- Week 2 -->
+    <rect x="70" y="163" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="88" y="182" fill="#e0e7ff">11</text>
+    <rect x="107" y="163" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="125" y="182" fill="#ffffff">8</text>
+    <rect x="144" y="163" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="162" y="182" fill="#ffffff">8</text>
+    <rect x="181" y="163" width="37" height="30" fill="#818cf8" opacity="0.7"/>
+    <text x="199" y="182" fill="#ffffff">5</text>
+    <rect x="218" y="163" width="37" height="30" fill="#818cf8" opacity="0.5"/>
+    <text x="236" y="182" fill="#c7d2fe">3</text>
+    <rect x="255" y="163" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="273" y="182" fill="#e0e7ff">10</text>
+    <rect x="292" y="163" width="38" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="311" y="182" fill="#e0e7ff">11</text>
+
+    <!-- Week 3 -->
+    <rect x="70" y="196" width="37" height="30" fill="#818cf8" opacity="0.7"/>
+    <text x="88" y="215" fill="#ffffff">6</text>
+    <rect x="107" y="196" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="125" y="215" fill="#ffffff">8</text>
+    <rect x="144" y="196" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="162" y="215" fill="#ffffff">8</text>
+    <rect x="181" y="196" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="199" y="215" fill="#ffffff">8</text>
+    <rect x="218" y="196" width="37" height="30" fill="#818cf8" opacity="0.5"/>
+    <text x="236" y="215" fill="#c7d2fe">4</text>
+    <rect x="255" y="196" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="273" y="215" fill="#e0e7ff">9</text>
+    <rect x="292" y="196" width="38" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="311" y="215" fill="#e0e7ff">10</text>
+
+    <!-- Week 4 -->
+    <rect x="70" y="229" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="88" y="248" fill="#e0e7ff">11</text>
+    <rect x="107" y="229" width="37" height="30" fill="#818cf8" opacity="0.7"/>
+    <text x="125" y="248" fill="#ffffff">6</text>
+    <rect x="144" y="229" width="37" height="30" fill="#818cf8" opacity="0.5"/>
+    <text x="162" y="248" fill="#c7d2fe">3</text>
+    <rect x="181" y="229" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="199" y="248" fill="#e0e7ff">10</text>
+    <rect x="218" y="229" width="37" height="30" fill="#a5b4fc" opacity="0.25"/>
+    <text x="236" y="248" fill="#e0e7ff">12</text>
+    <rect x="255" y="229" width="37" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="273" y="248" fill="#ffffff">8</text>
+    <rect x="292" y="229" width="38" height="30" fill="#6366f1" opacity="0.85"/>
+    <text x="311" y="248" fill="#ffffff">8</text>
+  </g>
+
+  <!-- Legend -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="500">
+    <rect x="80" y="295" width="12" height="12" fill="#6366f1"/>
+    <text x="96" y="305" fill="#c7d2fe">Sold</text>
+    <rect x="140" y="295" width="12" height="12" fill="#818cf8" opacity="0.65"/>
+    <text x="156" y="305" fill="#c7d2fe">Hardblock</text>
+    <rect x="220" y="295" width="12" height="12" fill="#a5b4fc" opacity="0.3"/>
+    <text x="236" y="305" fill="#c7d2fe">Available</text>
+  </g>
+
+  <!-- Sync indicator -->
+  <g transform="translate(200,340)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#818cf8" stroke-width="2"/>
+    <path d="M -8,-2 A 8 8 0 0 1 4 -6 L 4 -10 L 10 -4 L 4 0 L 4 -3" fill="none" stroke="#818cf8" stroke-width="1.5"/>
+    <path d="M 8,2 A 8 8 0 0 1 -4 6 L -4 10 L -10 4 L -4 0 L -4 3" fill="none" stroke="#818cf8" stroke-width="1.5"/>
+  </g>
+  <text x="200" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#a5b4fc" text-anchor="middle">Synced with MHG Hotel API</text>
+</svg>

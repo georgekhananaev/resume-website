@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="20" fill="transparent"/>
+  <!-- Next.js box -->
+  <rect x="70" y="50" width="115" height="130" rx="12" fill="#0f1f3a" stroke="#3b82f6" stroke-width="2.5"/>
+  <text x="127" y="85" text-anchor="middle" fill="#60a5fa" font-family="system-ui" font-size="16" font-weight="700">Next.js</text>
+  <rect x="88" y="98" width="75" height="7" rx="3.5" fill="#60a5fa" opacity="0.4"/>
+  <rect x="88" y="112" width="55" height="7" rx="3.5" fill="#60a5fa" opacity="0.3"/>
+  <rect x="88" y="126" width="68" height="7" rx="3.5" fill="#60a5fa" opacity="0.2"/>
+  <rect x="88" y="140" width="48" height="7" rx="3.5" fill="#60a5fa" opacity="0.15"/>
+  <!-- FastAPI box -->
+  <rect x="215" y="50" width="115" height="130" rx="12" fill="#0a2818" stroke="#22c55e" stroke-width="2.5"/>
+  <text x="272" y="85" text-anchor="middle" fill="#4ade80" font-family="system-ui" font-size="16" font-weight="700">FastAPI</text>
+  <rect x="233" y="98" width="75" height="7" rx="3.5" fill="#4ade80" opacity="0.4"/>
+  <rect x="233" y="112" width="55" height="7" rx="3.5" fill="#4ade80" opacity="0.3"/>
+  <rect x="233" y="126" width="68" height="7" rx="3.5" fill="#4ade80" opacity="0.2"/>
+  <rect x="233" y="140" width="48" height="7" rx="3.5" fill="#4ade80" opacity="0.15"/>
+  <!-- Connection dots -->
+  <path d="M190 115 L210 115" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M190 130 L210 130" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+  <!-- MongoDB -->
+  <rect x="125" y="200" width="150" height="42" rx="10" fill="#1e1040" stroke="#818cf8" stroke-width="2"/>
+  <text x="200" y="227" text-anchor="middle" fill="#c7d2fe" font-family="system-ui" font-size="16" font-weight="600">MongoDB</text>
+  <path d="M200 180 L200 200" stroke="#a78bfa" stroke-width="2.5"/>
+  <!-- Labels -->
+  <text x="200" y="290" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="22" font-weight="700">PyNextStack</text>
+  <text x="200" y="318" text-anchor="middle" fill="#d4d4d4" font-family="system-ui" font-size="16">Full-Stack Auth System</text>
+  <text x="200" y="386" text-anchor="middle" fill="#eab308" font-family="system-ui" font-size="14" font-weight="600">JavaScript &amp; Python</text>
+</svg>
