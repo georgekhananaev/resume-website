@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 export default function NotFound() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-center bg-neutral-900 px-6 text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-orange-500">Error 404</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-indigo-500">Error 404</p>
             <h1 className="mt-3 text-7xl font-bold text-white sm:text-8xl">Page not found</h1>
             <p className="mt-4 max-w-md text-base text-neutral-300">
                 The page you&apos;re looking for doesn&apos;t exist or has been moved.
             </p>
             <Link
-                className="mt-8 inline-block rounded-full bg-orange-500 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
+                className="mt-8 inline-block rounded-full bg-indigo-500 px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-600"
                 href="/">
                 Back to homepage
             </Link>

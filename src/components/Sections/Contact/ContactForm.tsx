@@ -1,11 +1,14 @@
 'use client';
 
+import 'react-phone-number-input/style.css';
+
 import {isValidPhoneNumber} from 'libphonenumber-js';
 import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useGoogleReCaptcha} from 'react-google-recaptcha-v3';
 import PhoneInput from 'react-phone-number-input';
-
-import 'react-phone-number-input/style.css';
+// Bundled flag components — avoids the library's default external CDN
+// (`purecatamphetamine.github.io`) which the site's CSP img-src blocks.
+import flags from 'react-phone-number-input/flags';
 
 interface FormData {
     [key: string]: string | undefined;
@@ -187,7 +190,7 @@ export default function ContactForm() {
     );
 
     const inputClasses =
-        'bg-neutral-700 border-0 focus:border-0 focus:outline-hidden focus:ring-1 focus:ring-orange-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-base sm:text-sm';
+        'bg-neutral-700 border-0 focus:border-0 focus:outline-hidden focus:ring-1 focus:ring-indigo-600 rounded-md placeholder:text-neutral-400 placeholder:text-sm text-neutral-200 text-base sm:text-sm';
 
     return (
         <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={handleSendMessage}>
@@ -207,6 +210,7 @@ export default function ContactForm() {
                 <PhoneInput
                     className="phone-input-dark"
                     defaultCountry="IL"
+                    flags={flags}
                     international
                     onChange={onPhoneChange}
                     placeholder="Enter phone number"
@@ -265,7 +269,7 @@ export default function ContactForm() {
             <div>
                 <button
                     aria-label="Submit contact form"
-                    className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-hidden hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800 disabled:opacity-50"
+                    className="w-max rounded-full border-2 border-indigo-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-hidden hover:bg-stone-800 focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-stone-800 disabled:opacity-50"
                     disabled={sending}
                     type="submit">
                     {sending ? 'Sending...' : 'Send Message'}

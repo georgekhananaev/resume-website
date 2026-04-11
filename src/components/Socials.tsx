@@ -6,7 +6,7 @@ export default function Socials() {
             {socialLinks.map(({label, Icon, href}) => (
                 <a
                     aria-label={label}
-                    className="-m-1.5 rounded-md p-1.5 transition-all duration-300 hover:text-orange-500 focus:outline-hidden focus:ring-2 focus:ring-orange-500 sm:-m-3 sm:p-3"
+                    className="-m-1.5 rounded-md p-1.5 transition-all duration-300 hover:text-indigo-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 sm:-m-3 sm:p-3"
                     href={href}
                     key={label}
                     rel="me noopener noreferrer"

@@ -1,115 +1,195 @@
 'use client';
 
 import {Dialog, DialogBackdrop, DialogPanel} from '@headlessui/react';
-import {Bars3Icon} from '@heroicons/react/24/outline';
+import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
 import clsx from 'clsx';
+import Image from 'next/image';
 import Link from 'next/link';
-import {useCallback, useMemo, useState} from 'react';
-
-import {SectionId} from '../../data/data';
-import {useNavObserver} from '../../hooks/useNavObserver';
+import {usePathname} from 'next/navigation';
+import {useCallback, useState} from 'react';
 
 export const headerID = 'headerNav';
 
-export default function Header() {
-    const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
-    const navSections = useMemo(
-        () => [SectionId.About, SectionId.Resume, SectionId.Github, SectionId.Portfolio, SectionId.Testimonials, SectionId.Contact],
-        [],
+type NavLink = {
+    label: string;
+    href: string;
+};
+
+// About, Resume, and Github are all sections of the home page, so they live
+// behind a single "Home" entry. Portfolio and Contact are dedicated routes.
+const NAV_LINKS: NavLink[] = [
+    {label: 'Home', href: '/'},
+    {label: 'Portfolio', href: '/portfolio'},
+    {label: 'Contact', href: '/contact'},
+];
+
+const WORK_HREF = '/work-with-me';
+
+function useIsActive() {
+    const pathname = usePathname() ?? '/';
+    return useCallback(
+        (href: string) => {
+            if (href === '/') return pathname === '/';
+            return pathname === href || pathname.startsWith(`${href}/`);
+        },
+        [pathname],
     );
+}
 
-    const intersectionHandler = useCallback((section: SectionId | null) => {
-        if (section) setCurrentSection(section);
-    }, []);
-
-    useNavObserver(navSections.map(section => `#${section}`).join(','), intersectionHandler);
-
+export default function Header() {
     return (
         <>
-            <MobileNav currentSection={currentSection} navSections={navSections} />
-            <DesktopNav currentSection={currentSection} navSections={navSections} />
+            <MobileNav />
+            <DesktopNav />
         </>
     );
 }
 
-function DesktopNav({navSections, currentSection}: {navSections: SectionId[]; currentSection: SectionId | null}) {
-    const baseClass =
-        '-m-1.5 p-1.5 rounded-md font-bold first-letter:uppercase hover:transition-colors hover:duration-300 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-orange-500 sm:hover:text-orange-500 text-neutral-100';
-    const activeClass = clsx(baseClass, 'text-orange-500');
-    const inactiveClass = clsx(baseClass, 'text-neutral-100');
+function Avatar() {
     return (
-        <header className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block" id={headerID}>
-            <nav className="flex justify-center gap-x-8">
-                {navSections.map(section => (
-                    <NavItem
-                        activeClass={activeClass}
-                        current={section === currentSection}
-                        inactiveClass={inactiveClass}
-                        key={section}
-                        section={section}
-                    />
-                ))}
+        <span className="relative block h-9 w-9 shrink-0 overflow-hidden rounded-full shadow-lg shadow-indigo-500/25 ring-2 ring-indigo-400/40 transition-all group-hover:ring-indigo-400">
+            <Image
+                alt="George Khananaev"
+                className="h-full w-full object-cover"
+                height={1280}
+                priority
+                src="/webp/george_khananaev_ws.webp"
+                style={{objectPosition: 'center top'}}
+                width={1129}
+            />
+        </span>
+    );
+}
+
+function DesktopNav() {
+    const isActive = useIsActive();
+    const workActive = isActive(WORK_HREF);
+
+    return (
+        <header
+            className="fixed top-0 z-50 hidden w-full border-b border-white/5 bg-neutral-950/70 backdrop-blur-xl sm:block"
+            id={headerID}>
+            <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+                <Link
+                    aria-label="George Khananaev, home"
+                    className="group flex items-center gap-2.5 text-sm font-bold tracking-tight text-white transition-colors hover:text-indigo-300"
+                    href="/">
+                    <Avatar />
+                    <span className="hidden md:inline">George Khananaev</span>
+                </Link>
+                <ul className="flex items-center gap-1">
+                    {NAV_LINKS.map(link => {
+                        const active = isActive(link.href);
+                        return (
+                            <li key={link.href}>
+                                <Link
+                                    aria-current={active ? 'page' : undefined}
+                                    className={clsx(
+                                        'relative inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-400',
+                                        active ? 'text-white' : 'text-neutral-300 hover:text-white',
+                                    )}
+                                    href={link.href}>
+                                    {active && (
+                                        <span
+                                            aria-hidden="true"
+                                            className="absolute inset-0 rounded-full bg-white/10 ring-1 ring-white/15"
+                                        />
+                                    )}
+                                    <span className="relative">{link.label}</span>
+                                </Link>
+                            </li>
+                        );
+                    })}
+                    <li className="ml-2">
+                        <Link
+                            aria-current={workActive ? 'page' : undefined}
+                            className={clsx(
+                                'inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-300',
+                                workActive
+                                    ? 'bg-indigo-400 ring-2 ring-white/30'
+                                    : 'bg-indigo-500 hover:scale-[1.02] hover:bg-indigo-400',
+                            )}
+                            href={WORK_HREF}>
+                            Work with me
+                        </Link>
+                    </li>
+                </ul>
             </nav>
         </header>
     );
 }
 
-function MobileNav({navSections, currentSection}: {navSections: SectionId[]; currentSection: SectionId | null}) {
+function MobileNav() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const isActive = useIsActive();
 
-    const toggleOpen = useCallback(() => {
-        setIsOpen(!isOpen);
-    }, [isOpen]);
+    const close = useCallback(() => setIsOpen(false), []);
+    const toggle = useCallback(() => setIsOpen(o => !o), []);
 
-    const baseClass =
-        'p-2 rounded-md first-letter:uppercase transition-colors duration-300 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-orange-500';
-    const activeClass = clsx(baseClass, 'bg-neutral-900 text-white font-bold');
-    const inactiveClass = clsx(baseClass, 'text-neutral-200 font-medium');
     return (
         <>
-            <button
-                aria-label="Menu Button"
-                className="fixed right-2 top-2 z-40 rounded-md bg-orange-500 p-2 ring-offset-gray-800/60 hover:bg-orange-400 focus:outline-hidden focus:ring-0 focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:hidden"
-                onClick={toggleOpen}>
-                <Bars3Icon className="h-8 w-8 text-white" />
-                <span className="sr-only">Open sidebar</span>
-            </button>
-            <Dialog as="div" className="fixed inset-0 z-40 flex sm:hidden" onClose={toggleOpen} open={isOpen}>
+            <div className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-white/5 bg-neutral-950/80 px-4 py-3 backdrop-blur-xl sm:hidden">
+                <Link
+                    aria-label="George Khananaev, home"
+                    className="group flex items-center gap-2 text-sm font-bold text-white"
+                    href="/"
+                    onClick={close}>
+                    <Avatar />
+                </Link>
+                <button
+                    aria-label="Open menu"
+                    className="inline-flex items-center justify-center rounded-full bg-white/5 p-2 text-white ring-1 ring-white/10 transition-colors hover:bg-white/10 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-400"
+                    onClick={toggle}>
+                    <Bars3Icon className="h-6 w-6" />
+                </button>
+            </div>
+            <Dialog as="div" className="relative z-50 sm:hidden" onClose={close} open={isOpen}>
                 <DialogBackdrop
-                    className="fixed inset-0 bg-stone-900/75 transition-opacity duration-300 data-[closed]:opacity-0"
+                    className="fixed inset-0 bg-neutral-950/80 backdrop-blur-sm transition-opacity duration-300 data-[closed]:opacity-0"
                     transition
                 />
-                <DialogPanel
-                    className="relative w-4/5 bg-stone-800 transition duration-300 ease-in-out data-[closed]:-translate-x-full"
-                    transition>
-                    <nav className="mt-5 flex flex-col gap-y-2 px-2">
-                        {navSections.map(section => (
-                            <NavItem
-                                activeClass={activeClass}
-                                current={section === currentSection}
-                                inactiveClass={inactiveClass}
-                                key={section}
-                                onClick={toggleOpen}
-                                section={section}
-                            />
-                        ))}
-                    </nav>
-                </DialogPanel>
+                <div className="fixed inset-0 flex justify-end">
+                    <DialogPanel
+                        className="relative flex w-4/5 max-w-sm flex-col border-l border-white/10 bg-neutral-900/95 shadow-2xl backdrop-blur-xl transition duration-300 ease-out data-[closed]:translate-x-full"
+                        transition>
+                        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+                            <span className="text-xs font-bold uppercase tracking-widest text-neutral-400">Menu</span>
+                            <button
+                                aria-label="Close menu"
+                                className="rounded-full p-1 text-neutral-300 transition-colors hover:text-white"
+                                onClick={close}>
+                                <XMarkIcon className="h-6 w-6" />
+                            </button>
+                        </div>
+                        <nav className="flex flex-col gap-1 px-4 py-6">
+                            {NAV_LINKS.map(link => {
+                                const active = isActive(link.href);
+                                return (
+                                    <Link
+                                        aria-current={active ? 'page' : undefined}
+                                        className={clsx(
+                                            'rounded-xl px-4 py-3 text-base font-semibold transition-colors',
+                                            active
+                                                ? 'bg-white/10 text-white ring-1 ring-white/15'
+                                                : 'text-neutral-300 hover:bg-white/5 hover:text-white',
+                                        )}
+                                        href={link.href}
+                                        key={link.href}
+                                        onClick={close}>
+                                        {link.label}
+                                    </Link>
+                                );
+                            })}
+                            <Link
+                                className="mt-4 inline-flex items-center justify-center rounded-full bg-indigo-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 transition-colors hover:bg-indigo-400"
+                                href={WORK_HREF}
+                                onClick={close}>
+                                Work with me
+                            </Link>
+                        </nav>
+                    </DialogPanel>
+                </div>
             </Dialog>
         </>
-    );
-}
-
-function NavItem({section, current, inactiveClass, activeClass, onClick}: {
-    section: string;
-    current: boolean;
-    activeClass: string;
-    inactiveClass: string;
-    onClick?: () => void;
-}) {
-    return (
-        <Link className={clsx(current ? activeClass : inactiveClass)} href={`/#${section}`} onClick={onClick}>
-            {section}
-        </Link>
     );
 }
