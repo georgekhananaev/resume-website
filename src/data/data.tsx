@@ -212,7 +212,7 @@ function calcAge(): string {
  */
 export const aboutData: About = {
     profileImageSrc: '/webp/george_khananaev_ws.webp',
-    description: `George Khananaev is a Senior Full Stack Developer working across Python, TypeScript, and Swift, currently Head of Development & IT Infrastructure at Moon Holidays, building enterprise-grade systems designed for scale. In the AI era, his focus has shifted from writing every line of code to architecting solutions that combine user experience, performance, and security at the highest level. George designs multi-tenant platforms, real-time data pipelines, and AI-driven applications for corporations, not individuals. Every project he takes on is built with scale, reliability, and long-term maintainability in mind.`,
+    description: `Senior Full Stack Developer with ten years of experience building enterprise-grade systems across Python, TypeScript, and Swift. Currently Head of Development & IT Infrastructure at Moon Holidays in Bangkok, leading the engineering organization across every platform and product the company ships. Architecting multi-tenant platforms, real-time data pipelines, and AI-driven applications designed for corporations, not individuals. In the AI era, the focus has shifted from writing every line of code to designing solutions that combine user experience, performance, and security at the highest level. Every project built for scale, reliability, and long-term maintainability.`,
     aboutItems: [
         {label: 'Location', text: 'Bangkok, Thailand', Icon: MapIcon},
         {label: 'Age', text: calcAge(), Icon: CalendarIcon},
