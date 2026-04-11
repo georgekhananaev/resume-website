@@ -43,13 +43,35 @@ export default function Hero() {
                         </a>
                     </div>
                 </div>
-                <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center">
+                <div className="absolute inset-x-0 bottom-8 z-10 flex justify-center sm:bottom-10">
                     <a
                         aria-label="Scroll down to the about section"
-                        className="rounded-full bg-white p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-hidden focus:ring-2 sm:p-2"
+                        className="group inline-flex flex-col items-center gap-2 rounded-xl px-4 py-2 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-4 focus-visible:ring-offset-neutral-950"
                         href={`/#${SectionId.About}`}
-                        title="Scroll Down">
-                        <ChevronDownIcon className="h-5 w-5 bg-transparent sm:h-6 sm:w-6" />
+                        title="Scroll to About">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-indigo-400/70 transition-colors group-hover:text-indigo-300">
+                            Scroll
+                        </span>
+                        {/* Three stacked chevrons blinking in sequence (classic iOS-style
+                            scroll hint). Staggered animation-delay gives the illusion of
+                            a "download" cascade. motion-reduce respects user preference. */}
+                        <span className="flex -space-y-[10px] flex-col items-center motion-reduce:[&_svg]:animate-none">
+                            <ChevronDownIcon
+                                className="h-5 w-5 animate-chevron-blink text-indigo-400 transition-colors group-hover:text-indigo-300"
+                                strokeWidth={2.5}
+                                style={{animationDelay: '0s'}}
+                            />
+                            <ChevronDownIcon
+                                className="h-5 w-5 animate-chevron-blink text-indigo-400 transition-colors group-hover:text-indigo-300"
+                                strokeWidth={2.5}
+                                style={{animationDelay: '0.2s'}}
+                            />
+                            <ChevronDownIcon
+                                className="h-5 w-5 animate-chevron-blink text-indigo-400 transition-colors group-hover:text-indigo-300"
+                                strokeWidth={2.5}
+                                style={{animationDelay: '0.4s'}}
+                            />
+                        </span>
                     </a>
                 </div>
             </div>

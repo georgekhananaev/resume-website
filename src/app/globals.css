@@ -9,6 +9,12 @@
     --animate-blink: blink 0.5s step-end infinite alternate;
     --animate-rotate-loader: rotate-loader 2s linear infinite;
     --animate-fade-in-up: fade-in-up 0.55s cubic-bezier(0.2, 0.65, 0.3, 1) both;
+    --animate-chevron-blink: chevron-blink 1.8s ease-in-out infinite;
+}
+
+@keyframes chevron-blink {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
 }
 
 @keyframes fade-in-up {

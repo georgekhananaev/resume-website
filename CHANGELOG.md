@@ -5,6 +5,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+- **ui**: Redesigned Hero scroll-down indicator — replaced the plain white chevron circle with a three-chevron iOS-style cascade (stacked indigo chevrons that blink in sequence via the new `chevron-blink` keyframe) plus a "SCROLL" editorial eyebrow label. Respects `prefers-reduced-motion` and has a proper keyboard focus ring
 
 ### Changed
 
