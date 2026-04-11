@@ -47,48 +47,179 @@ function parseUserAgent(ua: string) {
 
 const noIndex = {'X-Robots-Tag': 'noindex, nofollow, noarchive'};
 
+// ── Input validation ──────────────────────────────────────────────────────────
+// Simple, strict RFC-lite email regex. Good enough to reject object payloads
+// and obviously-invalid strings; Google's SMTP will reject the rest.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function isString(x: unknown): x is string {
+    return typeof x === 'string';
+}
+
+// ── In-memory rate limiter ────────────────────────────────────────────────────
+// Keyed by client IP. A single node-process window is enough for the realistic
+// deployment surface (single-region Vercel/Node deployment) — it's not a
+// replacement for Upstash/Redis if this site ever scales horizontally, but
+// blocks trivial form-bombing attacks and burns far less EmailJS quota on
+// misconfigured probes. 5 requests / minute, 20 / hour per IP.
+interface RateWindow {
+    minuteCount: number;
+    minuteStart: number;
+    hourCount: number;
+    hourStart: number;
+}
+const rateMap = new Map<string, RateWindow>();
+const MINUTE = 60_000;
+const HOUR = 60 * MINUTE;
+const MAX_PER_MINUTE = 5;
+const MAX_PER_HOUR = 20;
+
+function rateLimit(ip: string): {allowed: boolean; retryAfter?: number} {
+    const now = Date.now();
+    let win = rateMap.get(ip);
+    if (!win) {
+        win = {minuteCount: 0, minuteStart: now, hourCount: 0, hourStart: now};
+        rateMap.set(ip, win);
+    }
+
+    // Roll the minute window
+    if (now - win.minuteStart > MINUTE) {
+        win.minuteCount = 0;
+        win.minuteStart = now;
+    }
+    // Roll the hour window
+    if (now - win.hourStart > HOUR) {
+        win.hourCount = 0;
+        win.hourStart = now;
+    }
+
+    if (win.minuteCount >= MAX_PER_MINUTE) {
+        return {allowed: false, retryAfter: Math.ceil((MINUTE - (now - win.minuteStart)) / 1000)};
+    }
+    if (win.hourCount >= MAX_PER_HOUR) {
+        return {allowed: false, retryAfter: Math.ceil((HOUR - (now - win.hourStart)) / 1000)};
+    }
+
+    win.minuteCount += 1;
+    win.hourCount += 1;
+
+    // Keep the map bounded — if it ever grows past 10k IPs, drop the oldest half.
+    if (rateMap.size > 10_000) {
+        const entries = Array.from(rateMap.entries()).sort((a, b) => a[1].hourStart - b[1].hourStart);
+        for (const [k] of entries.slice(0, 5_000)) rateMap.delete(k);
+    }
+    return {allowed: true};
+}
+
+function getClientIp(request: NextRequest): string {
+    const fwd = request.headers.get('x-forwarded-for');
+    if (fwd) return fwd.split(',')[0]!.trim();
+    return request.headers.get('x-real-ip') || 'unknown';
+}
+
 export async function POST(request: NextRequest) {
-    const body = await request.json();
-    const {from_name, from_email, from_phone, message, user_agent, 'g-recaptcha-response': recaptchaToken} = body;
-
-    if (!from_name || !from_email || !message) {
-        return NextResponse.json({error: 'Missing required fields'}, {status: 400});
+    // ── Rate limit (applies before any expensive work) ────────────────────────
+    const ip = getClientIp(request);
+    const limit = rateLimit(ip);
+    if (!limit.allowed) {
+        return NextResponse.json(
+            {error: 'Too many requests. Please try again later.'},
+            {status: 429, headers: {...noIndex, 'Retry-After': String(limit.retryAfter ?? 60)}},
+        );
     }
 
-    // Server-side input length validation
-    if (from_name.length > 100 || from_email.length > 200 || message.length > 500) {
-        return NextResponse.json({error: 'Input too long'}, {status: 400});
+    // ── Parse body safely ─────────────────────────────────────────────────────
+    let body: Record<string, unknown>;
+    try {
+        body = await request.json();
+    } catch {
+        return NextResponse.json({error: 'Invalid JSON body'}, {status: 400, headers: noIndex});
     }
 
+    const from_name = body.from_name;
+    const from_email = body.from_email;
+    const from_phone = body.from_phone;
+    const message = body.message;
+    const user_agent = body.user_agent;
+    const recaptchaToken = body['g-recaptcha-response'];
+
+    // ── Strict type + shape validation ────────────────────────────────────────
+    if (!isString(from_name) || !isString(from_email) || !isString(message)) {
+        return NextResponse.json({error: 'Missing or invalid fields'}, {status: 400, headers: noIndex});
+    }
+    if (from_phone !== undefined && from_phone !== null && !isString(from_phone)) {
+        return NextResponse.json({error: 'Invalid phone field'}, {status: 400, headers: noIndex});
+    }
+    if (user_agent !== undefined && user_agent !== null && !isString(user_agent)) {
+        return NextResponse.json({error: 'Invalid user_agent field'}, {status: 400, headers: noIndex});
+    }
+    if (recaptchaToken !== undefined && recaptchaToken !== null && !isString(recaptchaToken)) {
+        return NextResponse.json({error: 'Invalid reCAPTCHA token'}, {status: 400, headers: noIndex});
+    }
+
+    // ── Length bounds (both min and max) ──────────────────────────────────────
+    if (from_name.trim().length < 2 || from_name.length > 100) {
+        return NextResponse.json({error: 'Invalid name length'}, {status: 400, headers: noIndex});
+    }
+    if (from_email.length < 5 || from_email.length > 200 || !EMAIL_RE.test(from_email)) {
+        return NextResponse.json({error: 'Invalid email address'}, {status: 400, headers: noIndex});
+    }
+    if (message.trim().length < 10 || message.length > 5000) {
+        return NextResponse.json({error: 'Invalid message length'}, {status: 400, headers: noIndex});
+    }
     if (from_phone && from_phone.length > 20) {
-        return NextResponse.json({error: 'Invalid phone number'}, {status: 400});
+        return NextResponse.json({error: 'Invalid phone number'}, {status: 400, headers: noIndex});
     }
 
-    // Verify reCAPTCHA server-side
-    if (process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA !== 'true') {
+    // ── reCAPTCHA verification ────────────────────────────────────────────────
+    // The `NEXT_PUBLIC_DISABLE_RECAPTCHA=true` escape hatch is only honored in
+    // non-production environments so a stray production env var can't silently
+    // disable bot protection.
+    const recaptchaDisabled =
+        process.env.NEXT_PUBLIC_DISABLE_RECAPTCHA === 'true' && process.env.NODE_ENV !== 'production';
+
+    if (!recaptchaDisabled) {
         if (!recaptchaToken) {
-            return NextResponse.json({error: 'reCAPTCHA verification required'}, {status: 400});
+            return NextResponse.json({error: 'reCAPTCHA verification required'}, {status: 400, headers: noIndex});
         }
         const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: new URLSearchParams({secret: process.env.RECAPTCHA_SECRET_KEY || '', response: recaptchaToken}).toString(),
+            body: new URLSearchParams({
+                secret: process.env.RECAPTCHA_SECRET_KEY || '',
+                response: recaptchaToken as string,
+            }).toString(),
         });
-        const verifyData = await verifyRes.json();
+
+        interface RecaptchaResponse {
+            success: boolean;
+            score?: number;
+            action?: string;
+            hostname?: string;
+            'error-codes'?: string[];
+        }
+        const verifyData: RecaptchaResponse = await verifyRes.json();
+
+        // v3 requires score + action; v2 only has `success`. Accept either but
+        // enforce score/action when present.
         if (!verifyData.success) {
-            return NextResponse.json({error: 'reCAPTCHA verification failed'}, {status: 400});
+            return NextResponse.json({error: 'reCAPTCHA verification failed'}, {status: 400, headers: noIndex});
+        }
+        if (typeof verifyData.score === 'number' && verifyData.score < 0.5) {
+            return NextResponse.json({error: 'reCAPTCHA score too low'}, {status: 400, headers: noIndex});
+        }
+        if (verifyData.action && verifyData.action !== 'contact_form') {
+            return NextResponse.json({error: 'reCAPTCHA action mismatch'}, {status: 400, headers: noIndex});
         }
     }
 
-    // Parse user agent from client or fallback to request header
-    const ua = user_agent || request.headers.get('user-agent') || '';
+    // ── Parse user agent ──────────────────────────────────────────────────────
+    const ua = isString(user_agent) && user_agent ? user_agent : request.headers.get('user-agent') || '';
     const {browser, version, os, platform} = parseUserAgent(ua);
-
-    // Get referrer
     const referrer = request.headers.get('referer') || 'direct';
 
+    // ── Dispatch via EmailJS ──────────────────────────────────────────────────
     try {
-        // Send notification to site owner
         const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -115,13 +246,17 @@ export async function POST(request: NextRequest) {
         });
 
         if (!response.ok) {
-            console.error('EmailJS error:', await response.text());
-            return NextResponse.json({error: 'Failed to send message'}, {status: 500});
+            // Log status only — response body may contain PII or token echoes.
+            console.error('[contact] EmailJS failed with status', response.status);
+            return NextResponse.json({error: 'Failed to send message'}, {status: 500, headers: noIndex});
         }
 
         return NextResponse.json({text: 'OK'}, {headers: noIndex});
     } catch (error) {
-        console.error('Contact form error:', error);
-        return NextResponse.json({error: 'Failed to send message'}, {status: 500});
+        // Log error class/message only, not the full error which can embed
+        // request bodies or env values on some fetch implementations.
+        const msg = error instanceof Error ? error.message : 'unknown error';
+        console.error('[contact] dispatch error:', msg);
+        return NextResponse.json({error: 'Failed to send message'}, {status: 500, headers: noIndex});
     }
 }
