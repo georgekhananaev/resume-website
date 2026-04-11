@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [4.2.0] - 2026-04-11
+
+### Added
 - **blog**: MongoDB-backed portfolio blog with dynamic /portfolio/[slug], /portfolio/tag/[tag], per-post opengraph-image generator, RSS feed, and llms.txt integration
 - **blog**: Public vs Commercial portfolio split with featured posts, GitHub star enrichment, TOC, related posts, and editorial PostCard/PostRow components
 - **blog**: scripts/seed-posts.mjs upserts 15 posts (8 open source + 7 commercial case studies)
