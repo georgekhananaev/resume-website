@@ -8,6 +8,7 @@ import Header from '../../components/Sections/Header';
 import HireHero from '../../components/Sections/HireHero';
 import Services from '../../components/Sections/Services';
 import {hirePitch, hireServices} from '../../data/data';
+import {buildBreadcrumbList} from '../../lib/breadcrumb';
 
 const FavoriteTech = dynamic(() => import('../../components/Sections/FavoriteTech'));
 const Testimonials = dynamic(() => import('../../components/Sections/Testimonials'));
@@ -94,13 +95,10 @@ export default function WorkWithMe() {
                     })),
                 },
             },
-            {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                    {'@type': 'ListItem', position: 1, name: 'Home', item: siteUrl},
-                    {'@type': 'ListItem', position: 2, name: 'Work with me', item: pageUrl},
-                ],
-            },
+            buildBreadcrumbList([
+                {name: 'Home', url: siteUrl},
+                {name: 'Work with me', url: pageUrl},
+            ]),
         ],
     };
 

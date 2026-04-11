@@ -9,6 +9,7 @@ import RelatedPosts from '../../../components/Portfolio/RelatedPosts';
 import TableOfContents from '../../../components/Portfolio/TableOfContents';
 import Footer from '../../../components/Sections/Footer';
 import Header from '../../../components/Sections/Header';
+import {buildBreadcrumbList} from '../../../lib/breadcrumb';
 import {getStarCount} from '../../../lib/github-stars';
 import {extractToc, markdownToHtml} from '../../../lib/markdown';
 import {enrichWithStars} from '../../../lib/post-stars';
@@ -141,14 +142,11 @@ export default async function PostPage({params}: PageProps) {
                     name: 'Portfolio',
                 },
             },
-            {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                    {'@type': 'ListItem', position: 1, name: 'Home', item: siteUrl},
-                    {'@type': 'ListItem', position: 2, name: 'Portfolio', item: `${siteUrl}/portfolio`},
-                    {'@type': 'ListItem', position: 3, name: post.title, item: url},
-                ],
-            },
+            buildBreadcrumbList([
+                {name: 'Home', url: siteUrl},
+                {name: 'Portfolio', url: `${siteUrl}/portfolio`},
+                {name: post.title, url},
+            ]),
         ],
     };
 

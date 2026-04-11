@@ -7,6 +7,7 @@ import PostRow from '../../../../components/Portfolio/PostRow';
 import TagCloud from '../../../../components/Portfolio/TagCloud';
 import Footer from '../../../../components/Sections/Footer';
 import Header from '../../../../components/Sections/Header';
+import {buildBreadcrumbList} from '../../../../lib/breadcrumb';
 import {enrichWithStars} from '../../../../lib/post-stars';
 import {getAllTags, getPostsByTag} from '../../../../lib/posts';
 
@@ -89,14 +90,11 @@ export default async function TagPage({params}: PageProps) {
                     })),
                 },
             },
-            {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                    {'@type': 'ListItem', position: 1, name: 'Home', item: siteUrl},
-                    {'@type': 'ListItem', position: 2, name: 'Portfolio', item: `${siteUrl}/portfolio`},
-                    {'@type': 'ListItem', position: 3, name: `#${tag}`, item: url},
-                ],
-            },
+            buildBreadcrumbList([
+                {name: 'Home', url: siteUrl},
+                {name: 'Portfolio', url: `${siteUrl}/portfolio`},
+                {name: `#${tag}`, url},
+            ]),
         ],
     };
 

@@ -6,6 +6,7 @@ import Contact from '../../components/Sections/Contact';
 import Footer from '../../components/Sections/Footer';
 import Header from '../../components/Sections/Header';
 import {contact} from '../../data/data';
+import {buildBreadcrumbList} from '../../lib/breadcrumb';
 
 const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace(/\/$/, '');
 const pageUrl = `${siteUrl}/contact`;
@@ -67,13 +68,10 @@ export default function ContactPage() {
                     })),
                 },
             },
-            {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                    {'@type': 'ListItem', position: 1, name: 'Home', item: siteUrl},
-                    {'@type': 'ListItem', position: 2, name: 'Contact', item: pageUrl},
-                ],
-            },
+            buildBreadcrumbList([
+                {name: 'Home', url: siteUrl},
+                {name: 'Contact', url: pageUrl},
+            ]),
         ],
     };
 

@@ -6,6 +6,7 @@ import PortfolioToggleSection from '../../components/Portfolio/PortfolioToggleSe
 import TagCloud from '../../components/Portfolio/TagCloud';
 import Footer from '../../components/Sections/Footer';
 import Header from '../../components/Sections/Header';
+import {buildBreadcrumbList} from '../../lib/breadcrumb';
 import {enrichWithStars} from '../../lib/post-stars';
 import {
     getAllTags,
@@ -109,13 +110,10 @@ export default async function PortfolioPage() {
                     })),
                 },
             },
-            {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                    {'@type': 'ListItem', position: 1, name: 'Home', item: siteUrl},
-                    {'@type': 'ListItem', position: 2, name: 'Portfolio', item: pageUrl},
-                ],
-            },
+            buildBreadcrumbList([
+                {name: 'Home', url: siteUrl},
+                {name: 'Portfolio', url: pageUrl},
+            ]),
         ],
     };
 
