@@ -5,7 +5,7 @@ import Link from 'next/link';
 import type {PostWithStarsFull} from '../../lib/post-stars';
 import GithubIcon from '../Icon/GithubIcon';
 
-const DEFAULT_AVATAR = '/og-profile.jpg';
+const DEFAULT_AVATAR = '/webp/george_khananaev_ws.webp';
 
 /**
  * Guard against avatar URLs whose hostname is not configured in

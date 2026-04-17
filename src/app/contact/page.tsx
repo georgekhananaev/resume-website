@@ -12,7 +12,7 @@ const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace
 const pageUrl = `${siteUrl}/contact`;
 const title = 'Contact | George Khananaev';
 const description =
-    'Get in touch with George Khananaev, Senior Full Stack Developer and Head of Development & IT Infrastructure at Moon Holidays. Available for senior engineering engagements, technical consulting, and fractional CTO work.';
+    'Get in touch with George Khananaev, Software Architect in Bangkok. Available for senior engineering, technical consulting, and fractional CTO work.';
 
 export const metadata: Metadata = {
     title,

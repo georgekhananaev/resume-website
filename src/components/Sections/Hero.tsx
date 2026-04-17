@@ -21,7 +21,7 @@ export default function Hero() {
                 />
                 <div className="relative z-10 mx-auto max-w-screen-md px-4 text-center sm:px-6">
                     <div className="mb-6 inline-block rounded-full border border-indigo-400/40 bg-indigo-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-indigo-300">
-                        Senior Full Stack Developer · Bangkok
+                        Software Architect · Bangkok
                     </div>
                     <h1 className="text-4xl font-bold text-white sm:text-6xl lg:text-7xl">{name}</h1>
                     {description}

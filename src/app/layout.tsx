@@ -3,8 +3,8 @@ import './globals.css';
 import type {Metadata, Viewport} from 'next';
 
 const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace(/\/$/, '');
-const title = 'Senior Full Stack Developer | George Khananaev';
-const description = 'Senior Full Stack Developer specializing in Python, TypeScript, and Swift. Currently Head of Development & IT Infrastructure at Moon Holidays, Bangkok — building scalable multi-tenant platforms, real-time data pipelines, and AI-driven enterprise systems.';
+const title = 'Software Architect | George Khananaev';
+const description = 'Software Architect in Bangkok. Head of Development at Moon Holidays, building multi-tenant platforms, real-time pipelines, and AI-driven enterprise systems.';
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
             url: '/og-image.png?v=2',
             width: 1200,
             height: 630,
-            alt: 'George Khananaev, Senior Full Stack Developer',
+            alt: 'George Khananaev, Software Architect',
             type: 'image/png',
         }],
         locale: 'en_US',

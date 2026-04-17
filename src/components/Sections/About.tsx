@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 import {aboutData, SectionId} from '../../data/data';
 
-const PROFILE_ALT = 'George Khananaev, Senior Full Stack Developer and Head of Development & IT Infrastructure at Moon Holidays, Bangkok';
-const PROFILE_TITLE = 'George Khananaev, Senior Full Stack Developer';
+const PROFILE_ALT = 'George Khananaev, Software Architect and Head of Development & IT Infrastructure at Moon Holidays, Bangkok';
+const PROFILE_TITLE = 'George Khananaev, Software Architect';
 
 export default function About() {
     const {profileImageSrc, description, aboutItems} = aboutData;

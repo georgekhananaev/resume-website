@@ -120,7 +120,7 @@ async function generateOgImage() {
     <text x="151" y="29"
           font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif"
           font-size="14" font-weight="700" letter-spacing="2.8"
-          fill="${INDIGO_300}" text-anchor="middle">FULL STACK DEVELOPER</text>
+          fill="${INDIGO_300}" text-anchor="middle">SOFTWARE ARCHITECT</text>
   </g>
 
   <!-- Name (two lines, tight) -->

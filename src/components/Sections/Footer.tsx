@@ -48,7 +48,7 @@ export default function Footer() {
                             </span>
                             <span className="flex flex-col leading-tight">
                                 <span className="text-base font-bold tracking-tight">George Khananaev</span>
-                                <span className="text-xs text-neutral-400">Senior Full Stack Developer</span>
+                                <span className="text-xs text-neutral-400">Software Architect</span>
                             </span>
                         </Link>
                         <p className="mt-6 max-w-sm text-sm leading-relaxed text-neutral-400">

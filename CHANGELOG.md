@@ -5,10 +5,15 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+- **brand**: Self-title rebranded from "Senior Full Stack Developer" / "Full Stack Engineer" to **Software Architect** across page metadata, JSON-LD (Person, WebSite, WebPage, ProfessionalService, hasOccupation.name), Hero eyebrow, Footer, About profile alt/title, PostFooter author bio, OG banner pill text, service catalog, hirePitch tagline, and email signature template. The past job title at Moon Holidays (Dec 2022 – Dec 2024) and historical CHANGELOG entries are preserved as factual history
 
 ### Changed
+- **pwa**: `site.webmanifest` rebranded from the raw `resume-website` GitHub repo name to "George Khananaev — Software Architect" with short_name, description, start_url, scope, lang, apple-touch-icon entry, and brand-matching `theme_color: #0a0a0a`
+- **seo**: Meta descriptions on `/`, `/contact`, and `/portfolio` tightened from 168–245 chars to 147–156 chars so Google's 160-char mobile SERP snippet no longer truncates them mid-sentence
+- **assets**: Regenerated `public/og-image.png` via `scripts/generate-images.mjs` so the social-share banner displays the new SOFTWARE ARCHITECT pill instead of the stale FULL STACK DEVELOPER text — LinkedIn / X / WhatsApp / Slack previews will refresh as their caches expire
 
 ### Fixed
+- **seo**: `/og-profile.jpg` returned HTTP 404 but was wired into Person.image on the homepage JSON-LD, ProfessionalService.image on `/work-with-me`, the RSS feed image, and the default post-author avatar fallback. Google Knowledge Graph was seeing a dead person-image link. Repointed to `/webp/george_khananaev_ws.webp` for person contexts and `/og-image.png` for the RSS banner
 
 ## [4.4.0] - 2026-04-17
 

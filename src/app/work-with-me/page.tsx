@@ -17,7 +17,7 @@ const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace
 const pageUrl = `${siteUrl}/work-with-me`;
 const title = 'Work with me | George Khananaev';
 const description =
-    'Senior full stack engineer & fractional CTO for system architecture, AI & LLM integration, DevOps, and engineering leadership. Remote worldwide, based in Bangkok.';
+    'Software Architect & fractional CTO for system design, AI & LLM integration, DevOps, and engineering leadership. Remote worldwide, based in Bangkok.';
 
 export const metadata: Metadata = {
     title,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
             url: '/og-image.png?v=2',
             width: 1200,
             height: 630,
-            alt: 'George Khananaev, Full Stack Engineer & Tech Lead',
+            alt: 'George Khananaev, Software Architect & Tech Lead',
             type: 'image/png',
         }],
         locale: 'en_US',
@@ -55,14 +55,14 @@ export default function WorkWithMe() {
             {
                 '@type': 'ProfessionalService',
                 '@id': `${pageUrl}/#service`,
-                name: 'George Khananaev, Full Stack Engineer & Tech Lead',
+                name: 'George Khananaev, Software Architect & Tech Lead',
                 url: pageUrl,
-                image: `${siteUrl}/og-profile.jpg`,
+                image: `${siteUrl}/webp/george_khananaev_ws.webp`,
                 provider: {'@id': `${siteUrl}/#person`},
                 areaServed: 'Worldwide',
                 serviceType: [
                     'System Architecture & Technical Design',
-                    'Senior Full Stack Development',
+                    'Software Architecture',
                     'AI & LLM Integration',
                     'Workflow Automation',
                     'Business Process Automation',

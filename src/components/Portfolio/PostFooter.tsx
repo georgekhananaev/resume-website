@@ -42,7 +42,7 @@ export default function PostFooter({post}: {post: Post}) {
                         George Khananaev
                     </Link>
                     <p className="mt-2 text-sm leading-relaxed text-neutral-300">
-                        Senior Full Stack Developer and Head of Development &amp; IT Infrastructure at{' '}
+                        Software Architect and Head of Development &amp; IT Infrastructure at{' '}
                         <a
                             className="text-indigo-300 hover:text-indigo-200"
                             href="https://moonholidays.co.th"

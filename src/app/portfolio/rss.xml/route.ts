@@ -15,7 +15,7 @@ export async function GET(): Promise<Response> {
         id: `${siteUrl}/portfolio`,
         link: `${siteUrl}/portfolio`,
         language: 'en',
-        image: `${siteUrl}/og-profile.jpg`,
+        image: `${siteUrl}/og-image.png`,
         favicon: `${siteUrl}/favicon.ico`,
         copyright: `© ${new Date().getFullYear()} George Khananaev`,
         updated: posts[0] ? new Date(posts[0].updatedAt) : new Date(),

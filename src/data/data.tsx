@@ -212,7 +212,7 @@ function calcAge(): string {
  */
 export const aboutData: About = {
     profileImageSrc: '/webp/george_khananaev_ws.webp',
-    description: `Senior Full Stack Developer with ten years of experience building enterprise-grade systems across Python, TypeScript, and Swift. Currently Head of Development & IT Infrastructure at Moon Holidays in Bangkok, leading the engineering organization across every platform and product the company ships. Architecting multi-tenant platforms, real-time data pipelines, and AI-driven applications designed for corporations, not individuals. In the AI era, the focus has shifted from writing every line of code to designing solutions that combine user experience, performance, and security at the highest level. Every project built for scale, reliability, and long-term maintainability.`,
+    description: `Software Architect with ten years of experience building enterprise-grade systems across Python, TypeScript, and Swift. Currently Head of Development & IT Infrastructure at Moon Holidays in Bangkok, leading the engineering organization across every platform and product the company ships. Architecting multi-tenant platforms, real-time data pipelines, and AI-driven applications designed for corporations, not individuals. In the AI era, the focus has shifted from writing every line of code to designing solutions that combine user experience, performance, and security at the highest level. Every project built for scale, reliability, and long-term maintainability.`,
     aboutItems: [
         {label: 'Location', text: 'Bangkok, Thailand', Icon: MapIcon},
         {label: 'Age', text: calcAge(), Icon: CalendarIcon},
@@ -679,7 +679,7 @@ export const socialLinks: Social[] = [
  */
 export const hirePitch = {
     headline: 'Work with George Khananaev',
-    tagline: 'Full Stack Engineer · Tech Lead · Fractional CTO',
+    tagline: 'Software Architect · Tech Lead · Fractional CTO',
     summary:
         "Ten years of building production software across Python, TypeScript, and Swift. Most recently, I led engineering at Moon Holidays, where I designed and built the core platform that supports the company's product line. Before that, backend work on multi-platform ecommerce systems and Python automation. I'm usually most helpful when tackling end-to-end challenges like multi-tenant platforms, AI and LLM integration, real-time systems, and platform rescues.",
     availability:
@@ -693,7 +693,7 @@ export const hireServices: HireService[] = [
         Icon: Squares2X2Icon,
     },
     {
-        title: 'Senior Full Stack Development',
+        title: 'Software Architecture',
         description: 'Shipping demanding features end-to-end across Python / FastAPI, TypeScript / Next.js, React, and Swift. Production code with real tests, observability, CI/CD, and runbooks. Not just a working demo.',
         Icon: CodeBracketIcon,
     },

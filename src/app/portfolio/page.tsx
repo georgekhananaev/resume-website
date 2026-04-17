@@ -25,7 +25,7 @@ const portfolioImageWidth = 1129;
 const portfolioImageHeight = 1280;
 const title = 'Portfolio | George Khananaev';
 const description =
-    'Public portfolio of projects, case studies, and open source by George Khananaev: multi-tenant platforms, AI integration, workflow automation, and senior full-stack engineering.';
+    'Projects, case studies, and open source by George Khananaev: multi-tenant platforms, AI integration, workflow automation, and software architecture.';
 
 export const metadata: Metadata = {
     title,
