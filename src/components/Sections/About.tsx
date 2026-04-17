@@ -43,7 +43,13 @@ export default function About() {
                                 />
                                 <meta content={PROFILE_ALT} itemProp="name" />
                                 <meta content={PROFILE_ALT} itemProp="description" />
-                                <meta content="George Khananaev" itemProp="creator" />
+                                <span itemProp="creator" itemScope itemType="https://schema.org/Person">
+                                    <meta content="George Khananaev" itemProp="name" />
+                                </span>
+                                <meta content="George Khananaev" itemProp="creditText" />
+                                <meta content={`© ${new Date().getFullYear()} George Khananaev`} itemProp="copyrightNotice" />
+                                <meta content="https://george.khananaev.com/" itemProp="license" />
+                                <meta content="https://george.khananaev.com/contact" itemProp="acquireLicensePage" />
                                 <figcaption className="sr-only">{PROFILE_ALT}</figcaption>
                             </figure>
                         </div>

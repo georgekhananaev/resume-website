@@ -99,8 +99,18 @@ export default async function PortfolioPage() {
                 image: {
                     '@type': 'ImageObject',
                     url: `${siteUrl}${portfolioImage}`,
+                    contentUrl: `${siteUrl}${portfolioImage}`,
                     width: portfolioImageWidth,
                     height: portfolioImageHeight,
+                    creator: {
+                        '@type': 'Person',
+                        '@id': `${siteUrl}/#person`,
+                        name: 'George Khananaev',
+                    },
+                    creditText: 'George Khananaev',
+                    copyrightNotice: `© ${new Date().getFullYear()} George Khananaev`,
+                    license: `${siteUrl}/`,
+                    acquireLicensePage: `${siteUrl}/contact`,
                 },
                 isPartOf: {'@id': `${siteUrl}/#website`},
                 about: {'@id': `${siteUrl}/#person`},

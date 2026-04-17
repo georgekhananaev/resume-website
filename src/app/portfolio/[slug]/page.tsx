@@ -131,8 +131,18 @@ export default async function PostPage({params}: PageProps) {
                 image: {
                     '@type': 'ImageObject',
                     url: ogImage,
+                    contentUrl: ogImage,
                     width: post.thumbnail.width,
                     height: post.thumbnail.height,
+                    creator: {
+                        '@type': 'Person',
+                        '@id': `${siteUrl}/#person`,
+                        name: 'George Khananaev',
+                    },
+                    creditText: 'George Khananaev',
+                    copyrightNotice: `© ${new Date(post.publishedAt).getFullYear()} George Khananaev`,
+                    license: `${siteUrl}/`,
+                    acquireLicensePage: `${siteUrl}/contact`,
                 },
                 datePublished: new Date(post.publishedAt).toISOString(),
                 dateModified: new Date(post.updatedAt).toISOString(),
