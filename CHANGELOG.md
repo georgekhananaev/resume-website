@@ -5,12 +5,17 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+- **seo**: Image rights metadata on Schema.org `ImageObject` across the portfolio index, per-post JSON-LD, and the About profile figure (`creator`, `creditText`, `copyrightNotice`, `license`, `acquireLicensePage`, `contentUrl`) so Google Images can attach the Licensable badge
+- **seo**: `/portfolio` advertises the RSS feed via `alternates.types['application/rss+xml']` → `/portfolio/rss.xml` for feed-reader auto-discovery
 
 ### Changed
 - **docs**: `.env.example` now includes `MONGODB_URI` and `MONGODB_DB` at the top with a header comment linking [MongoDB Atlas](https://www.mongodb.com/) and calling out the free M0 tier (500 MB, no credit card) — the previous example silently omitted the blog's most critical env var
 - **docs**: README rewritten to reflect v4.3.0. Tech Stack adds MongoDB 7, unified/remark/rehype pipeline, Sharp, jspdf. Features list drops the deleted Matrix Rain / carousel / TextAnimation and adds the MongoDB-backed blog, editorial dark redesign, modern header, `/contact` + `/work-with-me` pages, `/api/health`, dynamic PDF resume, CSP + rate-limited contact form. Getting Started gains a 4-step onboarding flow including a dedicated "MongoDB Atlas setup" subsection, a post-seeding verification step via `/api/health`, and a "Brand assets" section documenting `scripts/generate-images.mjs`. Env var table prepended with `MONGODB_URI`/`MONGODB_DB` rows. Scripts table drops the stale `npm run sitemap` and adds `npm run typecheck`
 
 ### Fixed
+- **seo**: `sitemap.xml` `lastmod` for `/portfolio` and tag routes now reflects real per-post/per-tag `updatedAt` from MongoDB instead of `new Date()` on every request. Google learned to ignore the old always-fresh timestamps, which contributed to 82 URLs sitting in "Discovered – currently not indexed"
+- **seo**: Tag archive pages with fewer than 3 posts now emit `robots: noindex, follow` and are excluded from the sitemap. Thin tag archives were diluting crawl budget and dragging down perceived site quality
+- **seo**: Page-level `robots` metadata on `/portfolio/[slug]` and indexable `/portfolio/tag/[tag]` now carries the `googleBot` block (`max-image-preview: large`, `max-snippet: -1`, `max-video-preview: -1`). Next.js replaces — rather than merges — `robots` from the root layout, so setting `{index, follow}` at page level was silently dropping the rich-snippet hints for every portfolio post
 
 ## [4.3.0] - 2026-04-12
 
