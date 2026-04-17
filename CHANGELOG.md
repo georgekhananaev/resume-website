@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [4.4.1] - 2026-04-17
+
+### Added
 - **brand**: Self-title rebranded from "Senior Full Stack Developer" / "Full Stack Engineer" to **Software Architect** across page metadata, JSON-LD (Person, WebSite, WebPage, ProfessionalService, hasOccupation.name), Hero eyebrow, Footer, About profile alt/title, PostFooter author bio, OG banner pill text, service catalog, hirePitch tagline, and email signature template. The past job title at Moon Holidays (Dec 2022 – Dec 2024) and historical CHANGELOG entries are preserved as factual history
 
 ### Changed
