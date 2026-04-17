@@ -15,6 +15,11 @@ export const revalidate = 3600;
 
 const siteUrl = (process.env.SITE_URL || 'https://george.khananaev.com').replace(/\/$/, '');
 
+// Must match the sitemap threshold. Tag archives with fewer posts than this
+// are noindexed (still follow) to avoid wasting Google's crawl budget on
+// near-duplicate thin pages.
+const MIN_TAG_POSTS_FOR_INDEX = 3;
+
 interface PageProps {
     params: Promise<{tag: string}>;
 }
@@ -30,10 +35,26 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
     const title = `Posts tagged #${tag} | George Khananaev`;
     const description = `Case studies, technical deep-dives, and open-source projects by George Khananaev tagged with ${tag}.`;
 
+    const posts = await getPostsByTag(tag);
+    const shouldIndex = posts.length >= MIN_TAG_POSTS_FOR_INDEX;
+
     return {
         title,
         description,
         alternates: {canonical: url},
+        robots: shouldIndex
+            ? {
+                index: true,
+                follow: true,
+                googleBot: {
+                    index: true,
+                    follow: true,
+                    'max-video-preview': -1,
+                    'max-image-preview': 'large',
+                    'max-snippet': -1,
+                },
+            }
+            : {index: false, follow: true},
         openGraph: {
             type: 'website',
             title,

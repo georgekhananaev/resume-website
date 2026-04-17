@@ -61,7 +61,17 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
         alternates: {canonical: post.seo.canonicalUrl ?? url},
         robots: post.seo.noindex
             ? {index: false, follow: !post.seo.nofollow}
-            : {index: true, follow: true},
+            : {
+                index: true,
+                follow: true,
+                googleBot: {
+                    index: true,
+                    follow: true,
+                    'max-video-preview': -1,
+                    'max-image-preview': 'large',
+                    'max-snippet': -1,
+                },
+            },
         authors: [{name: post.author.name, url: post.author.url}],
         openGraph: {
             type: 'article',

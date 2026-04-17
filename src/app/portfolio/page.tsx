@@ -30,7 +30,12 @@ const description =
 export const metadata: Metadata = {
     title,
     description,
-    alternates: {canonical: pageUrl},
+    alternates: {
+        canonical: pageUrl,
+        types: {
+            'application/rss+xml': `${pageUrl}/rss.xml`,
+        },
+    },
     openGraph: {
         type: 'website',
         siteName: 'George Khananaev',

@@ -189,6 +189,57 @@ export async function getAllTags(): Promise<string[]> {
     return (tags as string[]).sort();
 }
 
+export interface TagStats {
+    tag: string;
+    count: number;
+    latestUpdatedAt: Date;
+}
+
+/**
+ * Per-tag post counts and the newest `updatedAt` of any post carrying that
+ * tag. Used by the sitemap (honest lastmod + skip thin tags) and by the tag
+ * page to noindex sparse archives.
+ */
+export async function getTagStats(): Promise<TagStats[]> {
+    const db = await getDb();
+    const collection = db.collection<Post>(POSTS_COLLECTION);
+
+    const results = await collection
+        .aggregate<{_id: string; count: number; latestUpdatedAt: Date}>([
+            {$match: {status: 'published'}},
+            {$unwind: '$tags'},
+            {
+                $group: {
+                    _id: '$tags',
+                    count: {$sum: 1},
+                    latestUpdatedAt: {$max: '$updatedAt'},
+                },
+            },
+            {$sort: {_id: 1}},
+        ])
+        .toArray();
+
+    return results.map(r => ({
+        tag: r._id,
+        count: r.count,
+        latestUpdatedAt: r.latestUpdatedAt ?? new Date(),
+    }));
+}
+
+/**
+ * The most recent `updatedAt` across all published posts — honest `lastmod`
+ * for collection pages like `/portfolio`.
+ */
+export async function getLatestPostUpdatedAt(): Promise<Date | null> {
+    const db = await getDb();
+    const collection = db.collection<Post>(POSTS_COLLECTION);
+    const doc = await collection.findOne(
+        {status: 'published'},
+        {projection: {updatedAt: 1, _id: 0}, sort: {updatedAt: -1}},
+    );
+    return (doc as {updatedAt?: Date} | null)?.updatedAt ?? null;
+}
+
 /**
  * Count of published posts — useful for pagination and for deciding whether
  * to render empty states.
