@@ -5,6 +5,14 @@ Format: [Keep a Changelog](https://keepachangelog.com/), [SemVer](https://semver
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+## [4.4.0] - 2026-04-17
+
+### Added
 - **seo**: Image rights metadata on Schema.org `ImageObject` across the portfolio index, per-post JSON-LD, and the About profile figure (`creator`, `creditText`, `copyrightNotice`, `license`, `acquireLicensePage`, `contentUrl`) so Google Images can attach the Licensable badge
 - **seo**: `/portfolio` advertises the RSS feed via `alternates.types['application/rss+xml']` → `/portfolio/rss.xml` for feed-reader auto-discovery
 
